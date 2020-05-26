@@ -4,15 +4,13 @@
     <persistence-unit name="finalProject" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>model.Clients</class>
-        <class>model.Diet</class>
-        <class>model.Ex</class>
         <class>model.Gyms</class>
         <class>model.Managers</class>
-        <class>model.Mdiet</class>
         <class>model.Membership</class>
-        <class>model.Mex</class>
         <class>model.Trainers</class>
         <class>model.Users</class>
+        <class>model.Diets</class>
+        <class>model.Exes</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/finalprojectdb?useSSL=false"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

@@ -36,6 +36,7 @@ public class UserService {
             alert.setHeaderText(null);
             alert.show();
             found = false;
+            return null;
         }
         Users user = new Users();
         if(found) {

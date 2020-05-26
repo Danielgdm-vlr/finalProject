@@ -9,11 +9,10 @@ import java.util.Objects;
 @Entity
 public class Membership {
     private int membershipId;
-    private Integer clientId;
     private Integer trainerId;
-    private Integer mdiet;
-    private Integer mex;
-    private Integer gym;
+    private Integer dietId;
+    private Integer gymId;
+    private Integer exesId;
 
     @Id
     @Column(name = "membershipId")
@@ -23,16 +22,6 @@ public class Membership {
 
     public void setMembershipId(int membershipId) {
         this.membershipId = membershipId;
-    }
-
-    @Basic
-    @Column(name = "clientId")
-    public Integer getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
     }
 
     @Basic
@@ -46,33 +35,33 @@ public class Membership {
     }
 
     @Basic
-    @Column(name = "mdiet")
-    public Integer getMdiet() {
-        return mdiet;
+    @Column(name = "dietId")
+    public Integer getDietId() {
+        return dietId;
     }
 
-    public void setMdiet(Integer mdiet) {
-        this.mdiet = mdiet;
-    }
-
-    @Basic
-    @Column(name = "mex")
-    public Integer getMex() {
-        return mex;
-    }
-
-    public void setMex(Integer mex) {
-        this.mex = mex;
+    public void setDietId(Integer dietId) {
+        this.dietId = dietId;
     }
 
     @Basic
-    @Column(name = "gym")
-    public Integer getGym() {
-        return gym;
+    @Column(name = "gymId")
+    public Integer getGymId() {
+        return gymId;
     }
 
-    public void setGym(Integer gym) {
-        this.gym = gym;
+    public void setGymId(Integer gymId) {
+        this.gymId = gymId;
+    }
+
+    @Basic
+    @Column(name = "exesId")
+    public Integer getExesId() {
+        return exesId;
+    }
+
+    public void setExesId(Integer exesId) {
+        this.exesId = exesId;
     }
 
     @Override
@@ -81,15 +70,14 @@ public class Membership {
         if (o == null || getClass() != o.getClass()) return false;
         Membership that = (Membership) o;
         return membershipId == that.membershipId &&
-                Objects.equals(clientId, that.clientId) &&
                 Objects.equals(trainerId, that.trainerId) &&
-                Objects.equals(mdiet, that.mdiet) &&
-                Objects.equals(mex, that.mex) &&
-                Objects.equals(gym, that.gym);
+                Objects.equals(dietId, that.dietId) &&
+                Objects.equals(gymId, that.gymId) &&
+                Objects.equals(exesId, that.exesId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(membershipId, clientId, trainerId, mdiet, mex, gym);
+        return Objects.hash(membershipId, trainerId, dietId, gymId, exesId);
     }
 }

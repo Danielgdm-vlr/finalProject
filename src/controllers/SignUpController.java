@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Clients;
-import model.Ex;
 import model.Users;
 import services.ClientService;
 import services.UserService;
@@ -75,13 +74,14 @@ public class SignUpController {
 
         try {
             userService.addUser(user);
-            Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
             Stage dMStage = new Stage();
-            dMStage.setTitle("RAW POWER GYM - Client`s Dashboard");
+            dMStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
             dMStage.setScene(new Scene(root));
             dMStage.show();
         }catch (Exception e){
             System.out.println("SDasD");
+            e.printStackTrace();
         }
 
     }

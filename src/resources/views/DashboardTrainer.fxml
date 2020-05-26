@@ -10,5 +10,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controllers.DashboardTrainerController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <children>
+        <Hyperlink fx:id="hyperlinkSignOut" layoutX="508.0" layoutY="363.0" text="Sign Out" onAction="#onClickHyperlinkSignOut"/>
+    </children>
 </AnchorPane>

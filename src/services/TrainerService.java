@@ -1,7 +1,6 @@
 package services;
 
 import dao.TrainerDao;
-import model.Clients;
 import model.Trainers;
 
 import javax.persistence.Persistence;
@@ -22,11 +21,11 @@ public class TrainerService {
         trainerDao.create(trainer);
     }
 
-    public Trainers findTrainer(String fName) throws Exception {
-        List<Trainers> trainerList = trainerDao.find(fName);
-        if (trainerList.size() == 0)
-            throw new Exception("Client not found");
-        Trainers trainer = trainerList.get(0);
+    public Trainers findTrainer(String fName) throws Exception{
+        List<Trainers> trainersList = trainerDao.find(fName);
+        if(trainersList.size() == 0)
+            throw new Exception("User not Found");
+        Trainers trainer = trainersList.get(0);
         return trainer;
     }
 }

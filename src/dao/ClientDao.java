@@ -1,7 +1,6 @@
 package dao;
 
 import model.Clients;
-import model.Users;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

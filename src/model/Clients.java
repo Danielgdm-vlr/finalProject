@@ -14,6 +14,7 @@ public class Clients {
     private String emailC;
     private String telNoC;
     private String ageC;
+    private Integer membershipId;
 
     @Id
     @Column(name = "clientId")
@@ -75,6 +76,16 @@ public class Clients {
         this.ageC = ageC;
     }
 
+    @Basic
+    @Column(name = "membershipId")
+    public Integer getMembershipId() {
+        return membershipId;
+    }
+
+    public void setMembershipId(Integer membershipId) {
+        this.membershipId = membershipId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,20 +96,12 @@ public class Clients {
                 Objects.equals(lNameC, clients.lNameC) &&
                 Objects.equals(emailC, clients.emailC) &&
                 Objects.equals(telNoC, clients.telNoC) &&
-                Objects.equals(ageC, clients.ageC);
+                Objects.equals(ageC, clients.ageC) &&
+                Objects.equals(membershipId, clients.membershipId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientId, fNameC, lNameC, emailC, telNoC, ageC);
-    }
-
-    @Override
-    public String toString() {
-        return "Clients{" +
-                "clientId=" + clientId +
-                ", fNameC='" + fNameC + '\'' +
-                ", lNameC='" + lNameC + '\'' +
-                '}';
+        return Objects.hash(clientId, fNameC, lNameC, emailC, telNoC, ageC, membershipId);
     }
 }

@@ -9,12 +9,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Users;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import services.UserService;
 
 import java.io.IOException;
-import java.util.List;
 
 public class LogInController {
     @FXML

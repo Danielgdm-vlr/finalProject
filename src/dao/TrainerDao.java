@@ -1,6 +1,5 @@
 package dao;
 
-import model.Clients;
 import model.Trainers;
 
 import javax.persistence.EntityManager;

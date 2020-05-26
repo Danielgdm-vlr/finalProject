@@ -14,6 +14,8 @@ public class Trainers {
     private String emailT;
     private String telNoT;
     private String ageT;
+    private Integer ratingT;
+    private String ratingCom;
 
     @Id
     @Column(name = "trainerId")
@@ -75,6 +77,26 @@ public class Trainers {
         this.ageT = ageT;
     }
 
+    @Basic
+    @Column(name = "ratingT")
+    public Integer getRatingT() {
+        return ratingT;
+    }
+
+    public void setRatingT(Integer ratingT) {
+        this.ratingT = ratingT;
+    }
+
+    @Basic
+    @Column(name = "ratingCom")
+    public String getRatingCom() {
+        return ratingCom;
+    }
+
+    public void setRatingCom(String ratingCom) {
+        this.ratingCom = ratingCom;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,11 +107,13 @@ public class Trainers {
                 Objects.equals(lNameT, trainers.lNameT) &&
                 Objects.equals(emailT, trainers.emailT) &&
                 Objects.equals(telNoT, trainers.telNoT) &&
-                Objects.equals(ageT, trainers.ageT);
+                Objects.equals(ageT, trainers.ageT) &&
+                Objects.equals(ratingT, trainers.ratingT) &&
+                Objects.equals(ratingCom, trainers.ratingCom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trainerId, fNameT, lNameT, emailT, telNoT, ageT);
+        return Objects.hash(trainerId, fNameT, lNameT, emailT, telNoT, ageT, ratingT, ratingCom);
     }
 }
