@@ -71,7 +71,7 @@ public class SignUpController {
         Users user = new Users();
         user.setUsername(username.getText());
         user.setPassword(password.getText());
-        user.setClientId(client1.getClientId());
+        user.setTrainerId(client1.getClientId());
 
         try {
             userService.addUser(user);

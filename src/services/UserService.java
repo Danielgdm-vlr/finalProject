@@ -2,7 +2,6 @@ package services;
 
 import dao.UserDao;
 import javafx.scene.control.Alert;
-import model.Ex;
 import model.Users;
 
 import javax.persistence.Persistence;
@@ -26,7 +25,7 @@ public class UserService {
     public List<Users> getAllUsers(){
         return userDao.findAll();
     }
-    public Users findUser(String username, String password) throws Exception{
+    public Users findUser(String username, String password){
         List<Users> usersList = userDao.find(username);
         boolean found = true;
         if(usersList.size() == 0) {
@@ -39,7 +38,6 @@ public class UserService {
             found = false;
         }
         Users user = new Users();
-        boolean logIn = true;
         if(found) {
             user = usersList.get(0);
             if (password.compareTo(user.getPassword()) != 0) {
@@ -49,18 +47,13 @@ public class UserService {
                 alert.setTitle("opsie dopsie :S");
                 alert.setHeaderText(null);
                 alert.show();
-                logIn = false;
                 return null;
             }
         }
-        //if(logIn)
-          //  return user;
-      //  else
-           // return null;
         return user;
     }
 
-    public int findUserId(String username) throws Exception{
+    public int findUserId(String username){
         List<Users> usersList = userDao.find(username);
         boolean found = true;
         if(usersList.size() == 0) {

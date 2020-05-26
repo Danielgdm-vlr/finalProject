@@ -10,5 +10,12 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controllers.DashboardManagerController"
             prefHeight="400.0" prefWidth="600.0">
-
+    <children>
+        <Label layoutX="272.0" layoutY="22.0" text="Cheers Sir!" />
+        <Label layoutX="258.0" layoutY="45.0" text="Glad to see you!" />
+        <Button fx:id="buttonSeeGyms" layoutX="81.0" layoutY="86.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
+        <Button fx:id="buttonAddTrainer" layoutX="81.0" layoutY="143.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
+        <Button fx:id="buttonSeeClientsFeedback" layoutX="81.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback" />
+        <Button fx:id="buttonTotalWorkingHours" layoutX="81.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours" />
+    </children>
 </AnchorPane>

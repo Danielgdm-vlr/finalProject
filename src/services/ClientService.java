@@ -2,7 +2,6 @@ package services;
 
 import dao.ClientDao;
 import model.Clients;
-import model.Users;
 
 import javax.persistence.Persistence;
 import java.util.List;
