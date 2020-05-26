@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="finalProject" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>model.Clients</class>
+        <class>model.Diet</class>
+        <class>model.Ex</class>
+        <class>model.Gyms</class>
+        <class>model.Managers</class>
+        <class>model.Mdiet</class>
+        <class>model.Membership</class>
+        <class>model.Mex</class>
+        <class>model.Trainers</class>
+        <class>model.Users</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/finalprojectdb?useSSL=false"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+        </properties>
+    </persistence-unit>
+</persistence>
