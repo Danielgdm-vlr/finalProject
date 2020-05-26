@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.DashboardManagerController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardManagerController">
     <children>
-        <Label layoutX="272.0" layoutY="22.0" text="Cheers Sir!" />
-        <Label layoutX="258.0" layoutY="45.0" text="Glad to see you!" />
-        <Button fx:id="buttonSeeGyms" layoutX="81.0" layoutY="86.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
-        <Button fx:id="buttonAddTrainer" layoutX="81.0" layoutY="143.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
-        <Button fx:id="buttonSeeClientsFeedback" layoutX="81.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback" />
-        <Button fx:id="buttonTotalWorkingHours" layoutX="81.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours" />
+        <Label layoutX="274.0" layoutY="90.0" text="Cheers Sir!" />
+        <Label layoutX="260.0" layoutY="107.0" text="Glad to see you!" />
+        <Button fx:id="buttonSeeGyms" layoutX="82.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
+        <Button fx:id="buttonAddTrainer" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
+        <Button fx:id="buttonSeeClientsFeedback" layoutX="82.0" layoutY="250.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback" />
+        <Button fx:id="buttonTotalWorkingHours" layoutX="82.0" layoutY="300.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours" />
+        <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/gymLogo.png" />
+         </image>
+      </ImageView>
+        <Separator layoutX="65.0" layoutY="186.0" prefWidth="200.0" />
+        <Separator layoutX="65.0" layoutY="237.0" prefWidth="200.0" />
+        <Separator layoutX="65.0" layoutY="287.0" prefWidth="200.0" />
+        <Hyperlink layoutX="508.0" layoutY="363.0" text="Sign Out" fx:id="hyperlinkSignOut" onAction="#onClickHyperlinkSignOut"/>
     </children>
 </AnchorPane>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,6 +13,8 @@ import java.io.IOException;
 public class DashboardManagerController {
     @FXML
     private Button buttonSeeGyms, buttonAddTrainer, buttonSeeClientsFeedback, buttonTotalWorkingHours;
+    @FXML
+    private Hyperlink hyperlinkSignOut;
 
     public void onClickButtonSeeGyms(){
 
@@ -33,5 +36,14 @@ public class DashboardManagerController {
 
     public void onClickButtonSeeTotalWorkingHours(){
 
+    }
+
+    public void onClickHyperlinkSignOut() throws IOException {
+        hyperlinkSignOut.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
+        Stage logInStage = new Stage();
+        logInStage.setTitle("RAW POWER GYM - Log In");
+        logInStage.setScene(new Scene(root));
+        logInStage.show();
     }
 }
