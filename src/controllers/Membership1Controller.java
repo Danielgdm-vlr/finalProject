@@ -72,7 +72,7 @@ public class Membership1Controller {
         and it displays the dietMeal and dietCal on the screen in a comboBox*/
         if (gymsList.size() == 0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Currently there are no gyms!");
+            alert.setContentText("Currently there are no diets!");
             alert.setTitle("opsie dopsie :S");
             alert.setHeaderText(null);
             alert.show();

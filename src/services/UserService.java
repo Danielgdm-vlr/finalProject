@@ -29,10 +29,9 @@ public class UserService {
     public Users findUser(String username, String password){
         List<Users> usersList = userDao.find(username);
         boolean found = true;
-        if(usersList.size() == 0) {
-            System.out.println("User not found!");
+        if(usersList.size() == 0 ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Username was not found in the database. Check the spelling or click the button to sign up!");
+            alert.setContentText("Username or password is not correct! Check the spelling or click the button to sign up!");
             alert.setTitle("opsie dopsie :S");
             alert.setHeaderText(null);
             alert.show();
@@ -43,9 +42,8 @@ public class UserService {
         if(found) {
             user = usersList.get(0);
             if (password.compareTo(user.getPassword()) != 0) {
-                System.out.println("Password does not match!");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Passwords do not match. Check the spelling!");
+                alert.setContentText("Username or password is not correct! Check the spelling or click the button to sign up!");
                 alert.setTitle("opsie dopsie :S");
                 alert.setHeaderText(null);
                 alert.show();

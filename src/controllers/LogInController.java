@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import services.UserService;
 
@@ -17,7 +14,7 @@ public class LogInController {
     @FXML
     private Button buttonLogIn;
     @FXML
-    private Button buttonSignUp;
+    private Hyperlink hyperlinkSignUp;
     @FXML
     private TextField username;
     @FXML
@@ -73,12 +70,14 @@ public class LogInController {
 
     }
 
-    public void onClickButtonSignUp() throws IOException {
-        buttonSignUp.getScene().getWindow().hide();
+    public void onClickHyperlinkSignUp() throws IOException {
+        hyperlinkSignUp.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/SignUp.fxml"));
         Stage signUpStage = new Stage();
         signUpStage.setTitle("RAW POWER GYM - Sign Up");
-        signUpStage.setScene(new Scene(root));
+        Scene signUpScene = new Scene(root);
+        signUpScene.getStylesheets().add(getClass().getResource("/resources/css/SignUpStylesheet.css").toExternalForm());
+        signUpStage.setScene(signUpScene);
         signUpStage.show();
     }
 }

@@ -1,0 +1,36 @@
+#pane{
+  -fx-background-color: #3e4041;
+}
+#buttonSignUp{
+  -fx-background-color: crimson;
+  -fx-text-fill: white;
+}
+#buttonSignUp:hover{
+  -fx-background-color: #2A293E;
+  -fx-text-fill: #f2f3f3;
+}
+#hyperlinkLogIn{
+  -fx-text-fill: #f2f3f3;
+  -fx-font-size: 12;
+}
+#hyperlinkLogIn:hover{
+  -fx-text-fill: crimson;
+  -fx-font-size: 14;
+  -fx-underline: true;
+}
+#labelTitle{
+  -fx-text-fill: #f2f3f3;
+  -fx-font-size: 16;
+}
+#labelSubTitle{
+  -fx-text-fill: #f2f3f3;
+  -fx-font-size: 15;
+}
+#label{
+  -fx-text-fill: #f2f3f3;
+  -fx-font-size: 14;
+}
+#checkBoxVerifyHuman{
+  -fx-font-size: 14;
+  -fx-text-fill: #f2f3f3;
+}
