@@ -116,4 +116,9 @@ public class Trainers {
     public int hashCode() {
         return Objects.hash(trainerId, fNameT, lNameT, emailT, telNoT, ageT, ratingT, ratingCom);
     }
+
+    @Override
+    public String toString() {
+        return fNameT + " " + lNameT;
+    }
 }

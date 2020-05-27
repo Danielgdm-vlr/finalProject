@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class Main extends Application {
     public void start(Stage fStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
         fStage.setScene(new Scene(root));
         fStage.setTitle("RAW POWER GYM - Log In");
         fStage.show();

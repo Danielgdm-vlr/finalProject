@@ -62,7 +62,7 @@ public abstract class GenericDao<T>{
         }catch (RuntimeException e){
             em.getTransaction().rollback();
         }finally {
-            em.close();
+             em.close();
         }
         return null;
     }

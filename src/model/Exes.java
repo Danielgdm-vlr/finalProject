@@ -44,4 +44,9 @@ public class Exes {
     public int hashCode() {
         return Objects.hash(exesId, exesNames);
     }
+
+    @Override
+    public String toString() {
+        return exesNames;
+    }
 }

@@ -25,6 +25,7 @@ public class UserService {
     public List<Users> getAllUsers(){
         return userDao.findAll();
     }
+
     public Users findUser(String username, String password){
         List<Users> usersList = userDao.find(username);
         boolean found = true;

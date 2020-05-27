@@ -21,6 +21,10 @@ public class TrainerService {
         trainerDao.create(trainer);
     }
 
+    public List<Trainers> getAllTrainers(){
+        return trainerDao.findAll();
+    }
+
     public Trainers findTrainer(String fName) throws Exception{
         List<Trainers> trainersList = trainerDao.find(fName);
         if(trainersList.size() == 0)
