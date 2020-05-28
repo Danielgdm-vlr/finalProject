@@ -28,27 +28,22 @@ public class UserService {
 
     public Users findUser(String username, String password){
         List<Users> usersList = userDao.find(username);
-        boolean found = true;
         if(usersList.size() == 0 ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Username or password is not correct! Check the spelling or click the button to sign up!");
             alert.setTitle("opsie dopsie :S");
             alert.setHeaderText(null);
             alert.show();
-            found = false;
             return null;
         }
-        Users user = new Users();
-        if(found) {
-            user = usersList.get(0);
-            if (password.compareTo(user.getPassword()) != 0) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Username or password is not correct! Check the spelling or click the button to sign up!");
-                alert.setTitle("opsie dopsie :S");
-                alert.setHeaderText(null);
-                alert.show();
-                return null;
-            }
+        Users user = usersList.get(0);
+        if (password.compareTo(user.getPassword()) != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Username or password is not correct! Check the spelling or click the button to sign up!");
+            alert.setTitle("opsie dopsie :S");
+            alert.setHeaderText(null);
+            alert.show();
+            return null;
         }
         return user;
     }

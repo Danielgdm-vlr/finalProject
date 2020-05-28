@@ -6,9 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Users;
 import services.UserService;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 public class LogInController {
     @FXML
@@ -22,13 +26,19 @@ public class LogInController {
     @FXML
     private CheckBox checkBoxVerifyHuman;
 
+    public String un, pw;
+
+    public LogInController(){
+
+    }
+
     public void initialize(){
         buttonLogIn.setDisable(true);
     }
 
     public void keyReleasedProperty(){
-        String un = username.getText();
-        String pw = password.getText();
+        un = username.getText();
+        pw = password.getText();
         boolean buttonDisable = (un.isEmpty() || un.trim().isEmpty() || pw.isEmpty() || pw.trim().isEmpty() ||
                                   !checkBoxVerifyHuman.isSelected());
         buttonLogIn.setDisable(buttonDisable);
@@ -36,18 +46,31 @@ public class LogInController {
 
     public void onClickButtonLogIn(){
         UserService userService = new UserService();
-        String un = username.getText();
-        String pw = password.getText();
+        un = username.getText();
+        pw = password.getText();
         try{
-           //System.out.println(userService.findUser(un, pw));
             if(userService.findUser(un, pw) != null){
                 buttonLogIn.getScene().getWindow().hide();
+                Users users = userService.findUser(un, pw);
+                System.out.println(users);
+                System.out.println("---");
+                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionUsername.txt"))){
+                    writer.println(un);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionPassword.txt"))){
+                        writer.println(pw);
+                }catch (Exception e){
+                        e.printStackTrace();
+                }
+                // incearca sa schimbi ifurile cu un HashMap ceva, in care value = userService.findUserId(un)
                     if (userService.findUserId(un) == 1) {
-                        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardManager.fxml"));
-                        Stage dMStage = new Stage();
-                        dMStage.setTitle("RAW POWER GYM - Manager`s Dashboard");
-                        dMStage.setScene(new Scene(root));
-                        dMStage.show();
+                            Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardManager.fxml"));
+                            Stage dMStage = new Stage();
+                            dMStage.setTitle("RAW POWER GYM - Manager`s Dashboard");
+                            dMStage.setScene(new Scene(root));
+                            dMStage.show();
                     }
                     if (userService.findUserId(un) == 2) {
                         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardTrainer.fxml"));

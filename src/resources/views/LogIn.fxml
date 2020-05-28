@@ -12,7 +12,7 @@
 
 <AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInController">
     <children>
-        <TextField fx:id="username" layoutX="207.0" layoutY="151.0" onKeyReleased="#keyReleasedProperty" promptText="Username" />
+        <TextField fx:id="username" layoutX="207.0" layoutY="151.0" onKeyReleased="#keyReleasedProperty" promptText="Username"/>
         <PasswordField fx:id="password" layoutX="207.0" layoutY="201.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
         <CheckBox id="checkBoxVerifyHuman" fx:id="checkBoxVerifyHuman" layoutX="155.0" layoutY="241.0" mnemonicParsing="false" onAction="#keyReleasedProperty" prefHeight="20.0" prefWidth="251.0" text="Please verify that you are a human." />
         <Button id="buttonLogIn" fx:id="buttonLogIn" layoutX="374.0" layoutY="176.0" mnemonicParsing="false" onAction="#onClickButtonLogIn" prefHeight="22.0" prefWidth="71.0" text="LOG IN!" />
