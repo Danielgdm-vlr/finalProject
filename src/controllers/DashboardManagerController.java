@@ -29,6 +29,7 @@ public class DashboardManagerController {
         Users user = userService.findUser(username, password);
         System.out.println(user);
     }
+
     public void onClickButtonSeeGyms(){
     }
 
