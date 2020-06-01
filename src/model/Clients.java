@@ -104,4 +104,16 @@ public class Clients {
     public int hashCode() {
         return Objects.hash(clientId, fNameC, lNameC, emailC, telNoC, ageC, membershipId);
     }
+
+    @Override
+    public String toString() {
+        return "Clients{" +
+                "fNameC='" + fNameC + '\'' +
+                ", lNameC='" + lNameC + '\'' +
+                ", emailC='" + emailC + '\'' +
+                ", telNoC='" + telNoC + '\'' +
+                ", ageC='" + ageC + '\'' +
+                ", membershipId=" + membershipId +
+                '}';
+    }
 }

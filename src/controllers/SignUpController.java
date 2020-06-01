@@ -11,7 +11,9 @@ import model.Users;
 import services.ClientService;
 import services.UserService;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class SignUpController {
     @FXML
@@ -25,19 +27,21 @@ public class SignUpController {
     @FXML
     private CheckBox checkBoxVerifyHuman;
 
+    private String fN, lN, em, tN, ag, un, pw, cpw;
+
     public void initialize(){
         buttonSignUp.setDisable(true);
     }
 
     public void keyReleasedProperty(){
-        String fN = fName.getText();
-        String lN = lName.getText();
-        String em = email.getText();
-        String tN = telNo.getText();
-        String ag = age.getText();
-        String un = username.getText();
-        String pw = password.getText();
-        String cpw = confirmPassword.getText();
+        fN = fName.getText();
+        lN = lName.getText();
+        em = email.getText();
+        tN = telNo.getText();
+        ag = age.getText();
+        un = username.getText();
+        pw = password.getText();
+        cpw = confirmPassword.getText();
         boolean buttonDisable = (fN.isEmpty() || fN.trim().isEmpty() || lN.isEmpty() || lN.trim().isEmpty() ||
                                  em.isEmpty() || em.trim().isEmpty() || tN.isEmpty() || tN.trim().isEmpty() ||
                                  ag.isEmpty() || ag.trim().isEmpty() || un.isEmpty() || un.trim().isEmpty() ||
@@ -57,32 +61,45 @@ public class SignUpController {
 
     public void onClickButtonSignUp() throws Exception {
         buttonSignUp.getScene().getWindow().hide();
-        Clients client = new Clients();
-        ClientService clientService = new ClientService();
-        client.setfNameC(fName.getText());
-        client.setlNameC(lName.getText());
-        clientService.addClient(client);
-
-        Clients client1 = clientService.findClient(fName.getText());
-        System.out.println(client1);
-
-        UserService userService = new UserService();
-        Users user = new Users();
-        user.setUsername(username.getText());
-        user.setPassword(password.getText());
-        user.setClientId(client1.getClientId());
-
-        try {
-            userService.addUser(user);
-            Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
-            Stage dMStage = new Stage();
-            dMStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
-            dMStage.setScene(new Scene(root));
-            dMStage.show();
-        }catch (Exception e){
-            System.out.println("SDasD");
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpFirstName.txt"))){
+            writer.println(fN);
+        }catch (Exception e) {
             e.printStackTrace();
         }
-
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpLastName.txt"))){
+            writer.println(fN);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpEmail.txt"))){
+            writer.println(em);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpTelNo.txt"))){
+            writer.println(tN);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpAge.txt"))){
+            writer.println(ag);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionUsername.txt"))){
+            writer.println(un);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionPassword.txt"))){
+            writer.println(pw);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
+        Stage dMStage = new Stage();
+        dMStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
+        dMStage.setScene(new Scene(root));
+        dMStage.show();
     }
 }

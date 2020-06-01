@@ -17,15 +17,17 @@
         </ImageView>
         <Label layoutX="284.0" layoutY="90.0" text="Great!" />
         <Label layoutX="31.0" layoutY="107.0" text="Now that you have completed your registration, let`s get you started by creating your MEMBERSHIP!" />
-        <Label layoutX="50.0" layoutY="159.0" text="Select the gym you want to go:" />
-        <ComboBox fx:id="comboBoxSelectGym" layoutX="226.0" layoutY="155.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <Separator layoutX="157.0" layoutY="187.0" prefHeight="3.0" prefWidth="318.0" />
-        <Label layoutX="116.0" layoutY="200.0" text="Select your trainer:" />
-        <Separator layoutX="157.0" layoutY="228.0" prefHeight="3.0" prefWidth="318.0" />
-        <Label layoutX="136.0" layoutY="243.0" text="Select the diet:" />
-        <ComboBox fx:id="comboBoxSelectTrainer" layoutX="226.0" layoutY="196.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <Button fx:id="buttonNextPageMembership" layoutX="545.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickGoToNextPage" text="Go!" />
-        <Label layoutX="247.0" layoutY="365.0" text="Go to the next page to finish creating the MEMBERSHIP!" />
-        <ComboBox layoutX="226.0" layoutY="239.0" prefWidth="150.0" fx:id="comboBoxSelectDiet" onAction="#keyReleasedProperty"/>
+        <Label layoutX="84.0" layoutY="176.0" text="Select the gym you want to go:" />
+        <ComboBox fx:id="comboBoxSelectGym" layoutX="260.0" layoutY="172.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
+        <Separator layoutX="191.0" layoutY="204.0" prefHeight="3.0" prefWidth="318.0" />
+        <Label layoutX="150.0" layoutY="217.0" text="Select your trainer:" />
+        <Separator layoutX="191.0" layoutY="245.0" prefHeight="3.0" prefWidth="318.0" />
+        <Label layoutX="170.0" layoutY="258.0" text="Select the diet:" />
+        <ComboBox fx:id="comboBoxSelectTrainer" layoutX="260.0" layoutY="213.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
+        <ComboBox fx:id="comboBoxSelectDiet" layoutX="260.0" layoutY="254.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
+        <Label layoutX="108.0" layoutY="300.0" text="Please select the exercises:" />
+        <ComboBox fx:id="comboBoxSelectEx" layoutX="259.0" layoutY="296.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
+        <Button fx:id="buttonFinish" layoutX="515.0" layoutY="361.0" mnemonicParsing="false" onAction="#onClickButtonFinish" text="Finish" />
+        <Separator layoutX="191.0" layoutY="286.0" prefHeight="3.0" prefWidth="318.0" />
     </children>
 </AnchorPane>

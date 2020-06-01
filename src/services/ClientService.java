@@ -21,6 +21,10 @@ public class ClientService {
         clientDao.create(client);
     }
 
+    public void updateClient(Clients client){
+        clientDao.update(client);
+    }
+
     public Clients findClient(String fName) throws Exception {
         List<Clients> clientList = clientDao.find(fName);
         if (clientList.size() == 0)

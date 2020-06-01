@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class Main extends Application {
     public void start(Stage fStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/SignUp.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
         fStage.setScene(scene);

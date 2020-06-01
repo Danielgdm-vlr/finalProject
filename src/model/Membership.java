@@ -80,4 +80,14 @@ public class Membership {
     public int hashCode() {
         return Objects.hash(membershipId, trainerId, dietId, gymId, exesId);
     }
+
+    @Override
+    public String toString() {
+        return "Membership{" +
+                ", gymId=" + gymId +
+                "trainerId=" + trainerId +
+                ", dietId=" + dietId +
+                ", exesId=" + exesId +
+                '}';
+    }
 }

@@ -2,6 +2,7 @@ package services;
 
 import dao.UserDao;
 import javafx.scene.control.Alert;
+import model.Trainers;
 import model.Users;
 
 import javax.persistence.Persistence;
@@ -64,6 +65,14 @@ public class UserService {
                 return 3;
         }
         return 0;
+    }
+
+    public Users findU(String fName) throws Exception {
+        List<Users> userList = userDao.find(fName);
+        if (userList.size() == 0)
+            throw new Exception("User not Found");
+        Users user = userList.get(0);
+        return user;
     }
 
 }
