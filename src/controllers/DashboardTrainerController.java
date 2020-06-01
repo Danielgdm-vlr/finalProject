@@ -29,8 +29,10 @@ public class DashboardTrainerController {
         hyperlinkSignOut.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
         Stage logInStage = new Stage();
+        Scene logInScene = new Scene(root);
+        logInScene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
         logInStage.setTitle("RAW POWER GYM - Log In");
-        logInStage.setScene(new Scene(root));
+        logInStage.setScene(logInScene);
         logInStage.show();
     }
 

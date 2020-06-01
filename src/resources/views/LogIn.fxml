@@ -8,31 +8,61 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInController">
-    <children>
-        <TextField fx:id="username" layoutX="207.0" layoutY="151.0" onKeyReleased="#keyReleasedProperty" promptText="Username"/>
-        <PasswordField fx:id="password" layoutX="207.0" layoutY="201.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
-        <CheckBox id="checkBoxVerifyHuman" fx:id="checkBoxVerifyHuman" layoutX="155.0" layoutY="241.0" mnemonicParsing="false" onAction="#keyReleasedProperty" prefHeight="20.0" prefWidth="251.0" text="Please verify that you are a human." />
-        <Button id="buttonLogIn" fx:id="buttonLogIn" layoutX="374.0" layoutY="176.0" mnemonicParsing="false" onAction="#onClickButtonLogIn" prefHeight="22.0" prefWidth="71.0" text="LOG IN!" />
-        <ImageView fitHeight="94.0" fitWidth="149.0" layoutX="253.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/gymLogo.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="25.0" fitWidth="150.0" layoutX="174.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/user.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="177.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/password.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="391.0" layoutY="89.0" text="RAW POWER" />
-        <Label id="label" layoutX="319.0" layoutY="108.0" text="BECOME THE BEST VERSION OF YOURSELF!" />
-        <Hyperlink id="hyperlinkSignUp" fx:id="hyperlinkSignUp" layoutX="287.0" layoutY="363.0" onAction="#onClickHyperlinkSignUp" text="If you dont have an account CLICK here to SIGN UP!" />
-    </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInController">
+   <bottom>
+      <Pane id="paneBottom" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
+            <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
+            <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
+            <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" text="daniel.guiman@student.unitbv.ro" />
+         </children>
+      </Pane>
+   </bottom>
+   <right>
+      <Pane id="paneRight" prefHeight="325.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="113.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/gymLogo.png" />
+               </image>
+            </ImageView>
+            <Label id="labelLogIn" layoutX="121.0" layoutY="69.0" text="Log In" />
+            <TextField fx:id="username" layoutX="63.0" layoutY="108.0" onKeyReleased="#keyReleasedProperty" promptText="Username" />
+            <PasswordField fx:id="password" layoutX="64.0" layoutY="144.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
+            <CheckBox id="checkBoxVerifyHuman" fx:id="checkBoxVerifyHuman" layoutX="35.0" layoutY="185.0" mnemonicParsing="false" onAction="#keyReleasedProperty" text="Please verify that you are a human." />
+            <Button id="buttonLogIn" fx:id="buttonLogIn" layoutX="163.0" layoutY="231.0" mnemonicParsing="false" onAction="#onClickButtonLogIn" text="Log In" />
+            <Hyperlink id="hyperlinkForgotPassword" layoutX="152.0" layoutY="300.0" text="Forgot Password?" />
+         </children>
+      </Pane>
+   </right>
+   <left>
+      <Pane id="paneLeft" prefHeight="325.0" prefWidth="325.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="138.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/gymLogo1.png" />
+               </image>
+            </ImageView>
+            <Label id="labelLeft" layoutX="37.0" layoutY="93.0" text="Select your gym" />
+            <Label id="labelLeft" layoutX="156.0" layoutY="149.0" text="Select your personal trainer" />
+            <Label id="labelLeft" layoutX="38.0" layoutY="205.0" text="Select your diet" />
+            <Label id="labelLeft" layoutX="163.0" layoutY="261.0" text="Select your exercise plan" />
+            <Hyperlink id="hyperlinkSignUp" fx:id="hyperlinkSignUp" layoutX="14.0" layoutY="300.0" onAction="#onClickHyperlinkSignUp" text="Not a member? Sign up now!" />
+            <Label id="labelTitle" layoutX="96.0" layoutY="37.0" text="RAW" />
+            <Label id="labelTitle" layoutX="188.0" layoutY="37.0" text="POWER" />
+         </children>
+      </Pane>
+   </left>
+   <top>
+      <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
+            <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
