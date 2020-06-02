@@ -63,37 +63,37 @@ public class SignUpController {
 
     public void onClickButtonSignUp() throws Exception {
         buttonSignUp.getScene().getWindow().hide();
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpFirstName.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpFirstName.txt"))){
             writer.println(fN);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpLastName.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpLastName.txt"))){
             writer.println(fN);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpEmail.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpEmail.txt"))){
             writer.println(em);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpTelNo.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpTelNo.txt"))){
             writer.println(tN);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionSignUpAge.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpAge.txt"))){
             writer.println(ag);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionUsername.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionUsername.txt"))){
             writer.println(un);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionPassword.txt"))){
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionPassword.txt"))){
             writer.println(pw);
         }catch (Exception e){
             e.printStackTrace();

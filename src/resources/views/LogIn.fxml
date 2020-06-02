@@ -18,7 +18,7 @@
             <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
             <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
             <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-            <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" text="daniel.guiman@student.unitbv.ro" />
+            <Hyperlink onAction="#onClickHyperlinkMe" id="hyperlinkMe" layoutX="416.0" layoutY="25.0" text="daniel.guiman@student.unitbv.ro" />
          </children>
       </Pane>
    </bottom>
@@ -53,7 +53,7 @@
             <Label id="labelLeft" layoutX="163.0" layoutY="261.0" text="Select your exercise plan" />
             <Hyperlink id="hyperlinkSignUp" fx:id="hyperlinkSignUp" layoutX="14.0" layoutY="300.0" onAction="#onClickHyperlinkSignUp" text="Not a member? Sign up now!" />
             <Label id="labelTitle" layoutX="96.0" layoutY="37.0" text="RAW" />
-            <Label id="labelTitle" layoutX="188.0" layoutY="37.0" text="POWER" />
+            <Label id="labelTitle"  layoutX="188.0" layoutY="37.0" text="POWER" />
          </children>
       </Pane>
    </left>

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,30 +14,33 @@ import model.Users;
 import services.ClientService;
 import services.UserService;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class DashboardClientController {
     @FXML
     private Hyperlink hyperlinkSignOut;
     @FXML
-    private Label clientName;
+    private Label fNameC, lNameC, email, telNo, age;
+    @FXML
+    private Label username, password, gym, trainerC, dietP, exP;
+    @FXML
+    private Button buttonGiveFeedback;
 
     public void initialize() throws Exception {
-        //get the user
-        String username = getUsername();
-        UserService userService = new UserService();
-        Users user = userService.findU(username);
-        System.out.println(user);
-        //get the client
-        String name = getFName();
-        ClientService clientService = new ClientService();
-        Clients client = clientService.findClient(name);
-        System.out.println(client);
-        //show details about them
-        clientName.setText(client.getfNameC());
+        //tabPane
+        //firstTab: "Your account"
+        //so I need to get the gym where the client goes to, his trainer, his diet and exercisePlan. Bon
+
+        //secondTab, getting funkier: "Give feedback"
+        //here it`s easier cuz i dont need to do anything
+
+        //thirdTab: "Personal info"
+        //so here boi, i gotta get the clients name, lname, email, telNo, and age. Bon++
     }
 
     public void onClickHyperlinkSignOut() throws IOException {
@@ -50,9 +54,19 @@ public class DashboardClientController {
         logInStage.show();
     }
 
+    public void onClickButtonGiveFeedback(){
+
+    }
+
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
+    }
+
     public String getUsername(){
         String username = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionUsername.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
             String usernameTmp;
             while((usernameTmp = br.readLine()) != null)
                 username = usernameTmp;
@@ -61,17 +75,4 @@ public class DashboardClientController {
         }
         return username;
     }
-
-    public String getFName() {
-        String fn = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpFirstName.txt"))) {
-            String usernameTmp;
-            while ((usernameTmp = br.readLine()) != null)
-                fn = usernameTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return fn;
-    }
-
 }

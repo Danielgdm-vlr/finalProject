@@ -5,13 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Users;
 import services.UserService;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.List;
 
 public class LogInController {
@@ -54,12 +58,12 @@ public class LogInController {
                 Users users = userService.findUser(un, pw);
                 System.out.println(users);
                 System.out.println("---");
-                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionUsername.txt"))){
+                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionUsername.txt"))){
                     writer.println(un);
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
-                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/SessionPassword.txt"))){
+                try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionPassword.txt"))){
                         writer.println(pw);
                 }catch (Exception e){
                         e.printStackTrace();
@@ -82,8 +86,10 @@ public class LogInController {
                     if (userService.findUserId(un) == 3) {
                         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
                         Stage dCStage = new Stage();
+                        Scene sceneDC = new Scene(root);
+                        sceneDC.getStylesheets().add(getClass().getResource("/resources/css/DashboardClientStylesheet.css").toExternalForm());
+                        dCStage.setScene(sceneDC);
                         dCStage.setTitle("RAW POWER GYM - Client`s Dashboard");
-                        dCStage.setScene(new Scene(root));
                         dCStage.show();
                     }
                 }
@@ -103,5 +109,12 @@ public class LogInController {
         signUpStage.setScene(signUpScene);
         signUpStage.show();
     }
+
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
+    }
+
 }
 
