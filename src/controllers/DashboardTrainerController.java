@@ -9,9 +9,11 @@ import javafx.stage.Stage;
 import model.Users;
 import services.UserService;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 
 public class DashboardTrainerController {
     @FXML
@@ -34,6 +36,12 @@ public class DashboardTrainerController {
         logInStage.setTitle("RAW POWER GYM - Log In");
         logInStage.setScene(logInScene);
         logInStage.show();
+    }
+
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
     }
 
     public String getUsername(){

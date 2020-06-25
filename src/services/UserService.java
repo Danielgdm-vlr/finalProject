@@ -67,12 +67,12 @@ public class UserService {
         return 0;
     }
 
-    public Users findU(String fName) throws Exception {
+    /*public Users findU(String fName) throws Exception {
         List<Users> userList = userDao.find(fName);
         if (userList.size() == 0)
             throw new Exception("User not Found");
         Users user = userList.get(0);
         return user;
-    }
+    }*/
 
 }

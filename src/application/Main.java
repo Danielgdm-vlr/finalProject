@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage fStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/SignUp.fxml"));
-       // Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
         //scene.getStylesheets().add(getClass().getResource("/resources/css/DashboardClientStylesheet.css").toExternalForm());

@@ -7,23 +7,42 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardManagerController">
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardManagerController">
     <children>
-        <Label layoutX="274.0" layoutY="90.0" text="Cheers Sir!" />
-        <Label layoutX="260.0" layoutY="107.0" text="Glad to see you!" />
-        <Button fx:id="buttonSeeGyms" layoutX="82.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
-        <Button fx:id="buttonAddTrainer" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
-        <Button fx:id="buttonSeeClientsFeedback" layoutX="82.0" layoutY="250.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback about all the trainers" />
-        <Button fx:id="buttonTotalWorkingHours" layoutX="82.0" layoutY="300.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours of each trainer" />
+        <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+            <children>
+                <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
+                <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
+            </children>
+        </Pane>
+        <Label id="labelTitle" layoutX="263.0" layoutY="90.0" text="Cheers Sir!" />
+        <Label id="labelSubTitle" layoutX="247.0" layoutY="111.0" text="Glad to see you!" />
+        <Button id="buttons" fx:id="buttonSeeGyms" layoutX="118.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
+        <Button id="buttons" fx:id="buttonAddTrainer" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
+        <Button id="buttons" fx:id="buttonSeeClientsFeedback" layoutX="11.0" layoutY="250.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback about all the trainers" />
+        <Button id="buttons" fx:id="buttonTotalWorkingHours" layoutX="354.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours of each trainer" />
         <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/gymLogo.png" />
+            <Image url="@../images/gymLogo1.png" />
+         </image>
+        </ImageView>
+        <Hyperlink fx:id="hyperlinkSignOut" layoutX="504.0" layoutY="314.0" onAction="#onClickHyperlinkSignOut" text="Sign Out" />
+        <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
+            <children>
+                <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
+                <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
+                <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
+                <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
+            </children>
+        </Pane>
+      <Separator layoutX="296.0" layoutY="140.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="9.0" />
+      <Label id="specialLabel" layoutX="323.0" layoutY="225.0" text="Future Updates" />
+      <ImageView fitHeight="73.0" fitWidth="150.0" layoutX="438.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrow.png" />
          </image>
       </ImageView>
-        <Separator layoutX="65.0" layoutY="186.0" prefHeight="3.0" prefWidth="283.0" />
-        <Separator layoutX="65.0" layoutY="237.0" prefHeight="3.0" prefWidth="283.0" />
-        <Separator layoutX="65.0" layoutY="287.0" prefHeight="3.0" prefWidth="283.0" />
-        <Hyperlink fx:id="hyperlinkSignOut" layoutX="508.0" layoutY="363.0" text="Sign Out" onAction="#onClickHyperlinkSignOut"/>
     </children>
 </AnchorPane>

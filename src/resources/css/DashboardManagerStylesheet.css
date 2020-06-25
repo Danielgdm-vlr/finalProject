@@ -15,31 +15,6 @@
   -fx-background-color: #3e4041;
 }
 
-#buttonSignUp{
-  -fx-background-color: #e4e7e7;
-  -fx-text-fill: #3e4041;
-}
-
-#buttonSignUp:hover{
-  -fx-background-color: #33cc33;
-  -fx-text-fill: #3e4041;
-  -fx-font-size: 13;
-  -fx-font-weight: bold;
-}
-
-#hyperlinkLogIn{
-  -fx-text-fill: #e4e7e7;
-  -fx-font-size: 12;
-}
-
-#hyperlinkLogIn:hover{
-  -fx-text-fill: #33cc33;
-  -fx-font-size: 13;
-  -fx-underline: false;
-  -fx-border-color: transparent;
-  -fx-font-weight: bold;
-}
-
 #labelTitle{
   -fx-text-fill: #33cc33;
   -fx-font-size: 15;
@@ -52,15 +27,35 @@
   -fx-font-weight: bold;
 }
 
-#label{
-  -fx-text-fill: #33cc33;
-  -fx-font-size: 13;
+#buttons{
+  -fx-background-color: #e4e7e7;
+  -fx-text-fill: #3e4041;
   -fx-font-weight: bold;
 }
 
-#checkBoxVerifyHuman{
+#buttons:hover{
+  -fx-background-color: #33cc33;
+  -fx-text-fill: #3e4041;
+}
+
+#specialLabel{
+  -fx-font-size: 14;
+  -fx-text-fill: #33cc33;
+  -fx-font-family: Arial;
+  -fx-font-weight: bold;
+}
+
+#hyperlinkSignOut{
+  -fx-text-fill: #33cc33;
+  -fx-underline: false;
+  -fx-font-weight: bold;
+  -fx-border-color: transparent;
+}
+
+#hyperlinkSignOut:hover{
+  -fx-underline: false;
+  -fx-border-color: transparent;
   -fx-font-size: 13;
-  -fx-text-fill: #f2f3f3;
 }
 
 #paneBottom{

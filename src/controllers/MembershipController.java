@@ -12,12 +12,14 @@ import javafx.stage.Stage;
 import model.*;
 import services.*;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
-public class Membership1Controller {
+public class MembershipController {
 
     @FXML
     private ComboBox comboBoxSelectGym;
@@ -139,13 +141,21 @@ public class Membership1Controller {
         try {
             buttonFinish.getScene().getWindow().hide();
             Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
-            Stage m2Stage = new Stage();
-            m2Stage.setScene(new Scene(root));
-            m2Stage.setTitle("RAW POWER GYM - Create YOUR Membership!");
-            m2Stage.show();
+            Stage mStage = new Stage();
+            Scene sceneM = new Scene(root);
+            sceneM.getStylesheets().add(getClass().getResource("/resources/css/DashboardClientStylesheet.css").toExternalForm());
+            mStage.setScene(sceneM);
+            mStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
+            mStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
     }
 
     public String getFName() {

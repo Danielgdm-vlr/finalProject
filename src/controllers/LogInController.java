@@ -32,10 +32,6 @@ public class LogInController {
 
     public String un, pw;
 
-    public LogInController(){
-
-    }
-
     public void initialize(){
         buttonLogIn.setDisable(true);
     }
@@ -72,15 +68,19 @@ public class LogInController {
                     if (userService.findUserId(un) == 1) {
                             Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardManager.fxml"));
                             Stage dMStage = new Stage();
+                            Scene sceneDM = new Scene(root);
+                            sceneDM.getStylesheets().add(getClass().getResource("/resources/css/DashboardManagerStylesheet.css").toExternalForm());
                             dMStage.setTitle("RAW POWER GYM - Manager`s Dashboard");
-                            dMStage.setScene(new Scene(root));
+                            dMStage.setScene(sceneDM);
                             dMStage.show();
                     }
                     if (userService.findUserId(un) == 2) {
                         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardTrainer.fxml"));
                         Stage dTStage = new Stage();
+                        Scene sceneDT = new Scene(root);
+                        sceneDT.getStylesheets().add(getClass().getResource("/resources/css/DashboardTrainerStylesheet.css").toExternalForm());
                         dTStage.setTitle("RAW POWER GYM - Trainer`s Dashboard");
-                        dTStage.setScene(new Scene(root));
+                        dTStage.setScene(sceneDT);
                         dTStage.show();
                     }
                     if (userService.findUserId(un) == 3) {

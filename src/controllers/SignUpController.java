@@ -5,15 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Clients;
-import model.Users;
-import services.ClientService;
-import services.UserService;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 public class SignUpController {
     @FXML
@@ -98,10 +98,18 @@ public class SignUpController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership1.fxml"));
-        Stage dMStage = new Stage();
-        dMStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
-        dMStage.setScene(new Scene(root));
-        dMStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership.fxml"));
+        Stage dMmStage = new Stage();
+        Scene sceneDMm = new Scene(root);
+        sceneDMm.getStylesheets().add(getClass().getResource("/resources/css/MembershipStylesheet.css").toExternalForm());
+        dMmStage.setTitle("RAW POWER GYM - Create YOUR Membership!");
+        dMmStage.setScene(sceneDMm);
+        dMmStage.show();
+    }
+
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
     }
 }

@@ -10,9 +10,11 @@ import javafx.stage.Stage;
 import model.Users;
 import services.UserService;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class DashboardManagerController {
@@ -28,6 +30,7 @@ public class DashboardManagerController {
         UserService userService = new UserService();
         Users user = userService.findUser(username, password);
         System.out.println(user);
+        buttonTotalWorkingHours.setDisable(true);
     }
 
     public void onClickButtonSeeGyms(){
@@ -37,8 +40,10 @@ public class DashboardManagerController {
         buttonAddTrainer.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/AddTrainer.fxml"));
         Stage addTrainerStage = new Stage();
+        Scene sceneAddTrainer = new Scene(root);
+        sceneAddTrainer.getStylesheets().add(getClass().getResource("/resources/css/AddTrainerStyleSheet.css").toExternalForm());
         addTrainerStage.setTitle("RAW POWER GYM - Manager`s Dashboard / Add a new trainer to the gym!");
-        addTrainerStage.setScene(new Scene(root));
+        addTrainerStage.setScene(sceneAddTrainer);
         addTrainerStage.setFullScreen(true);
         addTrainerStage.show();
     }
@@ -62,9 +67,15 @@ public class DashboardManagerController {
         logInStage.show();
     }
 
+    public void onClickHyperlinkMe(){
+        try {
+            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+        } catch (Exception e) {}
+    }
+
     public String getUsername(){
         String username = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionUsername.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
             String usernameTmp;
             while((usernameTmp = br.readLine()) != null)
                 username = usernameTmp;
@@ -75,7 +86,7 @@ public class DashboardManagerController {
     }
     public String getPassword(){
         String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionPassword.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
             String passwordTmp;
             while((passwordTmp = br.readLine()) != null)
                 password = passwordTmp;

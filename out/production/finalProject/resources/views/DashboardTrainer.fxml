@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.DashboardTrainerController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardTrainerController">
     <children>
-        <Hyperlink fx:id="hyperlinkSignOut" layoutX="508.0" layoutY="363.0" text="Sign Out" onAction="#onClickHyperlinkSignOut"/>
+        <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+            <children>
+                <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
+                <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
+            </children>
+        </Pane>
+        <Hyperlink id="hyperlinkSignOut" fx:id="hyperlinkSignOut" layoutX="499.0" layoutY="314.0" onAction="#onClickHyperlinkSignOut" text="Sign Out" />
+        <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
+            <children>
+                <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
+                <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
+                <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
+                <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
+            </children>
+        </Pane>
+      <ImageView fitHeight="50.0" fitWidth="75.0" layoutX="272.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/gymLogo1.png" />
+         </image>
+      </ImageView>
+      <Label id="labelTitle" layoutX="210.0" layoutY="83.0" text="Hello there," />
+      <Separator layoutX="297.0" layoutY="132.0" orientation="VERTICAL" prefHeight="200.0" />
+      <Label id="labelTitle" layoutX="293.0" layoutY="83.0" text="  trainerName" />
+      <Hyperlink id="hyperlinkCheckHours" disable="true" layoutX="329.0" layoutY="184.0" text="Check the number of hours you have worked " />
+      <TableView layoutX="30.0" layoutY="156.0" prefHeight="176.0" prefWidth="243.0">
+        <columns>
+          <TableColumn prefWidth="31.0" text="No." />
+          <TableColumn prefWidth="98.0" text="Name" />
+            <TableColumn prefWidth="113.0" text="Surname" />
+        </columns>
+      </TableView>
+      <Label id="labelSubTitle" layoutX="30.0" layoutY="132.0" text="Your Clients" />
+      <Hyperlink id="hyperlinkChangeDiet" layoutX="329.0" layoutY="129.0" text="Change the diet " />
+      <Hyperlink id="hyperlinkChangeEx" layoutX="329.0" layoutY="156.0" text="Change the exercises" />
+        <Separator layoutX="296.0" layoutY="140.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="9.0" />
+        <Label id="specialLabel" layoutX="324.0" layoutY="244.0" text="Future Updates" />
+        <ImageView fitHeight="73.0" fitWidth="150.0" layoutX="437.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/arrow.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

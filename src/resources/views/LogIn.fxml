@@ -18,7 +18,7 @@
             <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
             <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
             <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-            <Hyperlink onAction="#onClickHyperlinkMe" id="hyperlinkMe" layoutX="416.0" layoutY="25.0" text="daniel.guiman@student.unitbv.ro" />
+            <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
          </children>
       </Pane>
    </bottom>
@@ -47,13 +47,33 @@
                   <Image url="@../images/gymLogo1.png" />
                </image>
             </ImageView>
-            <Label id="labelLeft" layoutX="37.0" layoutY="93.0" text="Select your gym" />
-            <Label id="labelLeft" layoutX="156.0" layoutY="149.0" text="Select your personal trainer" />
-            <Label id="labelLeft" layoutX="38.0" layoutY="205.0" text="Select your diet" />
-            <Label id="labelLeft" layoutX="163.0" layoutY="261.0" text="Select your exercise plan" />
+            <Label id="labelLeft" layoutX="37.0" layoutY="93.0" text="CHOOSE YOUR GYM" />
+            <Label id="labelLeft" layoutX="156.0" layoutY="149.0" text="CHOOSE YOUR TRAINER" />
+            <Label id="labelLeft" layoutX="38.0" layoutY="205.0" text="CHOOSE YOUR DIET" />
+            <Label id="labelLeft" layoutX="118.0" layoutY="262.0" text="CHOOSE YOUR EXERCISE PLAN" />
             <Hyperlink id="hyperlinkSignUp" fx:id="hyperlinkSignUp" layoutX="14.0" layoutY="300.0" onAction="#onClickHyperlinkSignUp" text="Not a member? Sign up now!" />
             <Label id="labelTitle" layoutX="96.0" layoutY="37.0" text="RAW" />
-            <Label id="labelTitle"  layoutX="188.0" layoutY="37.0" text="POWER" />
+            <Label id="labelTitle" layoutX="188.0" layoutY="37.0" text="POWER" />
+            <ImageView fitHeight="81.0" fitWidth="76.0" layoutX="61.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/trainer.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="122.0" layoutX="175.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/gymExterior.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="118.0" fitWidth="200.0" layoutX="143.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/dietPlan.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="93.0" fitWidth="150.0" layoutX="27.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exercisePlan.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </left>
