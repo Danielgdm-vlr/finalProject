@@ -41,4 +41,17 @@ public class TrainerDao extends GenericDao<Trainers> {
         java.util.List<model.Trainers> results = query.getResultList();
         return results;
     }
+
+    public List<Trainers> findId(int id) {
+        EntityManager em = getEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Trainers> cq = cb.createQuery(model.Trainers.class);
+        Root<Trainers> r = cq.from(model.Trainers.class);
+        ParameterExpression<Integer> idd = cb.parameter(int.class);
+        cq.select(r).where(cb.equal(r.get("idTrainer"), idd));
+        TypedQuery<Trainers> query = em.createQuery(cq);
+        query.setParameter(idd, id);
+        java.util.List<model.Trainers> results = query.getResultList();
+        return results;
+    }
 }

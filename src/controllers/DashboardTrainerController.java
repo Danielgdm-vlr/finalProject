@@ -1,30 +1,39 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Users;
-import services.UserService;
+import model.*;
+import services.*;
 
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardTrainerController {
     @FXML
     private Hyperlink hyperlinkSignOut;
+    @FXML
+    private ListView<Clients> clientsListView;
+    @FXML
+    private Label trainerName;
 
-    public void initialize(){
-        String username = getUsername();
-        String password = getPassword();
-        UserService userService = new UserService();
-        Users user = userService.findUser(username, password);
-        System.out.println(user);
+    public void initialize() throws Exception {
+        Trainers trainers = getTrainer();
+        trainerName.setText(" " + trainers.getFirstNameTrainer() + " " + trainers.getLastNameTrainer());
+        List<Clients> clientsList = getSpecificClients();
+        clientsListView.setItems(FXCollections.observableArrayList(new ArrayList<Clients>(clientsList)));
     }
 
     public void onClickHyperlinkSignOut() throws IOException {
@@ -44,6 +53,49 @@ public class DashboardTrainerController {
         } catch (Exception e) {}
     }
 
+    public Users getUser() throws Exception{
+        String username = getUsername();
+        UserService userService = new UserService();
+        Users user = userService.findUserDashboard(username);
+        return user;
+    }
+
+    public Trainers getTrainer() throws Exception{
+        Users user = getUser();
+        TrainerService trainerService = new TrainerService();
+        Trainers trainer = trainerService.findTrainerId(user.getIdTrainer());
+        return trainer;
+    }
+
+    public List<Membership> getSpecificMemberships() throws Exception{
+        MembershipService membershipService = new MembershipService();
+        Membership membership;
+        Trainers trainers = getTrainer();
+        List<Membership> membershipList = membershipService.getAllMemberships();
+        List<Membership> membershipList1 = new ArrayList<Membership>();
+        for(int i = 0; i < membershipList.size(); i++){
+            membership = membershipList.get(i);
+            if(membership.getIdTrainer() == trainers.getIdTrainer()){
+                   membershipList1.add(membership);
+            }
+        }
+        return membershipList1;
+    }
+
+    public List<Clients> getSpecificClients() throws Exception{
+        List<Membership> membershipList = getSpecificMemberships();
+        Membership membership;
+        List<Clients> clientsList = new ArrayList<Clients>();
+        ClientService clientService = new ClientService();
+        for(int i = 0; i < membershipList.size(); i++) {
+            membership = membershipList.get(i);
+            if(clientService.findClientId(membership.getIdMembership()) != null){
+                clientsList.add(clientService.findClientId(membership.getIdMembership()));
+            }
+        }
+        return clientsList;
+    }
+
     public String getUsername(){
         String username = null;
         try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
@@ -54,16 +106,5 @@ public class DashboardTrainerController {
             e.printStackTrace();
         }
         return username;
-    }
-    public String getPassword(){
-        String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
-            String passwordTmp;
-            while((passwordTmp = br.readLine()) != null)
-                password = passwordTmp;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return password;
     }
 }

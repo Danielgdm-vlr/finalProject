@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 public class Users {
-    private int idUsers;
+    private int idUser;
     private String username;
     private String password;
     private Integer idManager;
@@ -16,13 +16,13 @@ public class Users {
     private Integer idClient;
 
     @Id
-    @Column(name = "IdUsers")
-    public int getIdUsers() {
-        return idUsers;
+    @Column(name = "idUser")
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setIdUsers(int idUsers) {
-        this.idUsers = idUsers;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     @Basic
@@ -46,7 +46,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "IdManager")
+    @Column(name = "idManager")
     public Integer getIdManager() {
         return idManager;
     }
@@ -56,7 +56,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "IdTrainer")
+    @Column(name = "idTrainer")
     public Integer getIdTrainer() {
         return idTrainer;
     }
@@ -66,7 +66,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "IdClient")
+    @Column(name = "idClient")
     public Integer getIdClient() {
         return idClient;
     }
@@ -80,7 +80,7 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return idUsers == users.idUsers &&
+        return idUser == users.idUser &&
                 Objects.equals(username, users.username) &&
                 Objects.equals(password, users.password) &&
                 Objects.equals(idManager, users.idManager) &&
@@ -90,11 +90,6 @@ public class Users {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUsers, username, password, idManager, idTrainer, idClient);
-    }
-
-    @Override
-    public String toString() {
-        return "Users{" + username + " " + password + " " + idManager + " " + idTrainer + " " + idClient + '}';
+        return Objects.hash(idUser, username, password, idManager, idTrainer, idClient);
     }
 }

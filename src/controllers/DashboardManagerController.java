@@ -6,8 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Managers;
 import model.Users;
+import services.ManagerService;
 import services.UserService;
 
 import java.awt.*;
@@ -22,14 +25,13 @@ public class DashboardManagerController {
     private Button buttonSeeGyms, buttonAddTrainer, buttonSeeClientsFeedback, buttonTotalWorkingHours;
     @FXML
     private Hyperlink hyperlinkSignOut;
+    @FXML
+    private Label managerName;
 
 
-    public void initialize(){
-        String username = getUsername();
-        String password = getPassword();
-        UserService userService = new UserService();
-        Users user = userService.findUser(username, password);
-        System.out.println(user);
+    public void initialize() throws Exception {
+        Managers managers = getManager();
+        managerName.setText(" " + managers.getFirstNameManager() + " " + managers.getLastNameManager());
         buttonTotalWorkingHours.setDisable(true);
     }
 
@@ -83,15 +85,17 @@ public class DashboardManagerController {
         }
         return username;
     }
-    public String getPassword(){
-        String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
-            String passwordTmp;
-            while((passwordTmp = br.readLine()) != null)
-                password = passwordTmp;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return password;
+
+    public Users getUser() throws Exception{
+        String username = getUsername();
+        UserService userService = new UserService();
+        Users user = userService.findUserDashboard(username);
+        return user;
+    }
+    public Managers getManager() throws Exception{
+        Users user = getUser();
+        ManagerService managerService = new ManagerService();
+        Managers managers = managerService.findManagers(user.getIdManager());
+        return managers;
     }
 }

@@ -25,42 +25,42 @@
             </image>
         </ImageView>
         <Label id="label" layoutX="46.0" layoutY="138.0" text="First Name:" />
-        <TextField fx:id="fName" layoutX="123.0" layoutY="135.0" onKeyReleased="#keyReleasedProperty" promptText="First Name" />
+        <TextField fx:id="firstNameTrainer" layoutX="123.0" layoutY="135.0" onKeyReleased="#keyReleasedProperty" promptText="First Name" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/firstNameLastName.png" />
             </image>
         </ImageView>
         <Label id="label" layoutX="47.0" layoutY="170.0" text="Last Name:" />
-        <TextField fx:id="lName" layoutX="123.0" layoutY="167.0" onKeyReleased="#keyReleasedProperty" promptText="Last Name" />
+        <TextField fx:id="lastNameTrainer" layoutX="123.0" layoutY="167.0" onKeyReleased="#keyReleasedProperty" promptText="Last Name" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/firstNameLastName.png" />
             </image>
         </ImageView>
         <Label id="label" layoutX="27.0" layoutY="200.0" prefHeight="19.0" prefWidth="90.0" text="Email address:" />
-        <TextField fx:id="email" layoutX="123.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty" promptText="Email address" />
+        <TextField fx:id="emailTrainer" layoutX="123.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty" promptText="Email address" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="5.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/email.png" />
             </image>
         </ImageView>
         <Label id="label" layoutX="60.0" layoutY="231.0" text="Number:" />
-        <TextField fx:id="telNo" layoutX="123.0" layoutY="228.0" onKeyReleased="#keyReleasedProperty" promptText="Number" />
+        <TextField fx:id="telephoneNumberTrainer" layoutX="123.0" layoutY="228.0" onKeyReleased="#keyReleasedProperty" promptText="Number" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="37.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/telephoneNumber.png" />
             </image>
         </ImageView>
         <Label id="label" layoutX="83.0" layoutY="263.0" text="Age:" />
-        <TextField fx:id="age" layoutX="123.0" layoutY="260.0" onKeyReleased="#keyReleasedProperty" promptText="Age" />
+        <TextField fx:id="ageTrainer" layoutX="123.0" layoutY="260.0" onKeyReleased="#keyReleasedProperty" promptText="Age" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="64.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/age.png" />
             </image>
         </ImageView>
         <Label id="label" layoutX="348.0" layoutY="139.0" text="Username:" />
-        <TextField fx:id="username" layoutX="421.0" layoutY="136.0" onKeyPressed="#keyReleasedProperty" promptText="Username" />
+        <TextField fx:id="usernameTrainer" layoutX="421.0" layoutY="136.0" onKeyPressed="#keyReleasedProperty" promptText="Username" />
         <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="322.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/user.png" />
@@ -72,7 +72,7 @@
                 <Image url="@../images/password.png" />
             </image>
         </ImageView>
-        <TextField fx:id="password" layoutX="421.0" layoutY="168.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
+        <TextField fx:id="passwordTrainer" layoutX="421.0" layoutY="168.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
         <Label id="label" layoutX="299.0" layoutY="202.0" text="Confirm Password:" />
         <PasswordField fx:id="confirmPassword" layoutX="421.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty" promptText="Confirm Password" />
         <Button id="buttonSignTrainer" fx:id="buttonSignTrainerIn" layoutX="429.0" layoutY="240.0" mnemonicParsing="false" onAction="#onClickSignTrainerIn" prefHeight="32.0" prefWidth="133.0" text="Great! Sign Trainer!" />

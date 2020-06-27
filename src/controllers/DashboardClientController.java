@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.*;
+import services.*;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -19,36 +21,31 @@ public class DashboardClientController {
     @FXML
     private Hyperlink hyperlinkSignOut;
     @FXML
-    private Label firstNameClient, lNameC, email, telNo, age, clientName;
+    private Label welcomeLabelClient, usernameClient, trainerNameClient, gymClient,  dietPlan, exercisesPlan;
     @FXML
-    private Label username, password, gym, trainerC, dietP, exP;
-    @FXML
-    private Button buttonGiveFeedback;
+    private Label firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient;
+    //'future update'
+    //@FXML
+    //private Button buttonGiveFeedback;
 
     public void initialize() throws Exception {
-        //tabPane
-        //firstTab: "Your account"
-        //so I need to get the gym where the client goes to, his trainer, his diet and exercisePlan. Bon; and his acc details
-        clientName.setText(" " + getUsername());
-        username.setText(" " + getUsername());
-        password.setText(" " + getPassword()); // "option available in the nest update!" + de facut css label special
-        gym.setText("a");
-        trainerC.setText("b");
-        dietP.setText("c ");
-        exP.setText("d ");
+        /*firstTab: "Your account": show on screen details about the client`s membership: the gym he goes to, his trainer`s name, his diet plan and his exercise plan
+         and about his user account: username and password */
+        welcomeLabelClient.setText(" " + getUsernameClient());
+        usernameClient.setText(" " + getUsernameClient());
+        gymClient.setText(" " + getGymClient());
+        trainerNameClient.setText(" " + getTrainerNameClient());
+        dietPlan.setText(" " + getDietPlan());
+        exercisesPlan.setText(" " + getExercisesPlan());
 
+        //secondTab: "Give Feedback": 'future update'
 
-        //secondTab, getting funkier: "Give feedback"
-        //here it`s easier cuz i dont need to do anything
-        //cred ca o sa la future updates
-
-        //thirdTab: "Personal info"
-        //so here boi, i gotta get the clients name, lname, email, telNo, and age. Bon++
-        firstNameClient.setText(getFName());
-        lNameC.setText(getLName());
-        email.setText(getEmail());
-        telNo.setText(getTelNo());
-        age.setText(getAge());
+        /*thirdTab: "Personal info": show on screen details about the client: first name, last name, his email address, his telephone number and his age */
+        firstNameClient.setText(getFirstNameClient());
+        lastNameClient.setText(getLastNameClient());
+        emailClient.setText(getEmailClient());
+        telephoneNumberClient.setText(getTelephoneNumberClient());
+        ageClient.setText(getAgeClient());
     }
 
     public void onClickHyperlinkSignOut() throws IOException {
@@ -63,7 +60,7 @@ public class DashboardClientController {
     }
 
     public void onClickButtonGiveFeedback(){
-
+        //'future update'
     }
 
     public void onClickHyperlinkMe(){
@@ -72,69 +69,44 @@ public class DashboardClientController {
         } catch (Exception e) {}
     }
 
-    public String getFName() {
-        String fn = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpFirstName.txt"))) {
-            String usernameTmp;
-            while ((usernameTmp = br.readLine()) != null)
-                fn = usernameTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return fn;
+    public Membership getMembership() throws Exception {
+        ClientService clientService = new ClientService();
+        Clients clients = clientService.findClient(getFirstNameClient());
+        MembershipService membershipService = new MembershipService();
+        Membership membership = membershipService.findMembership(clients.getIdMembership());
+        return membership;
+    }
+    public String getGymClient() throws Exception {
+        Membership membership = getMembership();
+        GymService gymService = new GymService();
+        Gyms gyms = gymService.findGymId(membership.getIdGym());
+        return gyms.getGymLocation();
     }
 
-    public String getLName() {
-        String ln = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpLastName.txt"))) {
-            String passwordTmp;
-            while ((passwordTmp = br.readLine()) != null)
-                ln = passwordTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ln;
+    public String getTrainerNameClient() throws Exception{
+        Membership membership = getMembership();
+        TrainerService trainerService = new TrainerService();
+        Trainers trainers = trainerService.findTrainerId(membership.getIdTrainer());
+        return trainers.getFirstNameTrainer() + " " + trainers.getLastNameTrainer();
     }
 
-    public String getEmail() {
-        String em = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpEmail.txt"))) {
-            String passwordTmp;
-            while ((passwordTmp = br.readLine()) != null)
-                em = passwordTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return em;
+    public String getDietPlan() throws Exception{
+        Membership membership = getMembership();
+        DietService dietService = new DietService();
+        Diets diet = dietService.findDietId(membership.getIdDiet());
+        return diet.getDietMeals() + " " + diet.getDietCalories() + " Cal.";
     }
 
-    public String getTelNo() {
-        String tn = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpTelNo.txt"))) {
-            String passwordTmp;
-            while ((passwordTmp = br.readLine()) != null)
-                tn = passwordTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return tn;
+    public String getExercisesPlan()throws Exception{
+        Membership membership = getMembership();
+        ExercisesService exercisesService = new ExercisesService();
+        Exercises exercises = exercisesService.findExerciseId(membership.getIdExercise());
+        return exercises.getExerciseName();
     }
 
-    public String getAge() {
-        String ag = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpAge.txt"))) {
-            String passwordTmp;
-            while ((passwordTmp = br.readLine()) != null)
-                ag = passwordTmp;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ag;
-    }
-
-    public String getUsername(){
+    public String getUsernameClient() throws Exception {
         String username = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/logIn/SessionUsername.txt"))){
             String usernameTmp;
             while((usernameTmp = br.readLine()) != null)
                 username = usernameTmp;
@@ -144,9 +116,18 @@ public class DashboardClientController {
         return username;
     }
 
-    public String getPassword(){
+    public Clients getClient() throws Exception {
+        String usernameTmp = getUsernameClient();
+        UserService userService = new UserService();
+        Users users = userService.findUserDashboard(usernameTmp);
+        ClientService clientService = new ClientService();
+        Clients clients = clientService.findClientId(users.getIdClient());
+        return clients;
+    }
+    //'future update'
+    /*public String getPasswordClient(){
         String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/logIn/SessionPassword.txt"))){
             String passwordTmp;
             while((passwordTmp = br.readLine()) != null)
                 password = passwordTmp;
@@ -154,5 +135,30 @@ public class DashboardClientController {
             e.printStackTrace();
         }
         return password;
+    }*/
+
+    public String getFirstNameClient() throws Exception {
+        Clients clients = getClient();
+        return clients.getFirstNameClient();
+    }
+
+    public String getLastNameClient() throws Exception {
+        Clients clients = getClient();
+        return clients.getLastNameClient();
+    }
+
+    public String getEmailClient() throws Exception {
+        Clients clients = getClient();
+        return clients.getEmailClient();
+    }
+
+    public String getTelephoneNumberClient() throws Exception {
+        Clients clients = getClient();
+        return clients.getTelephoneNumberClient();
+    }
+
+    public String getAgeClient() throws Exception {
+        Clients clients = getClient();
+        return clients.getAgeClient();
     }
 }

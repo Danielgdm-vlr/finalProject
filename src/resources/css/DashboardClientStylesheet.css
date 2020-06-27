@@ -48,6 +48,26 @@
 #labelPaneCentre{
     -fx-text-fill: #e4e7e7;
     -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+#labelPaneCentreDetails{
+    -fx-text-fill: #e4e7e7;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+#labelPaneCentreAccountDetails{
+    -fx-text-fill: #33cc33;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+
+#labelPaneCentreSpecial{
+  -fx-text-fill: #33cc33;
+  -fx-font-weight: bold;
+  -fx-font-size: 11px;
 }
 
 #hyperlinkShowPassword{

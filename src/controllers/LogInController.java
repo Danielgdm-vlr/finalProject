@@ -51,9 +51,6 @@ public class LogInController {
         try{
             if(userService.findUser(un, pw) != null){
                 buttonLogIn.getScene().getWindow().hide();
-                Users users = userService.findUser(un, pw);
-                System.out.println(users);
-                System.out.println("---");
                 try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionUsername.txt"))){
                     writer.println(un);
                 }catch (Exception e) {

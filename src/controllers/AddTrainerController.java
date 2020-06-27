@@ -23,7 +23,7 @@ public class AddTrainerController {
     @FXML
     private Hyperlink hyperlinkBackToDashboard;
     @FXML
-    private TextField fName, lName, email, telNo, age, username, password;
+    private TextField firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, usernameTrainer, passwordTrainer;
     @FXML
     private PasswordField confirmPassword;
 
@@ -32,14 +32,14 @@ public class AddTrainerController {
     }
 
     public void keyReleasedProperty()  {
-        String un = username.getText();
-        String pw = password.getText();
-        String fn = fName.getText();
-        String ln = lName.getText();
+        String un = usernameTrainer.getText();
+        String pw = passwordTrainer.getText();
+        String fn = firstNameTrainer.getText();
+        String ln = lastNameTrainer.getText();
         String cpw = confirmPassword.getText();
-        String em = email.getText();
-        String no = telNo.getText();
-        String ag = age.getText();
+        String em = emailTrainer.getText();
+        String no = telephoneNumberTrainer.getText();
+        String ag = ageTrainer.getText();
         boolean bln = (fn.isEmpty() || fn.trim().isEmpty() || ln.isEmpty() || ln.trim().isEmpty()
                 || em.isEmpty() || em.trim().isEmpty() || no.isEmpty() || no.trim().isEmpty()
                 || ag.trim().isEmpty() || ag.isEmpty() || un.trim().isEmpty() || un.isEmpty()
@@ -63,19 +63,20 @@ public class AddTrainerController {
         buttonSignTrainerIn.getScene().getWindow().hide();
         Trainers trainer = new Trainers();
         TrainerService trainerService = new TrainerService();
-        trainer.setFirstNameTrainer(fName.getText());
-        trainer.setLastNameTrainer(lName.getText());
+        trainer.setFirstNameTrainer(firstNameTrainer.getText());
+        trainer.setLastNameTrainer(lastNameTrainer.getText());
+        trainer.setEmailTrainer(emailTrainer.getText());
+        trainer.setTelephoneNumberTrainer(telephoneNumberTrainer.getText());
+        trainer.setAgeTrainer(ageTrainer.getText());
         trainerService.addTrainer(trainer);
 
-        Trainers trainers1 = trainerService.findTrainer(fName.getText());
-        System.out.println(trainer);
+        Trainers trainersUser = trainerService.findTrainer(firstNameTrainer.getText());
 
         UserService userService = new UserService();
         Users user = new Users();
-        user.setUsername(username.getText());
-        user.setPassword(password.getText());
-        user.setIdTrainer(trainers1.getIdTrainer());
-
+        user.setUsername(usernameTrainer.getText());
+        user.setPassword(passwordTrainer.getText());
+        user.setIdTrainer(trainersUser.getIdTrainer());
         try {
             userService.addUser(user);
             Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardManager.fxml"));

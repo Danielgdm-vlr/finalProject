@@ -13,7 +13,7 @@ public class Diets {
     private String dietCalories;
 
     @Id
-    @Column(name = "IdDiet")
+    @Column(name = "idDiet")
     public int getIdDiet() {
         return idDiet;
     }
@@ -55,10 +55,5 @@ public class Diets {
     @Override
     public int hashCode() {
         return Objects.hash(idDiet, dietMeals, dietCalories);
-    }
-
-    @Override
-    public String toString() {
-        return "Diets{" + " " + dietMeals + " " + dietCalories  + '}';
     }
 }

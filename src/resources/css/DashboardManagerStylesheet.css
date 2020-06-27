@@ -45,6 +45,14 @@
   -fx-font-weight: bold;
 }
 
+#specialLabelName{
+  -fx-font-size: 12;
+  -fx-text-fill: #33cc33;
+  -fx-font-family: Arial;
+  -fx-font-weight: bold;
+
+}
+
 #hyperlinkSignOut{
   -fx-text-fill: #33cc33;
   -fx-underline: false;

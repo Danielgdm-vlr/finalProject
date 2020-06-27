@@ -12,7 +12,7 @@ public class Gyms {
     private String gymLocation;
 
     @Id
-    @Column(name = "IdGym")
+    @Column(name = "idGym")
     public int getIdGym() {
         return idGym;
     }
@@ -43,10 +43,5 @@ public class Gyms {
     @Override
     public int hashCode() {
         return Objects.hash(idGym, gymLocation);
-    }
-
-    @Override
-    public String toString() {
-        return "Gyms{" + " " + gymLocation + '}';
     }
 }

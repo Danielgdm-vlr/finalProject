@@ -9,13 +9,13 @@ import java.util.Objects;
 @Entity
 public class Membership {
     private int idMembership;
+    private Integer idGym;
     private Integer idTrainer;
     private Integer idDiet;
-    private Integer idGym;
-    private Integer idExercises;
+    private Integer idExercise;
 
     @Id
-    @Column(name = "IdMembership")
+    @Column(name = "idMembership")
     public int getIdMembership() {
         return idMembership;
     }
@@ -25,27 +25,7 @@ public class Membership {
     }
 
     @Basic
-    @Column(name = "IdTrainer")
-    public Integer getIdTrainer() {
-        return idTrainer;
-    }
-
-    public void setIdTrainer(Integer idTrainer) {
-        this.idTrainer = idTrainer;
-    }
-
-    @Basic
-    @Column(name = "IdDiet")
-    public Integer getIdDiet() {
-        return idDiet;
-    }
-
-    public void setIdDiet(Integer idDiet) {
-        this.idDiet = idDiet;
-    }
-
-    @Basic
-    @Column(name = "IdGym")
+    @Column(name = "idGym")
     public Integer getIdGym() {
         return idGym;
     }
@@ -55,13 +35,33 @@ public class Membership {
     }
 
     @Basic
-    @Column(name = "IdExercises")
-    public Integer getIdExercises() {
-        return idExercises;
+    @Column(name = "idTrainer")
+    public Integer getIdTrainer() {
+        return idTrainer;
     }
 
-    public void setIdExercises(Integer idExercises) {
-        this.idExercises = idExercises;
+    public void setIdTrainer(Integer idTrainer) {
+        this.idTrainer = idTrainer;
+    }
+
+    @Basic
+    @Column(name = "idDiet")
+    public Integer getIdDiet() {
+        return idDiet;
+    }
+
+    public void setIdDiet(Integer idDiet) {
+        this.idDiet = idDiet;
+    }
+
+    @Basic
+    @Column(name = "idExercise")
+    public Integer getIdExercise() {
+        return idExercise;
+    }
+
+    public void setIdExercise(Integer idExercise) {
+        this.idExercise = idExercise;
     }
 
     @Override
@@ -70,19 +70,15 @@ public class Membership {
         if (o == null || getClass() != o.getClass()) return false;
         Membership that = (Membership) o;
         return idMembership == that.idMembership &&
+                Objects.equals(idGym, that.idGym) &&
                 Objects.equals(idTrainer, that.idTrainer) &&
                 Objects.equals(idDiet, that.idDiet) &&
-                Objects.equals(idGym, that.idGym) &&
-                Objects.equals(idExercises, that.idExercises);
+                Objects.equals(idExercise, that.idExercise);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMembership, idTrainer, idDiet, idGym, idExercises);
+        return Objects.hash(idMembership, idGym, idTrainer, idDiet, idExercise);
     }
 
-    @Override
-    public String toString() {
-        return "Membership{" + " " + idTrainer + " " + idDiet + " " + idGym + " " + idExercises + '}';
-    }
 }

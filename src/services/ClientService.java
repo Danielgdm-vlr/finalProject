@@ -2,6 +2,7 @@ package services;
 
 import dao.ClientDao;
 import model.Clients;
+import model.Diets;
 
 import javax.persistence.Persistence;
 import java.util.List;
@@ -31,5 +32,24 @@ public class ClientService {
             throw new Exception("Client not found");
         Clients client = clientList.get(0);
         return client;
+    }
+
+    /*public Clients findAllSpecificClients() throws Exception {
+        List<Clients> clientsList = clientDao.findAll();
+        Clients clients;
+        for(int i = 0; i < clientsList.size(); i++) {
+            clients = clientsList.get(i);
+            if(clients.get)
+        }
+        if(clientsList.size() == 0)
+            throw new Exception("This trainer does not have any clients!");
+    }*/
+
+    public Clients findClientId(int id) throws Exception{
+        List<Clients> clientList = clientDao.findId(id);
+        if(clientList.size() == 0)
+            throw new Exception("Client not Found");
+        Clients clients = clientList.get(0);
+        return clients;
     }
 }

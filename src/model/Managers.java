@@ -15,7 +15,7 @@ public class Managers {
     private String telephoneNumberManager;
 
     @Id
-    @Column(name = "IdManager")
+    @Column(name = "idManager")
     public int getIdManager() {
         return idManager;
     }
@@ -79,10 +79,5 @@ public class Managers {
     @Override
     public int hashCode() {
         return Objects.hash(idManager, firstNameManager, lastNameManager, emailManager, telephoneNumberManager);
-    }
-
-    @Override
-    public String toString() {
-        return "Managers{" + " " + firstNameManager + " " + lastNameManager + " " + emailManager + " " + telephoneNumberManager + '\'' + '}';
     }
 }

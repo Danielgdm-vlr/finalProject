@@ -17,7 +17,7 @@ public class Clients {
     private Integer idMembership;
 
     @Id
-    @Column(name = "IdClient")
+    @Column(name = "idClient")
     public int getIdClient() {
         return idClient;
     }
@@ -77,7 +77,7 @@ public class Clients {
     }
 
     @Basic
-    @Column(name = "IdMembership")
+    @Column(name = "idMembership")
     public Integer getIdMembership() {
         return idMembership;
     }
@@ -107,6 +107,6 @@ public class Clients {
 
     @Override
     public String toString() {
-        return "Clients{" + firstNameClient + " " + lastNameClient + " " + emailClient + " " + telephoneNumberClient + " " + ageClient + " " + idMembership + '}';
+        return firstNameClient + " " + lastNameClient;
     }
 }

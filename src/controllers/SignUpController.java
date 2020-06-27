@@ -27,26 +27,26 @@ public class SignUpController {
     @FXML
     private CheckBox checkBoxVerifyHuman;
 
-    private String fN, lN, em, tN, ag, un, pw, cpw;
+    private String firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient, usernameClient, passwordClient, confirmPasswordClient;
 
     public void initialize(){
         buttonSignUp.setDisable(true);
     }
 
     public void keyReleasedProperty(){
-        fN = fName.getText();
-        lN = lName.getText();
-        em = email.getText();
-        tN = telNo.getText();
-        ag = age.getText();
-        un = username.getText();
-        pw = password.getText();
-        cpw = confirmPassword.getText();
-        boolean buttonDisable = (fN.isEmpty() || fN.trim().isEmpty() || lN.isEmpty() || lN.trim().isEmpty() ||
-                                 em.isEmpty() || em.trim().isEmpty() || tN.isEmpty() || tN.trim().isEmpty() ||
-                                 ag.isEmpty() || ag.trim().isEmpty() || un.isEmpty() || un.trim().isEmpty() ||
-                                 pw.isEmpty() || pw.trim().isEmpty() || cpw.isEmpty() || cpw.trim().isEmpty() ||
-                                 !pw.equals(cpw) || !checkBoxVerifyHuman.isSelected());
+        firstNameClient = fName.getText();
+        lastNameClient = lName.getText();
+        emailClient = email.getText();
+        telephoneNumberClient = telNo.getText();
+        ageClient = age.getText();
+        usernameClient = username.getText();
+        passwordClient = password.getText();
+        confirmPasswordClient = confirmPassword.getText();
+        boolean buttonDisable = (firstNameClient.isEmpty() || firstNameClient.trim().isEmpty() || lastNameClient.isEmpty() || lastNameClient.trim().isEmpty() ||
+                                 emailClient.isEmpty() || emailClient.trim().isEmpty() || telephoneNumberClient.isEmpty() || telephoneNumberClient.trim().isEmpty() ||
+                                 ageClient.isEmpty() || ageClient.trim().isEmpty() || usernameClient.isEmpty() || usernameClient.trim().isEmpty() ||
+                                 passwordClient.isEmpty() || passwordClient.trim().isEmpty() || confirmPasswordClient.isEmpty() || confirmPasswordClient.trim().isEmpty() ||
+                                 !passwordClient.equals(confirmPasswordClient) || !checkBoxVerifyHuman.isSelected());
         buttonSignUp.setDisable(buttonDisable);
     }
 
@@ -63,38 +63,38 @@ public class SignUpController {
 
     public void onClickButtonSignUp() throws Exception {
         buttonSignUp.getScene().getWindow().hide();
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpFirstName.txt"))){
-            writer.println(fN);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signUp/SessionSignUpFirstName.txt"))){
+            writer.println(firstNameClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpLastName.txt"))){
-            writer.println(fN);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signUp/SessionSignUpLastName.txt"))){
+            writer.println(lastNameClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpEmail.txt"))){
-            writer.println(em);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signUp/SessionSignUpEmail.txt"))){
+            writer.println(emailClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpTelNo.txt"))){
-            writer.println(tN);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signUp/SessionSignUpTelNo.txt"))){
+            writer.println(telephoneNumberClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signup/SessionSignUpAge.txt"))){
-            writer.println(ag);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/signUp/SessionSignUpAge.txt"))){
+            writer.println(ageClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionUsername.txt"))){
-            writer.println(un);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/logIn/SessionUsername.txt"))){
+            writer.println(usernameClient);
         }catch (Exception e) {
             e.printStackTrace();
         }
-        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionPassword.txt"))){
-            writer.println(pw);
+        try(PrintWriter writer = new PrintWriter(new File("src/resources/session/logIn/SessionPassword.txt"))){
+            writer.println(passwordClient);
         }catch (Exception e){
             e.printStackTrace();
         }

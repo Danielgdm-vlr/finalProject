@@ -14,11 +14,11 @@ public class Trainers {
     private String emailTrainer;
     private String telephoneNumberTrainer;
     private String ageTrainer;
-    private Integer ratingTrainer;
-    private String ratingComments;
+    private Integer ratingStar;
+    private String ratingComment;
 
     @Id
-    @Column(name = "IdTrainer")
+    @Column(name = "idTrainer")
     public int getIdTrainer() {
         return idTrainer;
     }
@@ -78,23 +78,23 @@ public class Trainers {
     }
 
     @Basic
-    @Column(name = "ratingTrainer")
-    public Integer getRatingTrainer() {
-        return ratingTrainer;
+    @Column(name = "ratingStar")
+    public Integer getRatingStar() {
+        return ratingStar;
     }
 
-    public void setRatingTrainer(Integer ratingTrainer) {
-        this.ratingTrainer = ratingTrainer;
+    public void setRatingStar(Integer ratingStar) {
+        this.ratingStar = ratingStar;
     }
 
     @Basic
-    @Column(name = "ratingComments")
-    public String getRatingComments() {
-        return ratingComments;
+    @Column(name = "ratingComment")
+    public String getRatingComment() {
+        return ratingComment;
     }
 
-    public void setRatingComments(String ratingComments) {
-        this.ratingComments = ratingComments;
+    public void setRatingComment(String ratingComment) {
+        this.ratingComment = ratingComment;
     }
 
     @Override
@@ -108,18 +108,12 @@ public class Trainers {
                 Objects.equals(emailTrainer, trainers.emailTrainer) &&
                 Objects.equals(telephoneNumberTrainer, trainers.telephoneNumberTrainer) &&
                 Objects.equals(ageTrainer, trainers.ageTrainer) &&
-                Objects.equals(ratingTrainer, trainers.ratingTrainer) &&
-                Objects.equals(ratingComments, trainers.ratingComments);
+                Objects.equals(ratingStar, trainers.ratingStar) &&
+                Objects.equals(ratingComment, trainers.ratingComment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTrainer, firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, ratingTrainer, ratingComments);
-    }
-
-    @Override
-    public String toString() {
-        return "Trainers{" + firstNameTrainer + ' ' + " " + lastNameTrainer + " " + emailTrainer + " " + telephoneNumberTrainer + " " + ageTrainer + " " + ratingTrainer +
-                " " + ratingComments + '}';
+        return Objects.hash(idTrainer, firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, ratingStar, ratingComment);
     }
 }

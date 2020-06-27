@@ -32,4 +32,12 @@ public class TrainerService {
         Trainers trainer = trainersList.get(0);
         return trainer;
     }
+
+    public Trainers findTrainerId(int id) throws Exception{
+        List<Trainers> trainersList = trainerDao.findId(id);
+        if(trainersList.size() == 0)
+            throw new Exception("Trainer not Found");
+        Trainers trainer = trainersList.get(0);
+        return trainer;
+    }
 }

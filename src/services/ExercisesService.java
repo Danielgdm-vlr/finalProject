@@ -1,6 +1,7 @@
 package services;
 
 import dao.ExercisesDao;
+import model.Diets;
 import model.Exercises;
 import model.Exercises;
 
@@ -20,5 +21,13 @@ public class ExercisesService {
 
     public List<Exercises> getAllExercises(){
         return exercisesDao.findAll();
+    }
+
+    public Exercises findExerciseId(int id) throws Exception{
+        List<Exercises> exercisesList = exercisesDao.findId(id);
+        if(exercisesList.size() == 0)
+            throw new Exception("Diet not Found");
+        Exercises exercises = exercisesList.get(0);
+        return exercises;
     }
 }
