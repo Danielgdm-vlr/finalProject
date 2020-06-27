@@ -46,7 +46,7 @@ public class DashboardTrainerController {
 
     public String getUsername(){
         String username = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionUsername.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
             String usernameTmp;
             while((usernameTmp = br.readLine()) != null)
                 username = usernameTmp;
@@ -57,7 +57,7 @@ public class DashboardTrainerController {
     }
     public String getPassword(){
         String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionPassword.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
             String passwordTmp;
             while((passwordTmp = br.readLine()) != null)
                 password = passwordTmp;

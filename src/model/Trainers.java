@@ -8,93 +8,93 @@ import java.util.Objects;
 
 @Entity
 public class Trainers {
-    private int trainerId;
-    private String fNameT;
-    private String lNameT;
-    private String emailT;
-    private String telNoT;
-    private String ageT;
-    private Integer ratingT;
-    private String ratingCom;
+    private int idTrainer;
+    private String firstNameTrainer;
+    private String lastNameTrainer;
+    private String emailTrainer;
+    private String telephoneNumberTrainer;
+    private String ageTrainer;
+    private Integer ratingTrainer;
+    private String ratingComments;
 
     @Id
-    @Column(name = "trainerId")
-    public int getTrainerId() {
-        return trainerId;
+    @Column(name = "IdTrainer")
+    public int getIdTrainer() {
+        return idTrainer;
     }
 
-    public void setTrainerId(int trainerId) {
-        this.trainerId = trainerId;
-    }
-
-    @Basic
-    @Column(name = "fNameT")
-    public String getfNameT() {
-        return fNameT;
-    }
-
-    public void setfNameT(String fNameT) {
-        this.fNameT = fNameT;
+    public void setIdTrainer(int idTrainer) {
+        this.idTrainer = idTrainer;
     }
 
     @Basic
-    @Column(name = "lNameT")
-    public String getlNameT() {
-        return lNameT;
+    @Column(name = "firstNameTrainer")
+    public String getFirstNameTrainer() {
+        return firstNameTrainer;
     }
 
-    public void setlNameT(String lNameT) {
-        this.lNameT = lNameT;
-    }
-
-    @Basic
-    @Column(name = "emailT")
-    public String getEmailT() {
-        return emailT;
-    }
-
-    public void setEmailT(String emailT) {
-        this.emailT = emailT;
+    public void setFirstNameTrainer(String firstNameTrainer) {
+        this.firstNameTrainer = firstNameTrainer;
     }
 
     @Basic
-    @Column(name = "telNoT")
-    public String getTelNoT() {
-        return telNoT;
+    @Column(name = "lastNameTrainer")
+    public String getLastNameTrainer() {
+        return lastNameTrainer;
     }
 
-    public void setTelNoT(String telNoT) {
-        this.telNoT = telNoT;
-    }
-
-    @Basic
-    @Column(name = "ageT")
-    public String getAgeT() {
-        return ageT;
-    }
-
-    public void setAgeT(String ageT) {
-        this.ageT = ageT;
+    public void setLastNameTrainer(String lastNameTrainer) {
+        this.lastNameTrainer = lastNameTrainer;
     }
 
     @Basic
-    @Column(name = "ratingT")
-    public Integer getRatingT() {
-        return ratingT;
+    @Column(name = "emailTrainer")
+    public String getEmailTrainer() {
+        return emailTrainer;
     }
 
-    public void setRatingT(Integer ratingT) {
-        this.ratingT = ratingT;
+    public void setEmailTrainer(String emailTrainer) {
+        this.emailTrainer = emailTrainer;
     }
 
     @Basic
-    @Column(name = "ratingCom")
-    public String getRatingCom() {
-        return ratingCom;
+    @Column(name = "telephoneNumberTrainer")
+    public String getTelephoneNumberTrainer() {
+        return telephoneNumberTrainer;
     }
 
-    public void setRatingCom(String ratingCom) {
-        this.ratingCom = ratingCom;
+    public void setTelephoneNumberTrainer(String telephoneNumberTrainer) {
+        this.telephoneNumberTrainer = telephoneNumberTrainer;
+    }
+
+    @Basic
+    @Column(name = "ageTrainer")
+    public String getAgeTrainer() {
+        return ageTrainer;
+    }
+
+    public void setAgeTrainer(String ageTrainer) {
+        this.ageTrainer = ageTrainer;
+    }
+
+    @Basic
+    @Column(name = "ratingTrainer")
+    public Integer getRatingTrainer() {
+        return ratingTrainer;
+    }
+
+    public void setRatingTrainer(Integer ratingTrainer) {
+        this.ratingTrainer = ratingTrainer;
+    }
+
+    @Basic
+    @Column(name = "ratingComments")
+    public String getRatingComments() {
+        return ratingComments;
+    }
+
+    public void setRatingComments(String ratingComments) {
+        this.ratingComments = ratingComments;
     }
 
     @Override
@@ -102,23 +102,24 @@ public class Trainers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trainers trainers = (Trainers) o;
-        return trainerId == trainers.trainerId &&
-                Objects.equals(fNameT, trainers.fNameT) &&
-                Objects.equals(lNameT, trainers.lNameT) &&
-                Objects.equals(emailT, trainers.emailT) &&
-                Objects.equals(telNoT, trainers.telNoT) &&
-                Objects.equals(ageT, trainers.ageT) &&
-                Objects.equals(ratingT, trainers.ratingT) &&
-                Objects.equals(ratingCom, trainers.ratingCom);
+        return idTrainer == trainers.idTrainer &&
+                Objects.equals(firstNameTrainer, trainers.firstNameTrainer) &&
+                Objects.equals(lastNameTrainer, trainers.lastNameTrainer) &&
+                Objects.equals(emailTrainer, trainers.emailTrainer) &&
+                Objects.equals(telephoneNumberTrainer, trainers.telephoneNumberTrainer) &&
+                Objects.equals(ageTrainer, trainers.ageTrainer) &&
+                Objects.equals(ratingTrainer, trainers.ratingTrainer) &&
+                Objects.equals(ratingComments, trainers.ratingComments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trainerId, fNameT, lNameT, emailT, telNoT, ageT, ratingT, ratingCom);
+        return Objects.hash(idTrainer, firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, ratingTrainer, ratingComments);
     }
 
     @Override
     public String toString() {
-        return fNameT + " " + lNameT;
+        return "Trainers{" + firstNameTrainer + ' ' + " " + lastNameTrainer + " " + emailTrainer + " " + telephoneNumberTrainer + " " + ageTrainer + " " + ratingTrainer +
+                " " + ratingComments + '}';
     }
 }

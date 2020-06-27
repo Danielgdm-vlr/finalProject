@@ -35,7 +35,7 @@ public class ClientDao extends GenericDao<Clients> {
         CriteriaQuery<model.Clients> cq = cb.createQuery(model.Clients.class);
         Root<model.Clients> r = cq.from(model.Clients.class);
         ParameterExpression<String> pName = cb.parameter(String.class);
-        cq.select(r).where(cb.equal(r.get("fNameC"), pName));
+        cq.select(r).where(cb.equal(r.get("firstNameClient"), pName));
         TypedQuery<model.Clients> query = em.createQuery(cq);
         query.setParameter(pName, name);
         java.util.List<model.Clients> results = query.getResultList();

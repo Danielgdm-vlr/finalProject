@@ -8,21 +8,21 @@ import java.util.Objects;
 
 @Entity
 public class Users {
-    private int userId;
+    private int idUsers;
     private String username;
     private String password;
-    private Integer managerId;
-    private Integer trainerId;
-    private Integer clientId;
+    private Integer idManager;
+    private Integer idTrainer;
+    private Integer idClient;
 
     @Id
-    @Column(name = "userId")
-    public int getUserId() {
-        return userId;
+    @Column(name = "IdUsers")
+    public int getIdUsers() {
+        return idUsers;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setIdUsers(int idUsers) {
+        this.idUsers = idUsers;
     }
 
     @Basic
@@ -46,33 +46,33 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "managerId")
-    public Integer getManagerId() {
-        return managerId;
+    @Column(name = "IdManager")
+    public Integer getIdManager() {
+        return idManager;
     }
 
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
-    }
-
-    @Basic
-    @Column(name = "trainerId")
-    public Integer getTrainerId() {
-        return trainerId;
-    }
-
-    public void setTrainerId(Integer trainerId) {
-        this.trainerId = trainerId;
+    public void setIdManager(Integer idManager) {
+        this.idManager = idManager;
     }
 
     @Basic
-    @Column(name = "clientId")
-    public Integer getClientId() {
-        return clientId;
+    @Column(name = "IdTrainer")
+    public Integer getIdTrainer() {
+        return idTrainer;
     }
 
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
+    public void setIdTrainer(Integer idTrainer) {
+        this.idTrainer = idTrainer;
+    }
+
+    @Basic
+    @Column(name = "IdClient")
+    public Integer getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
 
     @Override
@@ -80,24 +80,21 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return userId == users.userId &&
+        return idUsers == users.idUsers &&
                 Objects.equals(username, users.username) &&
                 Objects.equals(password, users.password) &&
-                Objects.equals(managerId, users.managerId) &&
-                Objects.equals(trainerId, users.trainerId) &&
-                Objects.equals(clientId, users.clientId);
+                Objects.equals(idManager, users.idManager) &&
+                Objects.equals(idTrainer, users.idTrainer) &&
+                Objects.equals(idClient, users.idClient);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, username, password, managerId, trainerId, clientId);
+        return Objects.hash(idUsers, username, password, idManager, idTrainer, idClient);
     }
 
     @Override
     public String toString() {
-        return "Users{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "Users{" + username + " " + password + " " + idManager + " " + idTrainer + " " + idClient + '}';
     }
 }

@@ -57,11 +57,11 @@ public class UserService {
         }
         if(found) {
             Users user = usersList.get(0);
-            if (user.getManagerId() != null)
+            if (user.getIdManager() != null)
                 return 1;
-            if (user.getTrainerId() != null)
+            if (user.getIdTrainer() != null)
                 return 2;
-            if (user.getClientId() != null)
+            if (user.getIdClient() != null)
                 return 3;
         }
         return 0;

@@ -10,7 +10,7 @@
         <class>model.Trainers</class>
         <class>model.Users</class>
         <class>model.Diets</class>
-        <class>model.Exes</class>
+        <class>model.Exercises</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/finalprojectdb?useSSL=false"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

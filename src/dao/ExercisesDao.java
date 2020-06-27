@@ -1,15 +1,15 @@
 package dao;
 
-import model.Exes;
+import model.Exercises;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public class ExesDao extends GenericDao<Exes> {
+public class ExercisesDao extends GenericDao<Exercises> {
     private EntityManagerFactory factory;
 
-    public ExesDao(EntityManagerFactory factory){
-        super(Exes.class);
+    public ExercisesDao(EntityManagerFactory factory){
+        super(Exercises.class);
         this.factory = factory;
     }
 

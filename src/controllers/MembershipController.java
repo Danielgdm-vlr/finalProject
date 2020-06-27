@@ -80,8 +80,8 @@ public class MembershipController {
         } else
             comboBoxSelectDiet.setItems(FXCollections.observableArrayList(dietsList));
         //to see all the ex in the comboBox
-        ExesService exesService = new ExesService();
-        List<Exes> exesList = exesService.getAllEx();
+        ExercisesService exercisesService = new ExercisesService();
+        List<Exercises> exesList = exercisesService.getAllExercises();
         /*if no ex is found, the list size is 0, and an alert message pops up, else the list gets all the ex
         and it displays the exName and on the screen in a comboBox*/
         if (exesList.size() == 0) {
@@ -105,10 +105,10 @@ public class MembershipController {
 
     public void onClickButtonFinish() throws Exception {
         Membership membership = new Membership();
-        membership.setGymId((comboBoxSelectGym.getSelectionModel().getSelectedIndex() + 1));
-        membership.setTrainerId((comboBoxSelectTrainer.getSelectionModel().getSelectedIndex() + 1));
-        membership.setDietId((comboBoxSelectDiet.getSelectionModel().getSelectedIndex() + 1));
-        membership.setExesId((comboBoxSelectEx.getSelectionModel().getSelectedIndex() + 1));
+        membership.setIdGym((comboBoxSelectGym.getSelectionModel().getSelectedIndex() + 1));
+        membership.setIdDiet((comboBoxSelectTrainer.getSelectionModel().getSelectedIndex() + 1));
+        membership.setIdDiet((comboBoxSelectDiet.getSelectionModel().getSelectedIndex() + 1));
+        membership.setIdExercises((comboBoxSelectEx.getSelectionModel().getSelectedIndex() + 1));
         System.out.println(membership);
 
         MembershipService membershipService = new MembershipService();
@@ -119,12 +119,12 @@ public class MembershipController {
 
         Clients client = new Clients();
         ClientService clientService = new ClientService();
-        client.setfNameC(getFName());
-        client.setlNameC(getLName());
-        client.setEmailC(getEmail());
-        client.setTelNoC(getTelNo());
-        client.setAgeC(getAge());
-        client.setMembershipId(membership1.getMembershipId());
+        client.setFirstNameClient(getFName());
+        client.setLastNameClient(getLName());
+        client.setEmailClient(getEmail());
+        client.setTelephoneNumberClient(getTelNo());
+        client.setAgeClient(getAge());
+        client.setIdMembership(membership1.getIdMembership());
         clientService.addClient(client);
 
         Clients client1 = clientService.findClient(getFName());
@@ -135,7 +135,7 @@ public class MembershipController {
         Users user = new Users();
         user.setUsername(getUsername());
         user.setPassword(getPassword());
-        user.setClientId(client1.getClientId());
+        user.setIdClient(client1.getIdClient());
         userService.addUser(user);
         System.out.println(user);
         try {
@@ -160,7 +160,7 @@ public class MembershipController {
 
     public String getFName() {
         String fn = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpFirstName.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpFirstName.txt"))) {
             String usernameTmp;
             while ((usernameTmp = br.readLine()) != null)
                 fn = usernameTmp;
@@ -172,7 +172,7 @@ public class MembershipController {
 
     public String getLName() {
         String ln = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpLastName.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpLastName.txt"))) {
             String passwordTmp;
             while ((passwordTmp = br.readLine()) != null)
                 ln = passwordTmp;
@@ -184,7 +184,7 @@ public class MembershipController {
 
     public String getEmail() {
         String em = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpEmail.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpEmail.txt"))) {
             String passwordTmp;
             while ((passwordTmp = br.readLine()) != null)
                 em = passwordTmp;
@@ -196,7 +196,7 @@ public class MembershipController {
 
     public String getTelNo() {
         String tn = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpTelNo.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpTelNo.txt"))) {
             String passwordTmp;
             while ((passwordTmp = br.readLine()) != null)
                 tn = passwordTmp;
@@ -208,7 +208,7 @@ public class MembershipController {
 
     public String getAge() {
         String ag = null;
-        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionSignUpAge.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/session/signup/SessionSignUpAge.txt"))) {
             String passwordTmp;
             while ((passwordTmp = br.readLine()) != null)
                 ag = passwordTmp;
@@ -220,7 +220,7 @@ public class MembershipController {
 
     public String getUsername(){
         String username = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionUsername.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionUsername.txt"))){
             String usernameTmp;
             while((usernameTmp = br.readLine()) != null)
                 username = usernameTmp;
@@ -232,7 +232,7 @@ public class MembershipController {
 
     public String getPassword(){
         String password = null;
-        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/SessionPassword.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/login/SessionPassword.txt"))){
             String passwordTmp;
             while((passwordTmp = br.readLine()) != null)
                 password = passwordTmp;

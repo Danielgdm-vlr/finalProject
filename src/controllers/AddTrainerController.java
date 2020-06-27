@@ -63,8 +63,8 @@ public class AddTrainerController {
         buttonSignTrainerIn.getScene().getWindow().hide();
         Trainers trainer = new Trainers();
         TrainerService trainerService = new TrainerService();
-        trainer.setfNameT(fName.getText());
-        trainer.setlNameT(lName.getText());
+        trainer.setFirstNameTrainer(fName.getText());
+        trainer.setLastNameTrainer(lName.getText());
         trainerService.addTrainer(trainer);
 
         Trainers trainers1 = trainerService.findTrainer(fName.getText());
@@ -74,7 +74,7 @@ public class AddTrainerController {
         Users user = new Users();
         user.setUsername(username.getText());
         user.setPassword(password.getText());
-        user.setTrainerId(trainers1.getTrainerId());
+        user.setIdTrainer(trainers1.getIdTrainer());
 
         try {
             userService.addUser(user);

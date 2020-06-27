@@ -44,7 +44,6 @@ public class DashboardManagerController {
         sceneAddTrainer.getStylesheets().add(getClass().getResource("/resources/css/AddTrainerStyleSheet.css").toExternalForm());
         addTrainerStage.setTitle("RAW POWER GYM - Manager`s Dashboard / Add a new trainer to the gym!");
         addTrainerStage.setScene(sceneAddTrainer);
-        addTrainerStage.setFullScreen(true);
         addTrainerStage.show();
     }
 

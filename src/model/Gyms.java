@@ -8,27 +8,27 @@ import java.util.Objects;
 
 @Entity
 public class Gyms {
-    private int gymId;
-    private String gymLoc;
+    private int idGym;
+    private String gymLocation;
 
     @Id
-    @Column(name = "gymId")
-    public int getGymId() {
-        return gymId;
+    @Column(name = "IdGym")
+    public int getIdGym() {
+        return idGym;
     }
 
-    public void setGymId(int gymId) {
-        this.gymId = gymId;
+    public void setIdGym(int idGym) {
+        this.idGym = idGym;
     }
 
     @Basic
-    @Column(name = "gymLoc")
-    public String getGymLoc() {
-        return gymLoc;
+    @Column(name = "gymLocation")
+    public String getGymLocation() {
+        return gymLocation;
     }
 
-    public void setGymLoc(String gymLoc) {
-        this.gymLoc = gymLoc;
+    public void setGymLocation(String gymLocation) {
+        this.gymLocation = gymLocation;
     }
 
     @Override
@@ -36,17 +36,17 @@ public class Gyms {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Gyms gyms = (Gyms) o;
-        return gymId == gyms.gymId &&
-                Objects.equals(gymLoc, gyms.gymLoc);
+        return idGym == gyms.idGym &&
+                Objects.equals(gymLocation, gyms.gymLocation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gymId, gymLoc);
+        return Objects.hash(idGym, gymLocation);
     }
 
     @Override
     public String toString() {
-        return gymLoc;
+        return "Gyms{" + " " + gymLocation + '}';
     }
 }

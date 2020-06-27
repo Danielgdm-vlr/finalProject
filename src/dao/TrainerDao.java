@@ -35,7 +35,7 @@ public class TrainerDao extends GenericDao<Trainers> {
         CriteriaQuery<Trainers> cq = cb.createQuery(model.Trainers.class);
         Root<Trainers> r = cq.from(model.Trainers.class);
         ParameterExpression<String> pName = cb.parameter(String.class);
-        cq.select(r).where(cb.equal(r.get("fNameT"), pName));
+        cq.select(r).where(cb.equal(r.get("firstNameTrainer"), pName));
         TypedQuery<Trainers> query = em.createQuery(cq);
         query.setParameter(pName, name);
         java.util.List<model.Trainers> results = query.getResultList();

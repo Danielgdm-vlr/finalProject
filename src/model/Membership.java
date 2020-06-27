@@ -8,60 +8,60 @@ import java.util.Objects;
 
 @Entity
 public class Membership {
-    private int membershipId;
-    private Integer trainerId;
-    private Integer dietId;
-    private Integer gymId;
-    private Integer exesId;
+    private int idMembership;
+    private Integer idTrainer;
+    private Integer idDiet;
+    private Integer idGym;
+    private Integer idExercises;
 
     @Id
-    @Column(name = "membershipId")
-    public int getMembershipId() {
-        return membershipId;
+    @Column(name = "IdMembership")
+    public int getIdMembership() {
+        return idMembership;
     }
 
-    public void setMembershipId(int membershipId) {
-        this.membershipId = membershipId;
-    }
-
-    @Basic
-    @Column(name = "trainerId")
-    public Integer getTrainerId() {
-        return trainerId;
-    }
-
-    public void setTrainerId(Integer trainerId) {
-        this.trainerId = trainerId;
+    public void setIdMembership(int idMembership) {
+        this.idMembership = idMembership;
     }
 
     @Basic
-    @Column(name = "dietId")
-    public Integer getDietId() {
-        return dietId;
+    @Column(name = "IdTrainer")
+    public Integer getIdTrainer() {
+        return idTrainer;
     }
 
-    public void setDietId(Integer dietId) {
-        this.dietId = dietId;
-    }
-
-    @Basic
-    @Column(name = "gymId")
-    public Integer getGymId() {
-        return gymId;
-    }
-
-    public void setGymId(Integer gymId) {
-        this.gymId = gymId;
+    public void setIdTrainer(Integer idTrainer) {
+        this.idTrainer = idTrainer;
     }
 
     @Basic
-    @Column(name = "exesId")
-    public Integer getExesId() {
-        return exesId;
+    @Column(name = "IdDiet")
+    public Integer getIdDiet() {
+        return idDiet;
     }
 
-    public void setExesId(Integer exesId) {
-        this.exesId = exesId;
+    public void setIdDiet(Integer idDiet) {
+        this.idDiet = idDiet;
+    }
+
+    @Basic
+    @Column(name = "IdGym")
+    public Integer getIdGym() {
+        return idGym;
+    }
+
+    public void setIdGym(Integer idGym) {
+        this.idGym = idGym;
+    }
+
+    @Basic
+    @Column(name = "IdExercises")
+    public Integer getIdExercises() {
+        return idExercises;
+    }
+
+    public void setIdExercises(Integer idExercises) {
+        this.idExercises = idExercises;
     }
 
     @Override
@@ -69,25 +69,20 @@ public class Membership {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Membership that = (Membership) o;
-        return membershipId == that.membershipId &&
-                Objects.equals(trainerId, that.trainerId) &&
-                Objects.equals(dietId, that.dietId) &&
-                Objects.equals(gymId, that.gymId) &&
-                Objects.equals(exesId, that.exesId);
+        return idMembership == that.idMembership &&
+                Objects.equals(idTrainer, that.idTrainer) &&
+                Objects.equals(idDiet, that.idDiet) &&
+                Objects.equals(idGym, that.idGym) &&
+                Objects.equals(idExercises, that.idExercises);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(membershipId, trainerId, dietId, gymId, exesId);
+        return Objects.hash(idMembership, idTrainer, idDiet, idGym, idExercises);
     }
 
     @Override
     public String toString() {
-        return "Membership{" +
-                ", gymId=" + gymId +
-                "trainerId=" + trainerId +
-                ", dietId=" + dietId +
-                ", exesId=" + exesId +
-                '}';
+        return "Membership{" + " " + idTrainer + " " + idDiet + " " + idGym + " " + idExercises + '}';
     }
 }

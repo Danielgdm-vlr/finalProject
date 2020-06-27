@@ -8,82 +8,82 @@ import java.util.Objects;
 
 @Entity
 public class Clients {
-    private int clientId;
-    private String fNameC;
-    private String lNameC;
-    private String emailC;
-    private String telNoC;
-    private String ageC;
-    private Integer membershipId;
+    private int idClient;
+    private String firstNameClient;
+    private String lastNameClient;
+    private String emailClient;
+    private String telephoneNumberClient;
+    private String ageClient;
+    private Integer idMembership;
 
     @Id
-    @Column(name = "clientId")
-    public int getClientId() {
-        return clientId;
+    @Column(name = "IdClient")
+    public int getIdClient() {
+        return idClient;
     }
 
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
-
-    @Basic
-    @Column(name = "fNameC")
-    public String getfNameC() {
-        return fNameC;
-    }
-
-    public void setfNameC(String fNameC) {
-        this.fNameC = fNameC;
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 
     @Basic
-    @Column(name = "lNameC")
-    public String getlNameC() {
-        return lNameC;
+    @Column(name = "firstNameClient")
+    public String getFirstNameClient() {
+        return firstNameClient;
     }
 
-    public void setlNameC(String lNameC) {
-        this.lNameC = lNameC;
-    }
-
-    @Basic
-    @Column(name = "emailC")
-    public String getEmailC() {
-        return emailC;
-    }
-
-    public void setEmailC(String emailC) {
-        this.emailC = emailC;
+    public void setFirstNameClient(String firstNameClient) {
+        this.firstNameClient = firstNameClient;
     }
 
     @Basic
-    @Column(name = "telNoC")
-    public String getTelNoC() {
-        return telNoC;
+    @Column(name = "lastNameClient")
+    public String getLastNameClient() {
+        return lastNameClient;
     }
 
-    public void setTelNoC(String telNoC) {
-        this.telNoC = telNoC;
-    }
-
-    @Basic
-    @Column(name = "ageC")
-    public String getAgeC() {
-        return ageC;
-    }
-
-    public void setAgeC(String ageC) {
-        this.ageC = ageC;
+    public void setLastNameClient(String lastNameClient) {
+        this.lastNameClient = lastNameClient;
     }
 
     @Basic
-    @Column(name = "membershipId")
-    public Integer getMembershipId() {
-        return membershipId;
+    @Column(name = "emailClient")
+    public String getEmailClient() {
+        return emailClient;
     }
 
-    public void setMembershipId(Integer membershipId) {
-        this.membershipId = membershipId;
+    public void setEmailClient(String emailClient) {
+        this.emailClient = emailClient;
+    }
+
+    @Basic
+    @Column(name = "telephoneNumberClient")
+    public String getTelephoneNumberClient() {
+        return telephoneNumberClient;
+    }
+
+    public void setTelephoneNumberClient(String telephoneNumberClient) {
+        this.telephoneNumberClient = telephoneNumberClient;
+    }
+
+    @Basic
+    @Column(name = "ageClient")
+    public String getAgeClient() {
+        return ageClient;
+    }
+
+    public void setAgeClient(String ageClient) {
+        this.ageClient = ageClient;
+    }
+
+    @Basic
+    @Column(name = "IdMembership")
+    public Integer getIdMembership() {
+        return idMembership;
+    }
+
+    public void setIdMembership(Integer idMembership) {
+        this.idMembership = idMembership;
     }
 
     @Override
@@ -91,29 +91,22 @@ public class Clients {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Clients clients = (Clients) o;
-        return clientId == clients.clientId &&
-                Objects.equals(fNameC, clients.fNameC) &&
-                Objects.equals(lNameC, clients.lNameC) &&
-                Objects.equals(emailC, clients.emailC) &&
-                Objects.equals(telNoC, clients.telNoC) &&
-                Objects.equals(ageC, clients.ageC) &&
-                Objects.equals(membershipId, clients.membershipId);
+        return idClient == clients.idClient &&
+                Objects.equals(firstNameClient, clients.firstNameClient) &&
+                Objects.equals(lastNameClient, clients.lastNameClient) &&
+                Objects.equals(emailClient, clients.emailClient) &&
+                Objects.equals(telephoneNumberClient, clients.telephoneNumberClient) &&
+                Objects.equals(ageClient, clients.ageClient) &&
+                Objects.equals(idMembership, clients.idMembership);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientId, fNameC, lNameC, emailC, telNoC, ageC, membershipId);
+        return Objects.hash(idClient, firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient, idMembership);
     }
 
     @Override
     public String toString() {
-        return "Clients{" +
-                "fNameC='" + fNameC + '\'' +
-                ", lNameC='" + lNameC + '\'' +
-                ", emailC='" + emailC + '\'' +
-                ", telNoC='" + telNoC + '\'' +
-                ", ageC='" + ageC + '\'' +
-                ", membershipId=" + membershipId +
-                '}';
+        return "Clients{" + firstNameClient + " " + lastNameClient + " " + emailClient + " " + telephoneNumberClient + " " + ageClient + " " + idMembership + '}';
     }
 }

@@ -8,60 +8,60 @@ import java.util.Objects;
 
 @Entity
 public class Managers {
-    private int managerId;
-    private String fNameM;
-    private String lNameM;
-    private String emailM;
-    private String telNoM;
+    private int idManager;
+    private String firstNameManager;
+    private String lastNameManager;
+    private String emailManager;
+    private String telephoneNumberManager;
 
     @Id
-    @Column(name = "managerId")
-    public int getManagerId() {
-        return managerId;
+    @Column(name = "IdManager")
+    public int getIdManager() {
+        return idManager;
     }
 
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
-    }
-
-    @Basic
-    @Column(name = "fNameM")
-    public String getfNameM() {
-        return fNameM;
-    }
-
-    public void setfNameM(String fNameM) {
-        this.fNameM = fNameM;
+    public void setIdManager(int idManager) {
+        this.idManager = idManager;
     }
 
     @Basic
-    @Column(name = "lNameM")
-    public String getlNameM() {
-        return lNameM;
+    @Column(name = "firstNameManager")
+    public String getFirstNameManager() {
+        return firstNameManager;
     }
 
-    public void setlNameM(String lNameM) {
-        this.lNameM = lNameM;
-    }
-
-    @Basic
-    @Column(name = "emailM")
-    public String getEmailM() {
-        return emailM;
-    }
-
-    public void setEmailM(String emailM) {
-        this.emailM = emailM;
+    public void setFirstNameManager(String firstNameManager) {
+        this.firstNameManager = firstNameManager;
     }
 
     @Basic
-    @Column(name = "telNoM")
-    public String getTelNoM() {
-        return telNoM;
+    @Column(name = "lastNameManager")
+    public String getLastNameManager() {
+        return lastNameManager;
     }
 
-    public void setTelNoM(String telNoM) {
-        this.telNoM = telNoM;
+    public void setLastNameManager(String lastNameManager) {
+        this.lastNameManager = lastNameManager;
+    }
+
+    @Basic
+    @Column(name = "emailManager")
+    public String getEmailManager() {
+        return emailManager;
+    }
+
+    public void setEmailManager(String emailManager) {
+        this.emailManager = emailManager;
+    }
+
+    @Basic
+    @Column(name = "telephoneNumberManager")
+    public String getTelephoneNumberManager() {
+        return telephoneNumberManager;
+    }
+
+    public void setTelephoneNumberManager(String telephoneNumberManager) {
+        this.telephoneNumberManager = telephoneNumberManager;
     }
 
     @Override
@@ -69,15 +69,20 @@ public class Managers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Managers managers = (Managers) o;
-        return managerId == managers.managerId &&
-                Objects.equals(fNameM, managers.fNameM) &&
-                Objects.equals(lNameM, managers.lNameM) &&
-                Objects.equals(emailM, managers.emailM) &&
-                Objects.equals(telNoM, managers.telNoM);
+        return idManager == managers.idManager &&
+                Objects.equals(firstNameManager, managers.firstNameManager) &&
+                Objects.equals(lastNameManager, managers.lastNameManager) &&
+                Objects.equals(emailManager, managers.emailManager) &&
+                Objects.equals(telephoneNumberManager, managers.telephoneNumberManager);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(managerId, fNameM, lNameM, emailM, telNoM);
+        return Objects.hash(idManager, firstNameManager, lastNameManager, emailManager, telephoneNumberManager);
+    }
+
+    @Override
+    public String toString() {
+        return "Managers{" + " " + firstNameManager + " " + lastNameManager + " " + emailManager + " " + telephoneNumberManager + '\'' + '}';
     }
 }

@@ -92,7 +92,7 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label id="labelPaneCentre" layoutX="14.0" layoutY="14.0" text="First Name:" />
-                                     <Label id="labelPaneCentre" fx:id="fNameC" layoutX="137.0" layoutY="14.0" prefHeight="17.0" prefWidth="128.0" />
+                                     <Label id="labelPaneCentre" fx:id="firstNameClient" layoutX="137.0" layoutY="14.0" prefHeight="17.0" prefWidth="128.0" />
                                     <Label id="labelPaneCentre" layoutX="14.0" layoutY="41.0" text="Last Name:" />
                                      <Label id="labelPaneCentre" fx:id="lNameC" layoutX="137.0" layoutY="41.0" prefHeight="17.0" prefWidth="131.0" />
                                     <Label id="labelPaneCentre" layoutX="14.0" layoutY="69.0" text="Email Address:" />

@@ -61,7 +61,7 @@
 
 #buttonLogIn:hover{
   -fx-background-color: #33cc33;
-  -fx-text-fill: white;
+  -fx-text-fill: #3e4041;
   -fx-font-size: 13;
   -fx-font-weight: bold;
 }

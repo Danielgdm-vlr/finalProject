@@ -8,18 +8,18 @@ import java.util.Objects;
 
 @Entity
 public class Diets {
-    private int dietId;
+    private int idDiet;
     private String dietMeals;
-    private String dietCal;
+    private String dietCalories;
 
     @Id
-    @Column(name = "dietId")
-    public int getDietId() {
-        return dietId;
+    @Column(name = "IdDiet")
+    public int getIdDiet() {
+        return idDiet;
     }
 
-    public void setDietId(int dietId) {
-        this.dietId = dietId;
+    public void setIdDiet(int idDiet) {
+        this.idDiet = idDiet;
     }
 
     @Basic
@@ -33,13 +33,13 @@ public class Diets {
     }
 
     @Basic
-    @Column(name = "dietCal")
-    public String getDietCal() {
-        return dietCal;
+    @Column(name = "dietCalories")
+    public String getDietCalories() {
+        return dietCalories;
     }
 
-    public void setDietCal(String dietCal) {
-        this.dietCal = dietCal;
+    public void setDietCalories(String dietCalories) {
+        this.dietCalories = dietCalories;
     }
 
     @Override
@@ -47,18 +47,18 @@ public class Diets {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Diets diets = (Diets) o;
-        return dietId == diets.dietId &&
+        return idDiet == diets.idDiet &&
                 Objects.equals(dietMeals, diets.dietMeals) &&
-                Objects.equals(dietCal, diets.dietCal);
+                Objects.equals(dietCalories, diets.dietCalories);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dietId, dietMeals, dietCal);
+        return Objects.hash(idDiet, dietMeals, dietCalories);
     }
 
     @Override
     public String toString() {
-        return dietMeals + " (" +dietCal + " Calories)" ;
+        return "Diets{" + " " + dietMeals + " " + dietCalories  + '}';
     }
 }
