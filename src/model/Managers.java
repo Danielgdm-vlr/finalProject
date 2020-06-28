@@ -40,6 +40,11 @@ public class Managers {
         return lastNameManager;
     }
 
+    @Override
+    public String toString() {
+        return firstNameManager + " " + lastNameManager + " " + emailManager + " " + telephoneNumberManager;
+    }
+
     public void setLastNameManager(String lastNameManager) {
         this.lastNameManager = lastNameManager;
     }

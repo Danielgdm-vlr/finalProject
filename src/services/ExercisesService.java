@@ -26,7 +26,7 @@ public class ExercisesService {
     public Exercises findExerciseId(int id) throws Exception{
         List<Exercises> exercisesList = exercisesDao.findId(id);
         if(exercisesList.size() == 0)
-            throw new Exception("Diet not Found");
+            throw new Exception("Exercise not Found");
         Exercises exercises = exercisesList.get(0);
         return exercises;
     }

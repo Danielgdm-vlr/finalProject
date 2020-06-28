@@ -14,7 +14,7 @@ public class Trainers {
     private String emailTrainer;
     private String telephoneNumberTrainer;
     private String ageTrainer;
-    private Integer ratingStar;
+    private Integer ratingTrainer;
     private String ratingComment;
 
     @Id
@@ -78,13 +78,13 @@ public class Trainers {
     }
 
     @Basic
-    @Column(name = "ratingStar")
-    public Integer getRatingStar() {
-        return ratingStar;
+    @Column(name = "ratingTrainer")
+    public Integer getRatingTrainer() {
+        return ratingTrainer;
     }
 
-    public void setRatingStar(Integer ratingStar) {
-        this.ratingStar = ratingStar;
+    public void setRatingTrainer(Integer ratingTrainer) {
+        this.ratingTrainer = ratingTrainer;
     }
 
     @Basic
@@ -108,12 +108,17 @@ public class Trainers {
                 Objects.equals(emailTrainer, trainers.emailTrainer) &&
                 Objects.equals(telephoneNumberTrainer, trainers.telephoneNumberTrainer) &&
                 Objects.equals(ageTrainer, trainers.ageTrainer) &&
-                Objects.equals(ratingStar, trainers.ratingStar) &&
+                Objects.equals(ratingTrainer, trainers.ratingTrainer) &&
                 Objects.equals(ratingComment, trainers.ratingComment);
     }
 
     @Override
+    public String toString() {
+        return firstNameTrainer + " " + lastNameTrainer;
+    }
+
+    @Override
     public int hashCode() {
-        return Objects.hash(idTrainer, firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, ratingStar, ratingComment);
+        return Objects.hash(idTrainer, firstNameTrainer, lastNameTrainer, emailTrainer, telephoneNumberTrainer, ageTrainer, ratingTrainer, ratingComment);
     }
 }

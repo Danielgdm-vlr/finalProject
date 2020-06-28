@@ -92,4 +92,9 @@ public class Users {
     public int hashCode() {
         return Objects.hash(idUser, username, password, idManager, idTrainer, idClient);
     }
+
+    @Override
+    public String toString() {
+        return username + " " + password;
+    }
 }

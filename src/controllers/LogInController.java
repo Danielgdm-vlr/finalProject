@@ -109,7 +109,7 @@ public class LogInController {
 
     public void onClickHyperlinkMe(){
         try {
-            Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
+            Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
         } catch (Exception e) {}
     }
 

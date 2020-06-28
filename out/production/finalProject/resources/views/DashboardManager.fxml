@@ -21,8 +21,8 @@
         <Label id="labelSubTitle" layoutX="247.0" layoutY="111.0" text="Glad to see you!" />
         <Button id="buttons" fx:id="buttonSeeGyms" layoutX="118.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeGyms" text="See All the GYM halls" />
         <Button id="buttons" fx:id="buttonAddTrainer" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#onClickButtonAddTrainer" text="Add new trainer to the GYM" />
-        <Button id="buttons" fx:id="buttonSeeClientsFeedback" layoutX="11.0" layoutY="250.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback about all the trainers" />
-        <Button id="buttons" fx:id="buttonTotalWorkingHours" disable="true" layoutX="354.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours of each trainer" />
+        <Button id="buttons" fx:id="buttonSeeClientsFeedback" disable="true" layoutX="338.0" layoutY="201.0" mnemonicParsing="false" onAction="#onClickButtonSeeClientsFeedback" text="See clients feedback about all the trainers" />
+        <Button id="buttons" fx:id="buttonTotalWorkingHours" disable="true" layoutX="355.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickButtonSeeTotalWorkingHours" text="See total working hours of each trainer" />
         <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gymLogo1.png" />
@@ -38,8 +38,8 @@
             </children>
         </Pane>
       <Separator layoutX="296.0" layoutY="140.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="9.0" />
-      <Label id="specialLabel" layoutX="323.0" layoutY="225.0" text="Future Updates" />
-      <ImageView fitHeight="73.0" fitWidth="150.0" layoutX="438.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+      <Label id="specialLabel" layoutX="323.0" layoutY="263.0" text="Future Updates" />
+      <ImageView fitHeight="38.0" fitWidth="55.0" layoutX="454.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/arrow.png" />
          </image>

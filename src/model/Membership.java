@@ -9,8 +9,8 @@ import java.util.Objects;
 @Entity
 public class Membership {
     private int idMembership;
-    private Integer idGym;
     private Integer idTrainer;
+    private Integer idGym;
     private Integer idDiet;
     private Integer idExercise;
 
@@ -25,16 +25,6 @@ public class Membership {
     }
 
     @Basic
-    @Column(name = "idGym")
-    public Integer getIdGym() {
-        return idGym;
-    }
-
-    public void setIdGym(Integer idGym) {
-        this.idGym = idGym;
-    }
-
-    @Basic
     @Column(name = "idTrainer")
     public Integer getIdTrainer() {
         return idTrainer;
@@ -42,6 +32,16 @@ public class Membership {
 
     public void setIdTrainer(Integer idTrainer) {
         this.idTrainer = idTrainer;
+    }
+
+    @Basic
+    @Column(name = "idGym")
+    public Integer getIdGym() {
+        return idGym;
+    }
+
+    public void setIdGym(Integer idGym) {
+        this.idGym = idGym;
     }
 
     @Basic
@@ -70,15 +70,14 @@ public class Membership {
         if (o == null || getClass() != o.getClass()) return false;
         Membership that = (Membership) o;
         return idMembership == that.idMembership &&
-                Objects.equals(idGym, that.idGym) &&
                 Objects.equals(idTrainer, that.idTrainer) &&
+                Objects.equals(idGym, that.idGym) &&
                 Objects.equals(idDiet, that.idDiet) &&
                 Objects.equals(idExercise, that.idExercise);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMembership, idGym, idTrainer, idDiet, idExercise);
+        return Objects.hash(idMembership, idTrainer, idGym, idDiet, idExercise);
     }
-
 }

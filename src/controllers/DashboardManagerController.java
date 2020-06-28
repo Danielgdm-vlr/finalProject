@@ -35,7 +35,15 @@ public class DashboardManagerController {
         buttonTotalWorkingHours.setDisable(true);
     }
 
-    public void onClickButtonSeeGyms(){
+    public void onClickButtonSeeGyms() throws IOException {
+        buttonSeeGyms.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/GymHalls.fxml"));
+        Stage seeGymsStage = new Stage();
+        Scene sceneSeeGyms = new Scene(root);
+        sceneSeeGyms.getStylesheets().add(getClass().getResource("/resources/css/GymHallsStyleSheet.css").toExternalForm());
+        seeGymsStage.setTitle("RAW POWER GYM - Manager`s Dashboard / See all the gym halls!");
+        seeGymsStage.setScene(sceneSeeGyms);
+        seeGymsStage.show();
     }
 
     public void onClickButtonAddTrainer() throws IOException {
@@ -50,11 +58,11 @@ public class DashboardManagerController {
     }
 
     public void onClickButtonSeeClientsFeedback(){
-
+        //'future update'
     }
 
     public void onClickButtonSeeTotalWorkingHours(){
-
+        //'future update'
     }
 
     public void onClickHyperlinkSignOut() throws IOException {

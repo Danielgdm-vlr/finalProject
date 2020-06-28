@@ -44,4 +44,9 @@ public class Exercises {
     public int hashCode() {
         return Objects.hash(idExercise, exerciseName);
     }
+
+    @Override
+    public String toString() {
+        return exerciseName;
+    }
 }

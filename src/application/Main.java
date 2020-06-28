@@ -16,6 +16,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/LogIn.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/SignUp.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/resources/views/Membership.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/resources/css/LogInStylesheet.css").toExternalForm());
         //scene.getStylesheets().add(getClass().getResource("/resources/css/DashboardClientStylesheet.css").toExternalForm());

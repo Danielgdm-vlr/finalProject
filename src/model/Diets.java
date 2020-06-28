@@ -56,4 +56,9 @@ public class Diets {
     public int hashCode() {
         return Objects.hash(idDiet, dietMeals, dietCalories);
     }
+
+    @Override
+    public String toString() {
+        return dietMeals + " " + dietCalories;
+    }
 }
