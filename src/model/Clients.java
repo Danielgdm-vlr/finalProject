@@ -1,5 +1,7 @@
 package model;
 
+import org.junit.Test;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.*;
+import org.junit.Test;
 import services.*;
 
 import java.awt.*;

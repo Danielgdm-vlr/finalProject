@@ -28,7 +28,7 @@ public class MembershipController {
     @FXML
     private ComboBox<Diets> comboBoxSelectDiet;
     @FXML
-    private ComboBox<Exercises> comboBoxSelectEx;
+    private ComboBox<Exercises> comboBoxSelectExercises;
     @FXML
     private Button buttonFinish;
 
@@ -90,17 +90,25 @@ public class MembershipController {
             alert.setTitle("opsie dopsie :S");
             alert.setHeaderText(null);
             alert.show();
-            comboBoxSelectEx.setItems(null);
+            comboBoxSelectExercises.setItems(null);
         } else
-            comboBoxSelectEx.setItems(FXCollections.observableArrayList(exesList));
+            comboBoxSelectExercises.setItems(FXCollections.observableArrayList(exesList));
     }
 
     public void keyReleasedProperty() {
-        boolean buttonDisabled = (comboBoxSelectDiet.getSelectionModel().isEmpty() ||
-                comboBoxSelectGym.getSelectionModel().isEmpty() ||
-                comboBoxSelectTrainer.getSelectionModel().isEmpty() ||
-                comboBoxSelectEx.getSelectionModel().isEmpty());
+        boolean buttonDisabled = (isSelected(comboBoxSelectGym.getSelectionModel().isEmpty(), comboBoxSelectTrainer.getSelectionModel().isEmpty(),
+                                     comboBoxSelectDiet.getSelectionModel().isEmpty() || comboBoxSelectExercises.getSelectionModel().isEmpty()));
         buttonFinish.setDisable(buttonDisabled);
+    }
+
+    //method to check if there is text in every comboBoxes(booleans), so the button for different task may be setDisable("false")
+    public static boolean isSelected(boolean... booleanArr) {
+        for (boolean bln : booleanArr) {
+            if  (bln)
+                return true;
+
+        }
+        return false;
     }
 
     public void onClickButtonFinish() throws Exception {
@@ -108,7 +116,7 @@ public class MembershipController {
         membership.setIdGym((comboBoxSelectGym.getSelectionModel().getSelectedIndex() + 1));
         membership.setIdTrainer((comboBoxSelectTrainer.getSelectionModel().getSelectedIndex() + 1));
         membership.setIdDiet((comboBoxSelectDiet.getSelectionModel().getSelectedIndex() + 1));
-        membership.setIdExercise((comboBoxSelectEx.getSelectionModel().getSelectedIndex() + 1));
+        membership.setIdExercise((comboBoxSelectExercises.getSelectionModel().getSelectedIndex() + 1));
         System.out.println(membership);
 
         MembershipService membershipService = new MembershipService();

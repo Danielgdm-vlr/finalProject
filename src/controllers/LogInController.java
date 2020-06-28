@@ -37,9 +37,19 @@ public class LogInController {
     public void keyReleasedProperty(){
         usernameString = username.getText();
         passwordString = password.getText();
-        boolean buttonDisable = (usernameString.isEmpty() || usernameString.trim().isEmpty() || passwordString.isEmpty() || passwordString.trim().isEmpty() ||
+        boolean buttonDisable = (isNullOrEmpty(usernameString, passwordString) ||
                                   !checkBoxVerifyHuman.isSelected());
         buttonLogIn.setDisable(buttonDisable);
+    }
+
+    //method to check if there is text in every textfield, so the button for different task may be setDisable("false")
+    public static boolean isNullOrEmpty(String... strArr) {
+        for (String st : strArr) {
+            if  (st==null || st.equals(""))
+                return true;
+
+        }
+        return false;
     }
 
     public void onClickButtonLogIn(){

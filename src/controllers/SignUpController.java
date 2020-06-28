@@ -21,7 +21,7 @@ public class SignUpController {
     @FXML
     private Hyperlink hyperlinkLogIn;
     @FXML
-    private TextField fName, lName, email, telNo, age, username, password;
+    private TextField firstNameTextField, lastNameTextField, emailTextField, telephoneNumberTextField, ageTextField, usernameTextField, passwordTextField;
     @FXML
     private PasswordField confirmPassword;
     @FXML
@@ -40,20 +40,28 @@ public class SignUpController {
     }
 
     public void keyReleasedProperty(){
-        firstNameClient = fName.getText();
-        lastNameClient = lName.getText();
-        emailClient = email.getText();
-        telephoneNumberClient = telNo.getText();
-        ageClient = age.getText();
-        usernameClient = username.getText();
-        passwordClient = password.getText();
+        firstNameClient = firstNameTextField.getText();
+        lastNameClient = lastNameTextField.getText();
+        emailClient = emailTextField.getText();
+        telephoneNumberClient = telephoneNumberTextField.getText();
+        ageClient = ageTextField.getText();
+        usernameClient = usernameTextField.getText();
+        passwordClient = passwordTextField.getText();
         String confirmPasswordClient = confirmPassword.getText();
-        boolean buttonDisable = (firstNameClient.isEmpty() || firstNameClient.trim().isEmpty() || lastNameClient.isEmpty() || lastNameClient.trim().isEmpty() ||
-                                 emailClient.isEmpty() || emailClient.trim().isEmpty() || telephoneNumberClient.isEmpty() || telephoneNumberClient.trim().isEmpty() ||
-                                 ageClient.isEmpty() || ageClient.trim().isEmpty() || usernameClient.isEmpty() || usernameClient.trim().isEmpty() ||
-                                 passwordClient.isEmpty() || passwordClient.trim().isEmpty() || confirmPasswordClient.isEmpty() || confirmPasswordClient.trim().isEmpty() ||
+        boolean buttonDisable = (isNullOrEmpty(firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient, usernameClient,
+                                 passwordClient, confirmPasswordClient) ||
                                  !passwordClient.equals(confirmPasswordClient) || !checkBoxVerifyHuman.isSelected());
         buttonSignUp.setDisable(buttonDisable);
+    }
+
+    //method to check if there is text in every textfield, so the button for different task may be setDisable("false")
+    public static boolean isNullOrEmpty(String... strArr) {
+        for (String st : strArr) {
+            if  (st==null || st.equals(""))
+                return true;
+
+        }
+        return false;
     }
 
     public void onClickHyperlinkLogIn() throws IOException {

@@ -38,7 +38,7 @@
         <Font size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="fName" layoutX="121.0" layoutY="168.0" onKeyPressed="#keyReleasedProperty"
+    <TextField fx:id="firstNameTextField" layoutX="121.0" layoutY="168.0" onKeyPressed="#keyReleasedProperty"
                promptText="First name"/>
     <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="28.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/firstNameLastName.png"/>
@@ -48,30 +48,30 @@
         <Font size="14.0"/>
         </font>
     </Label>
-    <TextField fx:id="lName" layoutX="121.0" layoutY="197.0" onKeyPressed="#keyReleasedProperty"
+    <TextField fx:id="lastNameTextField" layoutX="121.0" layoutY="197.0" onKeyPressed="#keyReleasedProperty"
                promptText="Last name"/>
     <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="28.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/firstNameLastName.png"/>
     </ImageView>
     <Label id="label" layoutX="28.0" layoutY="231.0" text="Email Address:"/>
-    <TextField fx:id="email" layoutX="121.0" layoutY="228.0" onKeyPressed="#keyReleasedProperty"
+    <TextField fx:id="emailTextField" layoutX="121.0" layoutY="228.0" onKeyPressed="#keyReleasedProperty"
                promptText="Email Address"/>
     <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="5.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/email.png"/>
     </ImageView>
     <Label id="label" layoutX="61.0" layoutY="264.0" text="Number:"/>
-    <TextField fx:id="telNo" layoutX="121.0" layoutY="260.0" onKeyPressed="#keyReleasedProperty"
+    <TextField fx:id="telephoneNumberTextField" layoutX="121.0" layoutY="260.0" onKeyPressed="#keyReleasedProperty"
                promptText="Telephone number"/>
     <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="37.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/telephoneNumber.png"/>
     </ImageView>
     <Label id="label" layoutX="86.0" layoutY="299.0" text="Age:"/>
-    <TextField fx:id="age" layoutX="121.0" layoutY="296.0" onKeyPressed="#keyReleasedProperty" promptText="Age"/>
+    <TextField fx:id="ageTextField" layoutX="121.0" layoutY="296.0" onKeyPressed="#keyReleasedProperty" promptText="Age"/>
     <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="62.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/age.png"/>
     </ImageView>
     <Label id="label" layoutX="356.0" layoutY="171.0" text="Username:"/>
-    <TextField fx:id="username" layoutX="424.0" layoutY="168.0" onKeyPressed="#keyReleasedProperty"
+    <TextField fx:id="usernameTextField" layoutX="424.0" layoutY="168.0" onKeyPressed="#keyReleasedProperty"
                promptText="Username"/>
     <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="330.0" layoutY="171.0" pickOnBounds="true"
                preserveRatio="true">
@@ -82,7 +82,7 @@
                preserveRatio="true">
         <Image url="@../images/password.png"/>
     </ImageView>
-    <TextField fx:id="password" layoutX="423.0" layoutY="197.0" onKeyReleased="#keyReleasedProperty"
+    <TextField fx:id="passwordTextField" layoutX="423.0" layoutY="197.0" onKeyReleased="#keyReleasedProperty"
                promptText="Password"/>
     <Label id="label" layoutX="306.0" layoutY="231.0" text="Confirm Password:"/>
     <PasswordField fx:id="confirmPassword" layoutX="423.0" layoutY="227.0" onKeyReleased="#keyReleasedProperty"

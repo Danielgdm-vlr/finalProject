@@ -29,20 +29,28 @@ public class AddTrainerController {
 
 
     public void keyReleasedProperty()  {
-        String un = usernameTrainer.getText();
-        String pw = passwordTrainer.getText();
-        String fn = firstNameTrainer.getText();
-        String ln = lastNameTrainer.getText();
-        String cpw = confirmPassword.getText();
-        String em = emailTrainer.getText();
-        String no = telephoneNumberTrainer.getText();
-        String ag = ageTrainer.getText();
-        boolean bln = (fn.isEmpty() || fn.trim().isEmpty() || ln.isEmpty() || ln.trim().isEmpty()
-                || em.isEmpty() || em.trim().isEmpty() || no.isEmpty() || no.trim().isEmpty()
-                || ag.trim().isEmpty() || ag.isEmpty() || un.trim().isEmpty() || un.isEmpty()
-                || pw.isEmpty() || pw.trim().isEmpty() || cpw.isEmpty() || cpw.trim().isEmpty()
-                || !pw.equals(cpw));
+        String usernameTrainerText = usernameTrainer.getText();
+        String passwordTrainerText = passwordTrainer.getText();
+        String firstNameTrainerText = firstNameTrainer.getText();
+        String lastNameTrainerText = lastNameTrainer.getText();
+        String confirmPasswordText = confirmPassword.getText();
+        String emailTrainerText = emailTrainer.getText();
+        String telephoneNumberTrainerText = telephoneNumberTrainer.getText();
+        String ageTrainerText = ageTrainer.getText();
+        boolean bln = (isNullOrEmpty(usernameTrainerText, passwordTrainerText, firstNameTrainerText, lastNameTrainerText,
+                        confirmPasswordText, emailTrainerText, telephoneNumberTrainerText, ageTrainerText)
+                       || !passwordTrainerText.equals(confirmPasswordText));
         buttonSignTrainerIn.setDisable(bln);
+    }
+
+    //method to check if there is text in every textfield, so the button for different task may be setDisable("false")
+    public static boolean isNullOrEmpty(String... strArr) {
+        for (String st : strArr) {
+            if  (st==null || st.equals(""))
+                return true;
+
+        }
+        return false;
     }
 
     public void onClickGoBackToMainDashboard() throws Exception {

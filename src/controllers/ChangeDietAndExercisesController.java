@@ -94,10 +94,19 @@ public class ChangeDietAndExercisesController {
     }
 
     public void keyReleasedProperty2(){
-        boolean buttonDisabled = (comboBoxChangeDiet.getSelectionModel().isEmpty() &&
-                                  comboBoxChangeExercisePlan.getSelectionModel().isEmpty());
+        boolean buttonDisabled = (isSelected(comboBoxChangeDiet.getSelectionModel().isEmpty() || comboBoxChangeExercisePlan.getSelectionModel().isEmpty()));
         buttonUpdate.setDisable(buttonDisabled);
 
+    }
+
+    //method to check if there is text in every comboBoxes(booleans), so the button for different task may be setDisable("false")
+    public static boolean isSelected(boolean... booleanArr) {
+        for (boolean bln : booleanArr) {
+            if  (bln)
+                return true;
+
+        }
+        return false;
     }
 
     public void updateDiet() throws Exception {
