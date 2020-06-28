@@ -1,6 +1,3 @@
-/*background color`s name is Sharkskin 25%;
-x`
-*/
 package application;
 
 import javafx.application.Application;
