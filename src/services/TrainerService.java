@@ -38,4 +38,8 @@ public class TrainerService {
             throw new Exception("Trainer not Found");
         return trainersList.get(0);
     }
+
+    public void updateTrainer(Trainers trainers){
+        trainerDao.update(trainers);
+    }
 }

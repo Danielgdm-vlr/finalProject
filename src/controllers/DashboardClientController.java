@@ -4,8 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.*;
 import services.*;
@@ -22,12 +25,21 @@ public class DashboardClientController {
     @FXML
     private Label welcomeLabelClient, usernameClient, trainerNameClient, gymClient,  dietPlan, exercisesPlan;
     @FXML
+    private TextArea textAreaFeedback;
+    @FXML
     private Label firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient;
-    //'future update'
-    //@FXML
-    //private Button buttonGiveFeedback;
+    @FXML
+    private Button buttonGiveFeedback;
+    @FXML
+    private TextField ratingStar;
+
+    private String feedback = null;
+    private int rating;
+    private boolean ratingBoolean = true, ratingBoolean2 = true;
 
     public void initialize() throws Exception {
+        buttonGiveFeedback.setDisable(true);
+
         /*firstTab: "Your account": show on screen details about the client`s membership: the gym he goes to, his trainer`s name, his diet plan and his exercise plan
          and about his user account: username and password */
         welcomeLabelClient.setText(" " + getUsernameClient());
@@ -58,15 +70,62 @@ public class DashboardClientController {
         logInStage.show();
     }
 
-    public void onClickButtonGiveFeedback(){
-        //'future update'
+    public void onClickButtonGiveFeedback() throws Exception {
+        Trainers trainers = getTrainer();
+        trainers.setRatingTrainer(rating);
+        trainers.setRatingComment(feedback);
+        TrainerService trainerService = new TrainerService();
+        trainerService.updateTrainer(trainers);
+        buttonGiveFeedback.setDisable(true);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("The feedback has been sent successfully!");
+        alert.setTitle("Hurrray!");
+        alert.setHeaderText(null);
+        alert.show();
     }
 
+    public Trainers getTrainer() throws Exception {
+        Membership membership = getMembership();
+        TrainerService trainerService = new TrainerService();
+        return trainerService.findTrainerId(membership.getIdTrainer());
+    }
     public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
         } catch (Exception e) {
             throw new Exception("The link couldn`t be opened!");
+        }
+    }
+
+    public void keyReleasedProperty(){
+        feedback = textAreaFeedback.getText();
+        if(feedback.length() > 256){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("The feedback text is too long!");
+            alert.setTitle("opsie dopsie!");
+            alert.setHeaderText(null);
+            alert.show();
+        }
+        else{
+            ratingBoolean = false;
+        }
+    }
+
+    public void keyReleasedProperty2(){
+        if(!ratingStar.getText().isEmpty()) {
+            rating = Integer.parseInt(ratingStar.getText());
+            if (rating < 1 || rating > 5) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("The number must be between 1 and 5! 1 being the lowest grade, and 5 the highest!");
+                alert.setTitle("opsie dopsie!");
+                alert.setHeaderText(null);
+                alert.show();
+            } else {
+                ratingBoolean2 = false;
+            }
+
+            if (!ratingBoolean && !ratingBoolean2)
+                buttonGiveFeedback.setDisable(false);
         }
     }
 
