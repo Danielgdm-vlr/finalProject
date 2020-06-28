@@ -1,7 +1,6 @@
 package services;
 
 import dao.MembershipDao;
-import model.Clients;
 import model.Membership;
 
 import javax.persistence.Persistence;
@@ -30,7 +29,6 @@ public class MembershipService {
         List<Membership> membershipList = membershipDao.find(id);
         if (membershipList.size() == 0)
             throw new Exception("Client not found");
-        Membership membership = membershipList.get(0);
-        return membership;
+        return membershipList.get(0);
     }
 }

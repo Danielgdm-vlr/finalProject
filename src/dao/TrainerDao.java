@@ -12,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class TrainerDao extends GenericDao<Trainers> {
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public TrainerDao(EntityManagerFactory factory){
         super(Trainers.class);
@@ -38,8 +38,7 @@ public class TrainerDao extends GenericDao<Trainers> {
         cq.select(r).where(cb.equal(r.get("firstNameTrainer"), pName));
         TypedQuery<Trainers> query = em.createQuery(cq);
         query.setParameter(pName, name);
-        java.util.List<model.Trainers> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 
     public List<Trainers> findId(int id) {
@@ -51,7 +50,6 @@ public class TrainerDao extends GenericDao<Trainers> {
         cq.select(r).where(cb.equal(r.get("idTrainer"), idd));
         TypedQuery<Trainers> query = em.createQuery(cq);
         query.setParameter(idd, id);
-        java.util.List<model.Trainers> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

@@ -1,8 +1,6 @@
 package services;
 
 import dao.ExercisesDao;
-import model.Diets;
-import model.Exercises;
 import model.Exercises;
 
 import javax.persistence.Persistence;
@@ -15,7 +13,7 @@ public class ExercisesService {
         try{
             exercisesDao = new ExercisesDao(Persistence.createEntityManagerFactory("finalProject"));
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -27,7 +25,6 @@ public class ExercisesService {
         List<Exercises> exercisesList = exercisesDao.findId(id);
         if(exercisesList.size() == 0)
             throw new Exception("Exercise not Found");
-        Exercises exercises = exercisesList.get(0);
-        return exercises;
+        return exercisesList.get(0);
     }
 }

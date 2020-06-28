@@ -2,7 +2,6 @@ package services;
 
 import dao.GymDao;
 import model.Gyms;
-import model.Trainers;
 
 import javax.persistence.Persistence;
 import java.util.List;
@@ -14,7 +13,7 @@ public class GymService {
         try{
             gymDao = new GymDao(Persistence.createEntityManagerFactory("finalProject"));
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -26,7 +25,6 @@ public class GymService {
         List<Gyms> gymList = gymDao.findId(id);
         if(gymList.size() == 0)
             throw new Exception("Gym not Found");
-        Gyms gym = gymList.get(0);
-        return gym;
+        return gymList.get(0);
     }
 }

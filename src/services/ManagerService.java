@@ -1,6 +1,5 @@
 package services;
 
-import dao.GymDao;
 import dao.ManagerDao;
 import model.Managers;
 
@@ -14,7 +13,7 @@ public class ManagerService {
         try{
             managerDao = new ManagerDao(Persistence.createEntityManagerFactory("finalProject"));
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -23,7 +22,6 @@ public class ManagerService {
         if(managersList.size() == 0){
             throw new Exception("Manager not found");
         }
-        Managers managers = managersList.get(0);
-        return managers;
+        return managersList.get(0);
     }
 }

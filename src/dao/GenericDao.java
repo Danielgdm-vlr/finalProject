@@ -5,7 +5,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 public abstract class GenericDao<T>{
-    private Class<T> modelClass;
+    private final Class<T> modelClass;
 
     public GenericDao(Class<T> mClass){
         this.modelClass = mClass;
@@ -26,11 +26,11 @@ public abstract class GenericDao<T>{
         }
     }
 
-    public void remove(T model, int modelId){
+    public void remove(int modelId){
         EntityManager em = getEntityManager();
         try{
             em.getTransaction().begin();
-            em.remove((T)em.find(this.modelClass, modelId));
+            em.remove(em.find(this.modelClass, modelId));
             em.getTransaction().commit();
         }catch (RuntimeException e){
             em.getTransaction().rollback();
@@ -57,8 +57,7 @@ public abstract class GenericDao<T>{
         try{
             CriteriaQuery<Object> cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(modelClass));
-            List<T> returnValues = (List<T>) em.createQuery(cq).getResultList();
-            return returnValues;
+            return (List<T>) em.createQuery(cq).getResultList();
         }catch (RuntimeException e){
             em.getTransaction().rollback();
         }finally {

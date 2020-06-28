@@ -12,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class UserDao extends GenericDao<Users>{
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public UserDao(EntityManagerFactory factory){
         super(Users.class);
@@ -39,7 +39,6 @@ public class UserDao extends GenericDao<Users>{
         cq.select(r).where(cb.equal(r.get("username"), pName));
         TypedQuery<Users> query = em.createQuery(cq);
         query.setParameter(pName, name);
-        List<Users> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

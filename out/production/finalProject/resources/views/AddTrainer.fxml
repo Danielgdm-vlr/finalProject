@@ -10,86 +10,78 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTrainerController">
-    <children>
-        <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/gymLogo1.png" />
-            </image>
-        </ImageView>
-        <Label id="labelTitle" layoutX="274.0" layoutY="72.0" text="Cheers!" />
-        <Label id="labelSubTitle" layoutX="122.0" layoutY="93.0" text="Please enter below the trainer`s credentials to get started:" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="98.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/credentials.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="46.0" layoutY="138.0" text="First Name:" />
-        <TextField fx:id="firstNameTrainer" layoutX="123.0" layoutY="135.0" onKeyReleased="#keyReleasedProperty" promptText="First Name" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/firstNameLastName.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="47.0" layoutY="170.0" text="Last Name:" />
-        <TextField fx:id="lastNameTrainer" layoutX="123.0" layoutY="167.0" onKeyReleased="#keyReleasedProperty" promptText="Last Name" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/firstNameLastName.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="27.0" layoutY="200.0" prefHeight="19.0" prefWidth="90.0" text="Email address:" />
-        <TextField fx:id="emailTrainer" layoutX="123.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty" promptText="Email address" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="5.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/email.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="60.0" layoutY="231.0" text="Number:" />
-        <TextField fx:id="telephoneNumberTrainer" layoutX="123.0" layoutY="228.0" onKeyReleased="#keyReleasedProperty" promptText="Number" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="37.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/telephoneNumber.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="83.0" layoutY="263.0" text="Age:" />
-        <TextField fx:id="ageTrainer" layoutX="123.0" layoutY="260.0" onKeyReleased="#keyReleasedProperty" promptText="Age" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="64.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/age.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="348.0" layoutY="139.0" text="Username:" />
-        <TextField fx:id="usernameTrainer" layoutX="421.0" layoutY="136.0" onKeyPressed="#keyReleasedProperty" promptText="Username" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="322.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/user.png" />
-            </image>
-        </ImageView>
-        <Label id="label" layoutX="350.0" layoutY="171.0" text="Password:" />
-        <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="323.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/password.png" />
-            </image>
-        </ImageView>
-        <TextField fx:id="passwordTrainer" layoutX="421.0" layoutY="168.0" onKeyReleased="#keyReleasedProperty" promptText="Password" />
-        <Label id="label" layoutX="299.0" layoutY="202.0" text="Confirm Password:" />
-        <PasswordField fx:id="confirmPassword" layoutX="421.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty" promptText="Confirm Password" />
-        <Button id="buttonSignTrainer" fx:id="buttonSignTrainerIn" layoutX="429.0" layoutY="240.0" mnemonicParsing="false" onAction="#onClickSignTrainerIn" prefHeight="32.0" prefWidth="133.0" text="Great! Sign Trainer!" />
-        <Hyperlink id="hyperlinkGoToDashboard" fx:id="hyperlinkBackToDashboard" layoutX="32.0" layoutY="311.0" onAction="#onClickGoBackToMainDashboard" text="Go back to main Dashboard" />
-        <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
-                <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
-            </children>
-        </Pane>
-        <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-                <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
-            </children>
-        </Pane>
-    </children>
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddTrainerController">
+    <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="27.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/gymLogo1.png"/>
+    </ImageView>
+    <Label id="labelTitle" layoutX="274.0" layoutY="72.0" text="Cheers!"/>
+    <Label id="labelSubTitle" layoutX="122.0" layoutY="93.0"
+           text="Please enter below the trainer`s credentials to get started:"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="98.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/credentials.png"/>
+    </ImageView>
+    <Label id="label" layoutX="46.0" layoutY="138.0" text="First Name:"/>
+    <TextField fx:id="firstNameTrainer" layoutX="123.0" layoutY="135.0" onKeyReleased="#keyReleasedProperty"
+               promptText="First Name"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/firstNameLastName.png"/>
+    </ImageView>
+    <Label id="label" layoutX="47.0" layoutY="170.0" text="Last Name:"/>
+    <TextField fx:id="lastNameTrainer" layoutX="123.0" layoutY="167.0" onKeyReleased="#keyReleasedProperty"
+               promptText="Last Name"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="21.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/firstNameLastName.png"/>
+    </ImageView>
+    <Label id="label" layoutX="27.0" layoutY="200.0" prefHeight="19.0" prefWidth="90.0" text="Email address:"/>
+    <TextField fx:id="emailTrainer" layoutX="123.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty"
+               promptText="Email address"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="5.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/email.png"/>
+    </ImageView>
+    <Label id="label" layoutX="60.0" layoutY="231.0" text="Number:"/>
+    <TextField fx:id="telephoneNumberTrainer" layoutX="123.0" layoutY="228.0" onKeyReleased="#keyReleasedProperty"
+               promptText="Number"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="37.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/telephoneNumber.png"/>
+    </ImageView>
+    <Label id="label" layoutX="83.0" layoutY="263.0" text="Age:"/>
+    <TextField fx:id="ageTrainer" layoutX="123.0" layoutY="260.0" onKeyReleased="#keyReleasedProperty"
+               promptText="Age"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="64.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/age.png"/>
+    </ImageView>
+    <Label id="label" layoutX="348.0" layoutY="139.0" text="Username:"/>
+    <TextField fx:id="usernameTrainer" layoutX="421.0" layoutY="136.0" onKeyPressed="#keyReleasedProperty"
+               promptText="Username"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="322.0" layoutY="139.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/user.png"/>
+    </ImageView>
+    <Label id="label" layoutX="350.0" layoutY="171.0" text="Password:"/>
+    <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="323.0" layoutY="172.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/password.png"/>
+    </ImageView>
+    <TextField fx:id="passwordTrainer" layoutX="421.0" layoutY="168.0" onKeyReleased="#keyReleasedProperty"
+               promptText="Password"/>
+    <Label id="label" layoutX="299.0" layoutY="202.0" text="Confirm Password:"/>
+    <PasswordField fx:id="confirmPassword" layoutX="421.0" layoutY="198.0" onKeyReleased="#keyReleasedProperty"
+                   promptText="Confirm Password"/>
+    <Button id="buttonSignTrainer" fx:id="buttonSignTrainerIn" layoutX="429.0" layoutY="240.0" mnemonicParsing="false"
+            onAction="#onClickSignTrainerIn" prefHeight="32.0" prefWidth="133.0" text="Great! Sign Trainer!"/>
+    <Hyperlink id="hyperlinkGoToDashboard" fx:id="hyperlinkBackToDashboard" layoutX="32.0" layoutY="311.0"
+               onAction="#onClickGoBackToMainDashboard" text="Go back to main Dashboard"/>
+    <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+        <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!"/>
+        <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us"/>
+    </Pane>
+    <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
+        <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved."/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!"/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM"/>
+        <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe"
+                   text="daniel.guiman@student.unitbv.ro"/>
+    </Pane>
 </AnchorPane>

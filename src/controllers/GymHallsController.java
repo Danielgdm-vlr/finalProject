@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Gyms;
 import services.GymService;
@@ -19,9 +18,9 @@ import java.util.List;
 
 public class GymHallsController {
     @FXML
-    private Hyperlink hyperlinkMe, hyperlinkBackToDashboard;
+    private Hyperlink hyperlinkBackToDashboard;
     @FXML
-    private ComboBox comboBoxSeeGyms;
+    private ComboBox<Gyms> comboBoxSeeGyms;
 
     public void initialize(){
         //to see all the gyms in the comboBox
@@ -46,8 +45,9 @@ public class GymHallsController {
         Gyms gyms = gymService.findGymId(gym);
         return gyms.getGymLocation();
     }
-    public void keyReleasedProperty() throws Exception {
-        String s = getGym();
+
+    public void keyReleasedProperty() {
+        //String s = getGym();
         //'future update' - for an outside view of the gym hall, or inside view, or both doesnt matter
     }
 
@@ -62,9 +62,11 @@ public class GymHallsController {
         dashboardManager.show();
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 }

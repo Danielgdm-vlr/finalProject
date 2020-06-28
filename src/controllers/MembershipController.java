@@ -22,13 +22,13 @@ import java.util.List;
 public class MembershipController {
 
     @FXML
-    private ComboBox comboBoxSelectGym;
+    private ComboBox<Gyms> comboBoxSelectGym;
     @FXML
-    private ComboBox comboBoxSelectTrainer;
+    private ComboBox<Trainers> comboBoxSelectTrainer;
     @FXML
-    private ComboBox comboBoxSelectDiet;
+    private ComboBox<Diets> comboBoxSelectDiet;
     @FXML
-    private ComboBox comboBoxSelectEx;
+    private ComboBox<Exercises> comboBoxSelectEx;
     @FXML
     private Button buttonFinish;
 
@@ -152,10 +152,12 @@ public class MembershipController {
         }
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 
     public String getFirstNameClient() {

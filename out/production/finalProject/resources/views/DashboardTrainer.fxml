@@ -8,40 +8,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardTrainerController">
-    <children>
-        <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
-                <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
-            </children>
-        </Pane>
-        <Hyperlink id="hyperlinkSignOut" fx:id="hyperlinkSignOut" layoutX="499.0" layoutY="314.0" onAction="#onClickHyperlinkSignOut" text="Sign Out" />
-        <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-                <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
-            </children>
-        </Pane>
-      <ImageView fitHeight="50.0" fitWidth="75.0" layoutX="272.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/gymLogo1.png" />
-         </image>
-      </ImageView>
-      <Label id="labelTitle" layoutX="210.0" layoutY="83.0" text="Hello there," />
-      <Label id="labelTitle" fx:id="trainerName" layoutX="300.0" layoutY="83.0" />
-      <Hyperlink id="hyperlinkCheckHours" disable="true" layoutX="300.0" layoutY="215.0" text="Check the number of hours you have worked " />
-      <Label id="labelSubTitle" layoutX="38.0" layoutY="118.0" text="Your Clients" />
-      <Hyperlink id="hyperlinkChangeDiet" disable="true" layoutX="300.0" layoutY="138.0" text="Change the diet " />
-      <Hyperlink id="hyperlinkChangeEx" disable="true" layoutX="300.0" layoutY="177.0" text="Change the exercises" />
-        <Label id="specialLabel" layoutX="306.0" layoutY="256.0" text="Future Updates" />
-        <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="409.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/arrow.png" />
-            </image>
-        </ImageView>
-      <ListView fx:id="clientsListView" layoutX="38.0" layoutY="138.0" prefHeight="200.0" prefWidth="200.0" />
-    </children>
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardTrainerController">
+    <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+        <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!"/>
+        <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us"/>
+    </Pane>
+    <Hyperlink id="hyperlinkSignOut" fx:id="hyperlinkSignOut" layoutX="499.0" layoutY="314.0"
+               onAction="#onClickHyperlinkSignOut" text="Sign Out"/>
+    <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
+        <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved."/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!"/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM"/>
+        <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe"
+                   text="daniel.guiman@student.unitbv.ro"/>
+    </Pane>
+    <ImageView fitHeight="50.0" fitWidth="75.0" layoutX="272.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/gymLogo1.png"/>
+    </ImageView>
+    <Label id="labelTitle" layoutX="210.0" layoutY="83.0" text="Hello there,"/>
+    <Label id="labelTitle" fx:id="trainerName" layoutX="300.0" layoutY="83.0"/>
+    <Hyperlink id="hyperlinkCheckHours" disable="true" layoutX="300.0" layoutY="215.0"
+               text="Check the number of hours you have worked "/>
+    <Label id="labelSubTitle" layoutX="38.0" layoutY="118.0" text="Your Clients"/>
+    <Hyperlink id="hyperlinkChangeDiet" disable="true" layoutX="300.0" layoutY="138.0" text="Change the diet "/>
+    <Hyperlink id="hyperlinkChangeEx" disable="true" layoutX="300.0" layoutY="177.0" text="Change the exercises"/>
+    <Label id="specialLabel" layoutX="306.0" layoutY="256.0" text="Future Updates"/>
+    <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="409.0" layoutY="238.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/arrow.png"/>
+    </ImageView>
+    <ListView fx:id="clientsListView" layoutX="38.0" layoutY="138.0" prefHeight="200.0" prefWidth="200.0"/>
 </AnchorPane>

@@ -27,7 +27,13 @@ public class SignUpController {
     @FXML
     private CheckBox checkBoxVerifyHuman;
 
-    private String firstNameClient, lastNameClient, emailClient, telephoneNumberClient, ageClient, usernameClient, passwordClient, confirmPasswordClient;
+    private String firstNameClient;
+    private String lastNameClient;
+    private String emailClient;
+    private String telephoneNumberClient;
+    private String ageClient;
+    private String usernameClient;
+    private String passwordClient;
 
     public void initialize(){
         buttonSignUp.setDisable(true);
@@ -41,7 +47,7 @@ public class SignUpController {
         ageClient = age.getText();
         usernameClient = username.getText();
         passwordClient = password.getText();
-        confirmPasswordClient = confirmPassword.getText();
+        String confirmPasswordClient = confirmPassword.getText();
         boolean buttonDisable = (firstNameClient.isEmpty() || firstNameClient.trim().isEmpty() || lastNameClient.isEmpty() || lastNameClient.trim().isEmpty() ||
                                  emailClient.isEmpty() || emailClient.trim().isEmpty() || telephoneNumberClient.isEmpty() || telephoneNumberClient.trim().isEmpty() ||
                                  ageClient.isEmpty() || ageClient.trim().isEmpty() || usernameClient.isEmpty() || usernameClient.trim().isEmpty() ||
@@ -107,9 +113,11 @@ public class SignUpController {
         dMmStage.show();
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 }

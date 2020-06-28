@@ -1,7 +1,6 @@
 package dao;
 
 import model.Gyms;
-import model.Trainers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class GymDao extends GenericDao<Gyms> {
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public GymDao(EntityManagerFactory factory){
         super(Gyms.class);
@@ -39,7 +38,6 @@ public class GymDao extends GenericDao<Gyms> {
         cq.select(r).where(cb.equal(r.get("idGym"), idd));
         TypedQuery<Gyms> query = em.createQuery(cq);
         query.setParameter(idd, id);
-        java.util.List<model.Gyms> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

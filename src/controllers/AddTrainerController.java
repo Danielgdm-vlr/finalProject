@@ -27,9 +27,6 @@ public class AddTrainerController {
     @FXML
     private PasswordField confirmPassword;
 
-    public void initialize(){
-
-    }
 
     public void keyReleasedProperty()  {
         String un = usernameTrainer.getText();
@@ -86,7 +83,7 @@ public class AddTrainerController {
             dMStage.setTitle("RAW POWER GYM - Manager`s Dashboard");
             dMStage.setScene(sceneDM);
             dMStage.show();
-            //schimba doar cu un mesaj care apare pe ecran
+            //change with a message on screen
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("The trainer was successfully added up!");
             alert.setTitle("Hurray!");
@@ -97,9 +94,11 @@ public class AddTrainerController {
         }
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 }

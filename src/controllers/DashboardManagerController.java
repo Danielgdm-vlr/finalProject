@@ -18,11 +18,14 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 
 public class DashboardManagerController {
     @FXML
-    private Button buttonSeeGyms, buttonAddTrainer, buttonSeeClientsFeedback, buttonTotalWorkingHours;
+    private Button buttonSeeGyms;
+    @FXML
+    private Button buttonAddTrainer;
+    @FXML
+    private Button buttonTotalWorkingHours;
     @FXML
     private Hyperlink hyperlinkSignOut;
     @FXML
@@ -76,10 +79,12 @@ public class DashboardManagerController {
         logInStage.show();
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 
     public String getUsername(){
@@ -97,13 +102,12 @@ public class DashboardManagerController {
     public Users getUser() throws Exception{
         String username = getUsername();
         UserService userService = new UserService();
-        Users user = userService.findUserDashboard(username);
-        return user;
+        return userService.findUserDashboard(username);
     }
+
     public Managers getManager() throws Exception{
         Users user = getUser();
         ManagerService managerService = new ManagerService();
-        Managers managers = managerService.findManagers(user.getIdManager());
-        return managers;
+        return managerService.findManagers(user.getIdManager());
     }
 }

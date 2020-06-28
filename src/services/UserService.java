@@ -2,7 +2,6 @@ package services;
 
 import dao.UserDao;
 import javafx.scene.control.Alert;
-import model.Trainers;
 import model.Users;
 
 import javax.persistence.Persistence;
@@ -15,7 +14,7 @@ public class UserService {
         try{
             userDao = new UserDao(Persistence.createEntityManagerFactory("finalProject"));
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -23,9 +22,9 @@ public class UserService {
         userDao.create(user);
     }
 
-    public List<Users> getAllUsers(){
-        return userDao.findAll();
-    }
+    //public List<Users> getAllUsers(){
+      //  return userDao.findAll();
+    //}
 
     public Users findUser(String username, String password){
         List<Users> usersList = userDao.find(username);
@@ -71,8 +70,7 @@ public class UserService {
         List<Users> userList = userDao.find(username);
         if (userList.size() == 0)
             throw new Exception("User not Found");
-        Users user = userList.get(0);
-        return user;
+        return userList.get(0);
     }
 
 

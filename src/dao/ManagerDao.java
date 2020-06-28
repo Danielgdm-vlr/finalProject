@@ -1,6 +1,5 @@
 package dao;
 
-import model.Gyms;
 import model.Managers;
 
 import javax.persistence.EntityManager;
@@ -13,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class ManagerDao extends GenericDao<Managers> {
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public ManagerDao(EntityManagerFactory factory){
         super(Managers.class);
@@ -39,7 +38,6 @@ public class ManagerDao extends GenericDao<Managers> {
         cq.select(r).where(cb.equal(r.get("idManager"), idd));
         TypedQuery<Managers> query = em.createQuery(cq);
         query.setParameter(idd, id);
-        java.util.List<model.Managers> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

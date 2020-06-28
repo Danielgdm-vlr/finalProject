@@ -9,10 +9,8 @@
 
 <AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GymHallsController">
     <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
-        <children>
-            <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
-            <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
-        </children>
+        <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!"/>
+        <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us"/>
     </Pane>
     <Label id="specialLabel" layoutX="79.0" layoutY="104.0" text="See all the gyms" />
     <ComboBox fx:id="comboBoxSeeGyms" layoutX="79.0" layoutY="137.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
@@ -20,11 +18,10 @@
     <Hyperlink id="hyperlinkGoToDashboard" fx:id="hyperlinkBackToDashboard" layoutX="32.0" layoutY="311.0" onAction="#onClickGoBackToMainDashboard" text="Go back to main Dashboard" />
     <Label id="specialLabel" layoutX="322.0" layoutY="104.0" text="Future Updates - image of gym halls" />
     <Pane id="paneBottom" layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
-        <children>
-            <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
-            <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
-            <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-            <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
-        </children>
+        <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved."/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!"/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM"/>
+        <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe"
+                   text="daniel.guiman@student.unitbv.ro"/>
     </Pane>
 </AnchorPane>

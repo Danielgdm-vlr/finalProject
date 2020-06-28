@@ -10,41 +10,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MembershipController">
-    <children>
-        <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/gymLogo1.png" />
-            </image>
-        </ImageView>
-        <Label id="labelTitle" layoutX="279.0" layoutY="72.0" text="Great!" />
-        <Label id="labelSubTitle" layoutX="72.0" layoutY="93.0" prefHeight="20.0" prefWidth="457.0" text="Now that you have completed your registration, let`s get you started" />
-        <Label id="label" layoutX="173.0" layoutY="153.0" text="CHOOSE YOUR GYM:" />
-        <ComboBox fx:id="comboBoxSelectGym" layoutX="301.0" layoutY="150.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <Separator id = "separator" layoutX="141.0" layoutY="182.0" prefHeight="3.0" prefWidth="318.0" />
-        <Label id="label" layoutX="147.0" layoutY="191.0" text="CHOOSE YOUR TRAINER:" />
-        <Separator id = "separator" layoutX="141.0" layoutY="223.0" prefHeight="3.0" prefWidth="318.0" />
-        <Label id="label" layoutX="174.0" layoutY="235.0" text="CHOOSE YOUR DIET:" />
-        <ComboBox fx:id="comboBoxSelectTrainer" layoutX="301.0" layoutY="188.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <ComboBox fx:id="comboBoxSelectDiet" layoutX="301.0" layoutY="232.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <Label id="label" layoutX="107.0" layoutY="278.0" text="CHOOSE YOUR EXERCISE PLAN:" />
-        <ComboBox fx:id="comboBoxSelectEx" layoutX="301.0" layoutY="275.0" onAction="#keyReleasedProperty" prefWidth="150.0" />
-        <Button fx:id="buttonFinish" layoutX="513.0" layoutY="312.0" mnemonicParsing="false" onAction="#onClickButtonFinish" text="Finish" />
-        <Separator id = "separator" layoutX="141.0" layoutY="264.0" prefHeight="3.0" prefWidth="318.0" />
-        <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
-                <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
-            </children>
-        </Pane>
-        <Pane id="paneBottom" layoutY="349.0" prefHeight="50.0" prefWidth="600.0">
-            <children>
-                <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
-                <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-                <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
-            </children>
-        </Pane>
-      <Label id="labelSubTitle" layoutX="203.0" layoutY="113.0" prefHeight="20.0" prefWidth="194.0" text="CREATE YOUR MEMBERSHIP!" />
-    </children>
+<AnchorPane id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MembershipController">
+    <ImageView fitHeight="45.0" fitWidth="150.0" layoutX="278.0" layoutY="27.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../images/gymLogo1.png"/>
+    </ImageView>
+    <Label id="labelTitle" layoutX="279.0" layoutY="72.0" text="Great!"/>
+    <Label id="labelSubTitle" layoutX="72.0" layoutY="93.0" prefHeight="20.0" prefWidth="457.0"
+           text="Now that you have completed your registration, let`s get you started"/>
+    <Label id="label" layoutX="173.0" layoutY="153.0" text="CHOOSE YOUR GYM:"/>
+    <ComboBox fx:id="comboBoxSelectGym" layoutX="301.0" layoutY="150.0" onAction="#keyReleasedProperty"
+              prefWidth="150.0"/>
+    <Separator id="separator" layoutX="141.0" layoutY="182.0" prefHeight="3.0" prefWidth="318.0"/>
+    <Label id="label" layoutX="147.0" layoutY="191.0" text="CHOOSE YOUR TRAINER:"/>
+    <Separator id="separator" layoutX="141.0" layoutY="223.0" prefHeight="3.0" prefWidth="318.0"/>
+    <Label id="label" layoutX="174.0" layoutY="235.0" text="CHOOSE YOUR DIET:"/>
+    <ComboBox fx:id="comboBoxSelectTrainer" layoutX="301.0" layoutY="188.0" onAction="#keyReleasedProperty"
+              prefWidth="150.0"/>
+    <ComboBox fx:id="comboBoxSelectDiet" layoutX="301.0" layoutY="232.0" onAction="#keyReleasedProperty"
+              prefWidth="150.0"/>
+    <Label id="label" layoutX="107.0" layoutY="278.0" text="CHOOSE YOUR EXERCISE PLAN:"/>
+    <ComboBox fx:id="comboBoxSelectEx" layoutX="301.0" layoutY="275.0" onAction="#keyReleasedProperty"
+              prefWidth="150.0"/>
+    <Button fx:id="buttonFinish" layoutX="513.0" layoutY="312.0" mnemonicParsing="false" onAction="#onClickButtonFinish"
+            text="Finish"/>
+    <Separator id="separator" layoutX="141.0" layoutY="264.0" prefHeight="3.0" prefWidth="318.0"/>
+    <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+        <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!"/>
+        <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us"/>
+    </Pane>
+    <Pane id="paneBottom" layoutY="349.0" prefHeight="50.0" prefWidth="600.0">
+        <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved."/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!"/>
+        <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM"/>
+        <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe"
+                   text="daniel.guiman@student.unitbv.ro"/>
+    </Pane>
+    <Label id="labelSubTitle" layoutX="203.0" layoutY="113.0" prefHeight="20.0" prefWidth="194.0"
+           text="CREATE YOUR MEMBERSHIP!"/>
 </AnchorPane>

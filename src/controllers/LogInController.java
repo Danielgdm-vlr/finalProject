@@ -4,11 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Users;
 import services.UserService;
 
 import java.awt.*;
@@ -16,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.List;
 
 public class LogInController {
     @FXML
@@ -30,39 +28,39 @@ public class LogInController {
     @FXML
     private CheckBox checkBoxVerifyHuman;
 
-    public String un, pw;
+    public String usernameString, passwordString;
 
     public void initialize(){
         buttonLogIn.setDisable(true);
     }
 
     public void keyReleasedProperty(){
-        un = username.getText();
-        pw = password.getText();
-        boolean buttonDisable = (un.isEmpty() || un.trim().isEmpty() || pw.isEmpty() || pw.trim().isEmpty() ||
+        usernameString = username.getText();
+        passwordString = password.getText();
+        boolean buttonDisable = (usernameString.isEmpty() || usernameString.trim().isEmpty() || passwordString.isEmpty() || passwordString.trim().isEmpty() ||
                                   !checkBoxVerifyHuman.isSelected());
         buttonLogIn.setDisable(buttonDisable);
     }
 
     public void onClickButtonLogIn(){
         UserService userService = new UserService();
-        un = username.getText();
-        pw = password.getText();
+        usernameString = username.getText();
+        passwordString = password.getText();
         try{
-            if(userService.findUser(un, pw) != null){
+            if(userService.findUser(usernameString, passwordString) != null){
                 buttonLogIn.getScene().getWindow().hide();
                 try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionUsername.txt"))){
-                    writer.println(un);
+                    writer.println(usernameString);
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
                 try(PrintWriter writer = new PrintWriter(new File("src/resources/session/login/SessionPassword.txt"))){
-                        writer.println(pw);
+                        writer.println(passwordString);
                 }catch (Exception e){
                         e.printStackTrace();
                 }
-                // incearca sa schimbi ifurile cu un HashMap ceva, in care value = userService.findUserId(un)
-                    if (userService.findUserId(un) == 1) {
+                //try to change to 3 ifs to a HaspMap or something
+                    if (userService.findUserId(usernameString) == 1) {
                             Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardManager.fxml"));
                             Stage dMStage = new Stage();
                             Scene sceneDM = new Scene(root);
@@ -71,7 +69,7 @@ public class LogInController {
                             dMStage.setScene(sceneDM);
                             dMStage.show();
                     }
-                    if (userService.findUserId(un) == 2) {
+                    if (userService.findUserId(usernameString) == 2) {
                         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardTrainer.fxml"));
                         Stage dTStage = new Stage();
                         Scene sceneDT = new Scene(root);
@@ -80,7 +78,7 @@ public class LogInController {
                         dTStage.setScene(sceneDT);
                         dTStage.show();
                     }
-                    if (userService.findUserId(un) == 3) {
+                    if (userService.findUserId(usernameString) == 3) {
                         Parent root = FXMLLoader.load(getClass().getResource("/resources/views/DashboardClient.fxml"));
                         Stage dCStage = new Stage();
                         Scene sceneDC = new Scene(root);
@@ -107,10 +105,12 @@ public class LogInController {
         signUpStage.show();
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 
 }

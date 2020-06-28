@@ -13,7 +13,7 @@ public class TrainerService {
         try{
             trainerDao = new TrainerDao(Persistence.createEntityManagerFactory("finalProject"));
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -29,15 +29,13 @@ public class TrainerService {
         List<Trainers> trainersList = trainerDao.find(fName);
         if(trainersList.size() == 0)
             throw new Exception("User not Found");
-        Trainers trainer = trainersList.get(0);
-        return trainer;
+        return trainersList.get(0);
     }
 
     public Trainers findTrainerId(int id) throws Exception{
         List<Trainers> trainersList = trainerDao.findId(id);
         if(trainersList.size() == 0)
             throw new Exception("Trainer not Found");
-        Trainers trainer = trainersList.get(0);
-        return trainer;
+        return trainersList.get(0);
     }
 }

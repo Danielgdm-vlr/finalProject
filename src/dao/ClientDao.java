@@ -12,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class ClientDao extends GenericDao<Clients> {
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public ClientDao(EntityManagerFactory factory){
         super(Clients.class);
@@ -38,8 +38,7 @@ public class ClientDao extends GenericDao<Clients> {
         cq.select(r).where(cb.equal(r.get("firstNameClient"), pName));
         TypedQuery<model.Clients> query = em.createQuery(cq);
         query.setParameter(pName, name);
-        java.util.List<model.Clients> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 
     public List<Clients> findId(int id) {
@@ -51,7 +50,6 @@ public class ClientDao extends GenericDao<Clients> {
         cq.select(r).where(cb.equal(r.get("idMembership"), idd));
         TypedQuery<model.Clients> query = em.createQuery(cq);
         query.setParameter(idd, id);
-        java.util.List<model.Clients> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

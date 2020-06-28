@@ -1,7 +1,6 @@
 package dao;
 
 import model.Diets;
-import model.Trainers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,7 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class DietDao extends GenericDao<Diets> {
-    private EntityManagerFactory factory;
+    private final EntityManagerFactory factory;
 
     public DietDao(EntityManagerFactory factory){
         super(Diets.class);
@@ -39,7 +38,6 @@ public class DietDao extends GenericDao<Diets> {
         cq.select(r).where(cb.equal(r.get("idDiet"), idd));
         TypedQuery<Diets> query = em.createQuery(cq);
         query.setParameter(idd, id);
-        java.util.List<model.Diets> results = query.getResultList();
-        return results;
+        return query.getResultList();
     }
 }

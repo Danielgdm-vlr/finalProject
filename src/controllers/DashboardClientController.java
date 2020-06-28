@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -63,19 +62,21 @@ public class DashboardClientController {
         //'future update'
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 
     public Membership getMembership() throws Exception {
         ClientService clientService = new ClientService();
         Clients clients = clientService.findClient(getFirstNameClient());
         MembershipService membershipService = new MembershipService();
-        Membership membership = membershipService.findMembership(clients.getIdMembership());
-        return membership;
+        return membershipService.findMembership(clients.getIdMembership());
     }
+
     public String getGymClient() throws Exception {
         Membership membership = getMembership();
         GymService gymService = new GymService();
@@ -104,7 +105,7 @@ public class DashboardClientController {
         return exercises.getExerciseName();
     }
 
-    public String getUsernameClient() throws Exception {
+    public String getUsernameClient(){
         String username = null;
         try(BufferedReader br = new BufferedReader(new FileReader("src/resources/session/logIn/SessionUsername.txt"))){
             String usernameTmp;
@@ -121,9 +122,9 @@ public class DashboardClientController {
         UserService userService = new UserService();
         Users users = userService.findUserDashboard(usernameTmp);
         ClientService clientService = new ClientService();
-        Clients clients = clientService.findClientId(users.getIdClient());
-        return clients;
+        return clientService.findClientId(users.getIdClient());
     }
+
     //'future update'
     /*public String getPasswordClient(){
         String password = null;

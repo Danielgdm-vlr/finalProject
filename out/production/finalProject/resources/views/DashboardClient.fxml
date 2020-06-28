@@ -14,129 +14,140 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardClientController">
-   <children>
-       <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
-           <children>
-               <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!" />
-               <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us" />
-           </children>
-       </Pane>
-      <HBox prefHeight="334.0" prefWidth="600.0">
-         <children>
-            <Pane id="paneLeftRight" prefHeight="317.0" prefWidth="150.0">
-               <children>
-                  <ImageView fitHeight="74.0" fitWidth="116.0" layoutX="10.0" layoutY="112.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/weights.png" />
-                     </image>
-                  </ImageView>
-               </children></Pane>
-            <VBox id="paneCentre" prefHeight="330.0" prefWidth="450.0">
-               <children>
-                  <Pane prefHeight="93.0" prefWidth="300.0">
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="169.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/gymLogo1.png" />
-                           </image>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.DashboardClientController">
+    <Pane id="paneTop" prefHeight="27.0" prefWidth="600.0">
+        <Label id="labelPaneTop" layoutX="90.0" layoutY="5.0" text="Contact us!"/>
+        <Label id="labelPaneTop" layoutX="22.0" layoutY="5.0" text="About us"/>
+    </Pane>
+    <HBox prefHeight="334.0" prefWidth="600.0">
+        <Pane id="paneLeftRight" prefHeight="317.0" prefWidth="150.0">
+            <ImageView fitHeight="74.0" fitWidth="116.0" layoutX="10.0" layoutY="112.0"
+                       nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/weights.png"/>
+            </ImageView>
+        </Pane>
+        <VBox id="paneCentre" prefHeight="330.0" prefWidth="450.0">
+            <Pane prefHeight="93.0" prefWidth="300.0">
+                <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="169.0" layoutY="14.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../images/gymLogo1.png"/>
+                </ImageView>
+                <Label id="labelPaneCentre" layoutX="137.0" layoutY="31.0" text="RAW"/>
+                <Label id="labelPaneCentre" layoutX="223.0" layoutY="31.0" text="POWER"/>
+                <Label id="labelPaneCentre" layoutX="7.0" layoutY="63.0" text="Welcome, "/>
+                <Label id="labelPaneCentre" fx:id="welcomeLabelClient" layoutX="62.0" layoutY="63.0"/>
+            </Pane>
+            <TabPane id="tab-pane" prefHeight="260.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+                <Tab text="Your account">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="224.0" prefWidth="80.0">
+                        <Label id="labelPaneCentre" layoutX="7.0" layoutY="12.0" text="Gym:"/>
+                        <Label id="labelPaneCentreDetails" fx:id="gymClient" layoutX="100.0"
+                               layoutY="14.0" prefHeight="17.0" prefWidth="260.0"/>
+                        <Label id="labelPaneCentre" layoutY="42.0" text="Trainer:"/>
+                        <Label id="labelPaneCentreDetails" fx:id="trainerNameClient" layoutX="100.0"
+                               layoutY="42.0" prefHeight="17.0" prefWidth="169.0"/>
+                        <Label id="labelPaneCentre" layoutY="72.0" text="Diet plan:"/>
+                        <Label id="labelPaneCentreDetails" fx:id="dietPlan" layoutX="91.0"
+                               layoutY="72.0" prefHeight="17.0" prefWidth="290.0"/>
+                        <Label id="labelPaneCentre" layoutY="102.0" text="Exercise plan:"/>
+                        <Label id="labelPaneCentreDetails" fx:id="exercisesPlan" layoutX="100.0"
+                               layoutY="102.0" prefHeight="17.0" prefWidth="162.0"/>
+                        <Label id="labelPaneCentreAccountDetails" layoutX="1.0" layoutY="131.0"
+                               text="Account info"/>
+                        <Label id="labelPaneCentre" layoutX="7.0" layoutY="161.0" text="Username:"/>
+                        <Label id="labelPaneCentreDetails" fx:id="usernameClient" layoutX="103.0"
+                               layoutY="164.0" prefHeight="17.0" prefWidth="169.0"/>
+                        <Hyperlink id="hyperlinkShowPassword" disable="true" layoutX="7.0"
+                                   layoutY="191.0" text="Password"/>
+                        <Label id="labelPaneCentreAccountDetails"
+                               layoutX="103.0" layoutY="197.0" prefHeight="17.0" prefWidth="169.0"
+                               text="Future Update"/>
+                        <Separator layoutX="81.0" layoutY="8.0" orientation="VERTICAL"
+                                   prefHeight="117.0" prefWidth="7.0"/>
+                        <Separator layoutX="8.0" layoutY="121.0" prefHeight="8.0"
+                                   prefWidth="363.0"/>
+                        <Separator layoutX="86.0" layoutY="30.0" prefHeight="4.0"
+                                   prefWidth="284.0"/>
+                        <Separator layoutX="83.0" layoutY="65.0" prefHeight="3.0"
+                                   prefWidth="288.0"/>
+                        <Separator layoutX="85.0" layoutY="92.0" prefHeight="6.0"
+                                   prefWidth="285.0"/>
+                        <Separator layoutX="82.0" layoutY="160.0" orientation="VERTICAL"
+                                   prefHeight="56.0" prefWidth="0.0"/>
+                        <Separator layoutX="85.0" layoutY="190.0" prefHeight="4.0"
+                                   prefWidth="281.0"/>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Feedback">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="14.0" prefHeight="17.0"
+                               prefWidth="254.0" text="Are you happy with your experience at RPG?"/>
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="31.0"
+                               text="Let us know by giving us a feedback!"/>
+                        <Button id="buttonGiveFeedback"  disable="true"
+                                layoutX="286.0" layoutY="183.0" mnemonicParsing="false"
+                                onAction="#onClickButtonGiveFeedback" text="Give Feedback"/>
+                        <TextArea id="text-area" disable="true" layoutX="9.0" layoutY="56.0"
+                                  prefHeight="122.0" prefWidth="359.0"/>
+                        <ImageView fitHeight="35.0" fitWidth="50.0" layoutX="188.0" layoutY="177.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../images/arrow.png"/>
                         </ImageView>
-                        <Label id="labelPaneCentre" layoutX="137.0" layoutY="31.0" text="RAW" />
-                        <Label id="labelPaneCentre" layoutX="223.0" layoutY="31.0" text="POWER" />
-                        <Label id="labelPaneCentre" layoutX="7.0" layoutY="63.0" text="Welcome, " />
-                        <Label id="labelPaneCentre" fx:id="welcomeLabelClient" layoutX="62.0" layoutY="63.0" />
-                     </children>
-                  </Pane>
-                  <TabPane id="tab-pane" prefHeight="260.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="Your account">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="224.0" prefWidth="80.0">
-                                 <children>
-                                    <Label id="labelPaneCentre" layoutX="7.0" layoutY="12.0" text="Gym:" />
-                                     <Label id="labelPaneCentreDetails" fx:id="gymClient" layoutX="100.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" />
-                                    <Label id="labelPaneCentre" layoutY="42.0" text="Trainer:" />
-                                     <Label id="labelPaneCentreDetails" fx:id="trainerNameClient" layoutX="100.0" layoutY="42.0" prefHeight="17.0" prefWidth="169.0" />
-                                    <Label id="labelPaneCentre" layoutY="72.0" text="Diet plan:" />
-                                     <Label id="labelPaneCentreDetails" fx:id="dietPlan" layoutX="100.0" layoutY="72.0" prefHeight="17.0" prefWidth="270.0" />
-                                    <Label id="labelPaneCentre" layoutY="102.0" text="Exercise plan:" />
-                                     <Label id="labelPaneCentreDetails" fx:id="exercisesPlan" layoutX="100.0" layoutY="102.0" prefHeight="17.0" prefWidth="162.0" />
-                                    <Label id="labelPaneCentreAccountDetails" layoutX="1.0" layoutY="131.0" text="Account info" />
-                                    <Label id="labelPaneCentre" layoutX="7.0" layoutY="161.0" text="Username:" />
-                                     <Label id="labelPaneCentreDetails" fx:id="usernameClient" layoutX="103.0" layoutY="164.0" prefHeight="17.0" prefWidth="169.0" />
-                                    <Hyperlink id="hyperlinkShowPassword" disable="true" layoutX="7.0" layoutY="191.0" text="Password" />
-                                     <Label id="labelPaneCentreAccountDetails" fx:id="passwordClient" layoutX="103.0" layoutY="197.0" prefHeight="17.0" prefWidth="169.0" text="Future Update" />
-                                    <Separator layoutX="81.0" layoutY="8.0" orientation="VERTICAL" prefHeight="117.0" prefWidth="7.0" />
-                                    <Separator layoutX="8.0" layoutY="121.0" prefHeight="8.0" prefWidth="363.0" />
-                                    <Separator layoutX="86.0" layoutY="30.0" prefHeight="4.0" prefWidth="284.0" />
-                                    <Separator layoutX="83.0" layoutY="65.0" prefHeight="3.0" prefWidth="288.0" />
-                                    <Separator layoutX="85.0" layoutY="92.0" prefHeight="6.0" prefWidth="285.0" />
-                                    <Separator layoutX="82.0" layoutY="160.0" orientation="VERTICAL" prefHeight="56.0" prefWidth="0.0" />
-                                    <Separator layoutX="85.0" layoutY="190.0" prefHeight="4.0" prefWidth="281.0" />
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                      <Tab text="Feedback">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="254.0" text="Are you happy with your experience at RPG?" />
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="31.0" text="Let us know by giving us a feedback!" />
-                                    <Button id="buttonGiveFeedback" fx:id="buttonGiveFeedback" disable="true" layoutX="286.0" layoutY="183.0" mnemonicParsing="false" onAction="#onClickButtonGiveFeedback" text="Give Feedback" />
-                                    <TextArea id="text-area" disable="true" layoutX="9.0" layoutY="56.0" prefHeight="122.0" prefWidth="359.0" />
-                                    <ImageView fitHeight="35.0" fitWidth="50.0" layoutX="188.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/arrow.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label id="labelPaneCentreAccountDetails" layoutX="96.0" layoutY="186.0" text="Future update" />
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                        <Tab text="Personal Info">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="14.0" text="First Name:" />
-                                     <Label id="labelPaneCentre" fx:id="firstNameClient" layoutX="137.0" layoutY="14.0" prefHeight="17.0" prefWidth="128.0" />
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="41.0" text="Last Name:" />
-                                     <Label id="labelPaneCentre" fx:id="lastNameClient" layoutX="137.0" layoutY="41.0" prefHeight="17.0" prefWidth="131.0" />
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="69.0" text="Email Address:" />
-                                     <Label id="labelPaneCentre" fx:id="emailClient" layoutX="137.0" layoutY="70.0" prefHeight="17.0" prefWidth="125.0" />
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="95.0" text="Telephone number:" />
-                                     <Label id="labelPaneCentre" fx:id="telephoneNumberClient" layoutX="135.0" layoutY="95.0" prefHeight="17.0" prefWidth="126.0" />
-                                    <Label id="labelPaneCentre" layoutX="14.0" layoutY="120.0" text="Age:" />
-                                     <Label id="labelPaneCentre" fx:id="ageClient" layoutX="137.0" layoutY="120.0" prefHeight="17.0" prefWidth="129.0" />
-                                    <Separator layoutX="131.0" layoutY="12.0" orientation="VERTICAL" prefHeight="132.0" prefWidth="2.0" />
-                                    <Separator layoutX="134.0" layoutY="36.0" prefHeight="3.0" prefWidth="229.0" />
-                                    <Separator layoutX="134.0" layoutY="62.0" prefHeight="5.0" prefWidth="228.0" />
-                                    <Separator layoutX="134.0" layoutY="88.0" prefHeight="3.0" prefWidth="229.0" />
-                                    <Separator layoutX="134.0" layoutY="114.0" prefHeight="3.0" prefWidth="229.0" />
-                                 </children></AnchorPane>
-                          </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-               </children>
-            </VBox>
-            <Pane id="paneLeftRight" prefHeight="317.0" prefWidth="150.0">
-               <children>
-                  <Hyperlink id="hyperlinkSignOut" fx:id="hyperlinkSignOut" layoutX="14.0" layoutY="293.0" onAction="#onClickHyperlinkSignOut" text="Sign out" />
-                  <ImageView fitHeight="117.0" fitWidth="81.0" layoutX="10.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/weights.png" />
-                     </image>
-                  </ImageView>
-               </children></Pane>
-         </children>
-      </HBox>
-      <Pane id="paneBottom" prefHeight="50.0" prefWidth="600.0">
-         <children>
-            <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved." />
-            <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!" />
-            <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM" />
-            <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe" text="daniel.guiman@student.unitbv.ro" />
-         </children>
-      </Pane>
-   </children>
+                        <Label id="labelPaneCentreAccountDetails" layoutX="96.0" layoutY="186.0"
+                               text="Future update"/>
+                    </AnchorPane>
+                </Tab>
+                <Tab text="Personal Info">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="14.0"
+                               text="First Name:"/>
+                        <Label id="labelPaneCentre" fx:id="firstNameClient" layoutX="137.0"
+                               layoutY="14.0" prefHeight="17.0" prefWidth="215.0"/>
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="41.0"
+                               text="Last Name:"/>
+                        <Label id="labelPaneCentre" fx:id="lastNameClient" layoutX="137.0"
+                               layoutY="41.0" prefHeight="17.0" prefWidth="217.0"/>
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="69.0"
+                               text="Email Address:"/>
+                        <Label id="labelPaneCentre" fx:id="emailClient" layoutX="137.0"
+                               layoutY="70.0" prefHeight="17.0" prefWidth="219.0"/>
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="95.0"
+                               text="Telephone number:"/>
+                        <Label id="labelPaneCentre" fx:id="telephoneNumberClient" layoutX="135.0"
+                               layoutY="95.0" prefHeight="17.0" prefWidth="226.0"/>
+                        <Label id="labelPaneCentre" layoutX="14.0" layoutY="120.0" text="Age:"/>
+                        <Label id="labelPaneCentre" fx:id="ageClient" layoutX="137.0"
+                               layoutY="120.0" prefHeight="17.0" prefWidth="129.0"/>
+                        <Separator layoutX="131.0" layoutY="12.0" orientation="VERTICAL"
+                                   prefHeight="132.0" prefWidth="2.0"/>
+                        <Separator layoutX="134.0" layoutY="36.0" prefHeight="3.0"
+                                   prefWidth="229.0"/>
+                        <Separator layoutX="134.0" layoutY="62.0" prefHeight="5.0"
+                                   prefWidth="228.0"/>
+                        <Separator layoutX="134.0" layoutY="88.0" prefHeight="3.0"
+                                   prefWidth="229.0"/>
+                        <Separator layoutX="134.0" layoutY="114.0" prefHeight="3.0"
+                                   prefWidth="229.0"/>
+                    </AnchorPane>
+                </Tab>
+            </TabPane>
+        </VBox>
+        <Pane id="paneLeftRight" prefHeight="317.0" prefWidth="150.0">
+            <Hyperlink id="hyperlinkSignOut" fx:id="hyperlinkSignOut" layoutX="14.0" layoutY="293.0"
+                       onAction="#onClickHyperlinkSignOut" text="Sign out"/>
+            <ImageView fitHeight="117.0" fitWidth="81.0" layoutX="10.0" layoutY="110.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../images/weights.png"/>
+            </ImageView>
+        </Pane>
+    </HBox>
+    <Pane id="paneBottom" prefHeight="50.0" prefWidth="600.0">
+          <Label id="labelPaneBottom" layoutX="468.0" layoutY="14.0" text="2020 All rights reserved."/>
+          <Label id="labelPaneBottom" layoutX="16.0" layoutY="28.0" text="Become the best version of yourself!"/>
+          <Label id="labelPaneBottom" layoutX="16.0" layoutY="14.0" text="RAW POWER GYM"/>
+          <Hyperlink id="hyperlinkMe" layoutX="416.0" layoutY="25.0" onAction="#onClickHyperlinkMe"
+                     text="daniel.guiman@student.unitbv.ro"/>
+    </Pane>
 </VBox>

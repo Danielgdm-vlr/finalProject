@@ -1,17 +1,22 @@
 package controllers;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import model.*;
-import services.*;
+import model.Clients;
+import model.Membership;
+import model.Trainers;
+import model.Users;
+import services.ClientService;
+import services.MembershipService;
+import services.TrainerService;
+import services.UserService;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -33,7 +38,7 @@ public class DashboardTrainerController {
         Trainers trainers = getTrainer();
         trainerName.setText(" " + trainers.getFirstNameTrainer() + " " + trainers.getLastNameTrainer());
         List<Clients> clientsList = getSpecificClients();
-        clientsListView.setItems(FXCollections.observableArrayList(new ArrayList<Clients>(clientsList)));
+        clientsListView.setItems(FXCollections.observableArrayList(new ArrayList<>(clientsList)));
     }
 
     public void onClickHyperlinkSignOut() throws IOException {
@@ -47,24 +52,24 @@ public class DashboardTrainerController {
         logInStage.show();
     }
 
-    public void onClickHyperlinkMe(){
+    public void onClickHyperlinkMe() throws Exception {
         try {
             Desktop.getDesktop().browse(new URL("https://github.com/Danielgdm-vlr").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            throw new Exception("The link couldn`t be opened!");
+        }
     }
 
     public Users getUser() throws Exception{
         String username = getUsername();
         UserService userService = new UserService();
-        Users user = userService.findUserDashboard(username);
-        return user;
+        return userService.findUserDashboard(username);
     }
 
     public Trainers getTrainer() throws Exception{
         Users user = getUser();
         TrainerService trainerService = new TrainerService();
-        Trainers trainer = trainerService.findTrainerId(user.getIdTrainer());
-        return trainer;
+        return trainerService.findTrainerId(user.getIdTrainer());
     }
 
     public List<Membership> getSpecificMemberships() throws Exception{
@@ -72,11 +77,11 @@ public class DashboardTrainerController {
         Membership membership;
         Trainers trainers = getTrainer();
         List<Membership> membershipList = membershipService.getAllMemberships();
-        List<Membership> membershipList1 = new ArrayList<Membership>();
-        for(int i = 0; i < membershipList.size(); i++){
-            membership = membershipList.get(i);
-            if(membership.getIdTrainer() == trainers.getIdTrainer()){
-                   membershipList1.add(membership);
+        List<Membership> membershipList1 = new ArrayList<>();
+        for (Membership value : membershipList) {
+            membership = value;
+            if (membership.getIdTrainer() == trainers.getIdTrainer()) {
+                membershipList1.add(membership);
             }
         }
         return membershipList1;
@@ -85,11 +90,11 @@ public class DashboardTrainerController {
     public List<Clients> getSpecificClients() throws Exception{
         List<Membership> membershipList = getSpecificMemberships();
         Membership membership;
-        List<Clients> clientsList = new ArrayList<Clients>();
+        List<Clients> clientsList = new ArrayList<>();
         ClientService clientService = new ClientService();
-        for(int i = 0; i < membershipList.size(); i++) {
-            membership = membershipList.get(i);
-            if(clientService.findClientId(membership.getIdMembership()) != null){
+        for (Membership value : membershipList) {
+            membership = value;
+            if (clientService.findClientId(membership.getIdMembership()) != null) {
                 clientsList.add(clientService.findClientId(membership.getIdMembership()));
             }
         }
