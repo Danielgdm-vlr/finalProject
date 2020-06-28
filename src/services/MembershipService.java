@@ -31,4 +31,6 @@ public class MembershipService {
             throw new Exception("Client not found");
         return membershipList.get(0);
     }
+
+    public void updateMembership(Membership membership) {membershipDao.update(membership);}
 }

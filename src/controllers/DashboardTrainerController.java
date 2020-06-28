@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -30,6 +31,8 @@ public class DashboardTrainerController {
     @FXML
     private Hyperlink hyperlinkSignOut;
     @FXML
+    private Hyperlink hyperlinkChangeDietAndExercisePlan;
+    @FXML
     private ListView<Clients> clientsListView;
     @FXML
     private Label trainerName;
@@ -38,7 +41,17 @@ public class DashboardTrainerController {
         Trainers trainers = getTrainer();
         trainerName.setText(" " + trainers.getFirstNameTrainer() + " " + trainers.getLastNameTrainer());
         List<Clients> clientsList = getSpecificClients();
-        clientsListView.setItems(FXCollections.observableArrayList(new ArrayList<>(clientsList)));
+        if(clientsList.size() == 0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Currently there are no clients registered at the gyms!");
+            alert.setTitle("opsie dopsie :S");
+            alert.setHeaderText(null);
+            alert.show();
+            clientsListView.setItems(null);
+        }
+        else {
+            clientsListView.setItems(FXCollections.observableArrayList(new ArrayList<>(clientsList)));
+        }
     }
 
     public void onClickHyperlinkSignOut() throws IOException {
@@ -51,6 +64,18 @@ public class DashboardTrainerController {
         logInStage.setScene(logInScene);
         logInStage.show();
     }
+
+    public void onClickHyperlinkChangeDietAndExercisePlan() throws IOException {
+        hyperlinkChangeDietAndExercisePlan.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/resources/views/ChangeDietAndExercises.fxml"));
+        Stage changeStage = new Stage();
+        Scene changeScene = new Scene(root);
+        changeScene.getStylesheets().add(getClass().getResource("/resources/css/ChangeDietAndExercisesStylesheet.css").toExternalForm());
+        changeStage.setTitle("RAW POWER GYM - Log In");
+        changeStage.setScene(changeScene);
+        changeStage.show();
+    }
+
 
     public void onClickHyperlinkMe() throws Exception {
         try {

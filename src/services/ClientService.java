@@ -39,4 +39,8 @@ public class ClientService {
             throw new Exception("Client not Found");
         return clientList.get(0);
     }
+
+    public List<Clients> getAllClients(){
+        return clientDao.findAll();
+    }
 }
